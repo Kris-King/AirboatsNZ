@@ -1,7 +1,6 @@
-<h1>About Us</h1>
 <section class="floatL">
     <div>
-        <h3>General</h3>
+        <h3>About Us</h3>
         <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat2.jpg" class="floatR" alt="About Us - Airboat image 1"/>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -21,7 +20,7 @@
 
 <section class="floatL">
     <div>
-        <h3>Title 2</h3>
+        <h3>General</h3>
         <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat2.jpg" class="floatR" alt="About Us - Airboat image 2"/>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 

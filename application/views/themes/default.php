@@ -5,6 +5,7 @@
         <meta name="resource-type" content="document" />
         <meta name="robots" content="all, index, follow"/>
         <meta name="googlebot" content="all, index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php
         /** -- Copy from here -- */
         if (!empty($meta))
@@ -35,10 +36,12 @@
 
 
         <!-- Le styles -->
-        <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/general.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/custom.css" rel="stylesheet">
+
+
+        <script src="<?php echo base_url(); ?>assets/themes/default/js/bootstrap.min.js"></script>
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -130,7 +133,7 @@
                             <li><a href="<?php echo site_url('site/about'); ?>">About</a></li>
                             <li><a href="<?php echo site_url('site/gallery'); ?>">Gallery</a></li>
                             <li><a href="<?php echo site_url('site/events'); ?>">Events</a></li>
-                            <li><a href="<?php echo site_url('site/sign_up'); ?>">Sign In</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#signInModal">Sign In</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -154,4 +157,102 @@
             </footer>
 
         </div> <!-- /container -->
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                    </div>
+                    <form id="frm-login" action="<?php echo base_url() ?>auth/validate" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" class="form-control" name="email" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" class="form-control" name="password" type="password"/>
+                            </div>
+
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember Me</label>
+                            </div>
+
+                            <?php echo "Don't have an account? " . anchor('site/sign_up', "Create an Account."); ?>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Sign In</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="imageUploadModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
+                    </div>
+                    <form id="img-upload" action="<?php echo base_url() ?>image/validate" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="uploadImage">Upload Image</label>
+                                <input type="file" id="uploadImage">
+                                <br>
+                                <p class="help-block">Max Size: 1000MB</p>
+                                <p class="help-block">Accepted Files: jpg, png, gif</p>
+                            </div>
+
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Upload <span class="glyphicon glyphicon-upload"></span></button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            //ajax login functionality
+            $(document).ready(function() {
+                $("#frm_login").submit(function(e) {
+                    e.preventDefault();
+                    var url = $(this).attr('action');
+                    var method = $(this).attr('method');
+                    var data = $(this).serialize();
+                    $.ajax({
+                        url: url,
+                        type: method,
+                        data: data
+                    }).done(function() {
+                        window.location.href = 'site';
+                    });
+                });
+            });
+
+            //ajax image upload functionality
+            $(document).ready(function() {
+                $("#img_upload").submit(function(e) {
+                    e.preventDefault();
+                    var url = $(this).attr('action');
+                    var method = $(this).attr('method');
+                    var data = $(this).serialize();
+                    $.ajax({
+                        url: url,
+                        type: method,
+                        data: data
+                    }).done(function() {
+                        window.location.href = 'site';
+                    });
+                });
+            });
+        </script>
     </body></html>

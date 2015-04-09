@@ -10,7 +10,7 @@
         People who like airboats should come over.
     </p>
 
-    <button type="button" class="btn btn-primary">Read More</button>
+    <a class="btn btn-primary" href="<?php echo site_url('site/events'); ?>" role="button">Read More</a>
 
 </div>
 <hr/>
@@ -23,7 +23,7 @@
         People who like airboats should come over.
     </p>
 
-    <button type="button" class="btn btn-primary">Read More</button>
+    <a class="btn btn-primary" href="<?php echo site_url('site/events'); ?>" role="button">Read More</a>
 
 </div>
 <hr/>
@@ -36,7 +36,7 @@
         People who like airboats should come over.
     </p>
 
-    <button type="button" class="btn btn-primary">Read More</button>
+    <a class="btn btn-primary" href="<?php echo site_url('site/events'); ?>" role="button">Read More</a>
 
 </div>
 <hr/>
@@ -49,7 +49,7 @@
         People who like airboats should come over.
     </p>
 
-    <button type="button" class="btn btn-primary">Read More</button>
+    <a class="btn btn-primary" href="<?php echo site_url('site/events'); ?>" role="button">Read More</a>
 
 </div>
 <hr/>
@@ -62,6 +62,6 @@
         People who like airboats should come over.
     </p>
 
-    <button type="button" class="btn btn-primary">Read More</button>
+    <a class="btn btn-primary" href="<?php echo site_url('site/events'); ?>" role="button">Read More</a>
 
 </div>
