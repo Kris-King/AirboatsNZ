@@ -96,49 +96,39 @@
                 margin: 0 15px 0 15px;
             }
 
-            p.footer{
-                text-align: right;
-                font-size: 11px;
-                border-top: 1px solid #D0D0D0;
-                line-height: 32px;
-                padding: 0 10px 0 10px;
-                margin: 20px 0 0 0;
-            }
 
-            #container{
-                margin: 10px;
-                border: 1px solid #D0D0D0;
-                -webkit-box-shadow: 0 0 8px #D0D0D0;
-            }
+
+
+         
         </style>
 
     </head>
 
     <body>
 
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="<?php echo site_url(); ?>">
-                        <img src="<?php echo base_url(); ?>assets/themes/default/images/site_logo.png" style="float:left;z-index:5" alt="logo"/>
-                    </a>
-                    <div style="height: 0px;" class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="<?php echo site_url(); ?>">Home</a></li>
-                            <li><a href="<?php echo site_url('site/about'); ?>">About</a></li>
-                            <li><a href="<?php echo site_url('site/gallery'); ?>">Gallery</a></li>
-                            <li><a href="<?php echo site_url('site/events'); ?>">Events</a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#signInModal">Sign In</a></li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="<?php echo base_url(); ?>assets/themes/default/images/site_logo.png" style="float:left;z-index:5" alt="logo"/></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="<?php echo site_url(); ?>">Home</a></li>
+                        <li><a href="<?php echo site_url('site/about'); ?>">About</a></li>
+                        <li><a href="<?php echo site_url('site/gallery'); ?>">Gallery</a></li>
+                        <li><a href="<?php echo site_url('site/events'); ?>">Events</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
 
         <div class="container">
 
@@ -183,7 +173,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Sign In</button>
+                            <button type="submit" class="btn btn-primary">Sign In <span class="glyphicon glyphicon-log-in"></span></button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </form>
