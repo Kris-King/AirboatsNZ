@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Airboats New Zealand | <?php echo $title; ?></title>
+        <meta name="resource-type" content="document" />
+        <meta name="robots" content="all, index, follow"/>
+        <meta name="googlebot" content="all, index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?php
+        /** -- Copy from here -- */
+        if (!empty($meta))
+            foreach ($meta as $name => $content) {
+                echo "\n\t\t";
+                ?><meta name="<?php echo $name; ?>" content="<?php echo $content; ?>" /><?php
+            }
+        echo "\n";
+
+        if (!empty($canonical)) {
+            echo "\n\t\t";
+            ?><link rel="canonical" href="<?php echo $canonical ?>" /><?php
+        }
+        echo "\n\t";
+
+        foreach ($css as $file) {
+            echo "\n\t\t";
+            ?><link rel="stylesheet" href="<?php echo $file; ?>" type="text/css" /><?php
+        } echo "\n\t";
+
+        foreach ($js as $file) {
+            echo "\n\t\t";
+            ?><script src="<?php echo $file; ?>"></script><?php
+        } echo "\n\t";
+
+        /** -- to here -- */
+        ?>
+
+
+        <!-- Le styles -->
+        <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/themes/default/css/general.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/themes/default/css/custom.css" rel="stylesheet">
+
+
+        <script src="<?php echo base_url(); ?>assets/themes/default/js/bootstrap.min.js"></script>
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/themes/default/images/fav.png" type="image/x-icon"/>
+        <meta property="og:image" content="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png"/>
+        <link rel="image_src" href="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png" />
+        <style type="text/css">
+
+            ::selection{ background-color: #E13300; color: white; }
+            ::moz-selection{ background-color: #E13300; color: white; }
+            ::webkit-selection{ background-color: #E13300; color: white; }
+
+            body {
+                background-color: #fff;
+                margin: 40px;
+                font: 13px/20px normal Helvetica, Arial, sans-serif;
+                color: #4F5155;
+            }
+
+            a {
+                color: #003399;
+                background-color: transparent;
+                font-weight: normal;
+            }
+
+            h1 {
+                color: #444;
+                background-color: transparent;
+                border-bottom: 1px solid #D0D0D0;
+                font-size: 19px;
+                font-weight: normal;
+                margin: 0 0 14px 0;
+                padding: 14px 15px 10px 15px;
+            }
+
+            code {
+                font-family: Consolas, Monaco, Courier New, Courier, monospace;
+                font-size: 12px;
+                background-color: #f9f9f9;
+                border: 1px solid #D0D0D0;
+                color: #002166;
+                display: block;
+                margin: 14px 0 14px 0;
+                padding: 12px 10px 12px 10px;
+            }
+
+            #body{
+                margin: 0 15px 0 15px;
+            }
+
+            p.footer{
+                text-align: right;
+                font-size: 11px;
+                border-top: 1px solid #D0D0D0;
+                line-height: 32px;
+                padding: 0 10px 0 10px;
+                margin: 20px 0 0 0;
+            }
+
+            #container{
+                margin: 10px;
+                border: 1px solid #D0D0D0;
+                -webkit-box-shadow: 0 0 8px #D0D0D0;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="<?php echo site_url(); ?>">
+                        <img src="<?php echo base_url(); ?>assets/themes/default/images/site_logo.png" style="float:left;z-index:5" alt="logo"/>
+                    </a>
+                    <div style="height: 0px;" class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="<?php echo site_url(); ?>">Home</a></li>
+                            <li><a href="<?php echo site_url('site/about'); ?>">About</a></li>
+                            <li><a href="<?php echo site_url('site/gallery'); ?>">Gallery</a></li>
+                            <li><a href="<?php echo site_url('site/events'); ?>">Events</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#signInModal">Sign In</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+                <?php echo $output; ?>
+
+            </div>
+            <hr/>
+
+            <footer>
+                <div class="row">
+                    <div class="span6 b10">
+                        Designed and Developed by Sabre Interactive Solutions
+                    </div>
+                </div>
+            </footer>
+
+        </div> <!-- /container -->
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                    </div>
+                    <form id="frm-login" action="<?php echo base_url() ?>auth/validate" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" class="form-control" name="email" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" class="form-control" name="password" type="password"/>
+                            </div>
+
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember Me</label>
+                            </div>
+
+                            <?php echo "Don't have an account? " . anchor('site/sign_up', "Create an Account."); ?>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Sign In</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="imageUploadModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
+                    </div>
+                    <form id="img-upload" action="<?php echo base_url() ?>image/validate" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="uploadImage">Upload Image</label>
+                                <input type="file" id="uploadImage">
+                                <br>
+                                <p class="help-block">Max Size: 1000MB</p>
+                                <p class="help-block">Accepted Files: jpg, png, gif</p>
+                            </div>
+
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Upload <span class="glyphicon glyphicon-upload"></span></button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            //ajax login functionality
+            $(document).ready(function() {
+                $("#frm_login").submit(function(e) {
+                    e.preventDefault();
+                    var url = $(this).attr('action');
+                    var method = $(this).attr('method');
+                    var data = $(this).serialize();
+                    $.ajax({
+                        url: url,
+                        type: method,
+                        data: data
+                    }).done(function() {
+                        window.location.href = 'site';
+                    });
+                });
+            });
+
+            //ajax image upload functionality
+            $(document).ready(function() {
+                $("#img_upload").submit(function(e) {
+                    e.preventDefault();
+                    var url = $(this).attr('action');
+                    var method = $(this).attr('method');
+                    var data = $(this).serialize();
+                    $.ajax({
+                        url: url,
+                        type: method,
+                        data: data
+                    }).done(function() {
+                        window.location.href = 'site';
+                    });
+                });
+            });
+        </script>
+    </body></html>
