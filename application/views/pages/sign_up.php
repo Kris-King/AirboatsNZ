@@ -33,7 +33,7 @@
                         <input type="password" class="form-control" id="confirm_password">
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-save"></span></button>
                     <button type="submit" class="btn btn-default">Cancel</button>
                 </form>
             </div>
