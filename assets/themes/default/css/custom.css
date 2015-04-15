@@ -47,13 +47,13 @@ html,body{
 
 #about{
     min-height:100%;
-    background-color:#707070;
     padding:10px;
     color:#efefef;
+    background-image: url('http://localhost/AirboatsNZ/assets/themes/default/images/background-image.jpg');
 }
 #user_gallery{
     min-height:100%;
-    background-color:#898989;
+    background-color:#707070;
     padding:10px;
     color:#efefef;
 }
@@ -79,10 +79,14 @@ span {
     margin-right: 5px;
 }
 
-h3 {
-    margin-bottom: 40px;
+h3,h2,h1, .spacing {
+    margin-bottom: 50px;
 }
 
-.element_spacing{
-  
+a.btn-lg{
+    text-decoration: none;
+}
+
+.element_spacing {
+    margin-top: 10%;
 }
