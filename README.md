@@ -1,6 +1,4 @@
-# AirboatsNZ
-<<<<<<< HEAD
+AirboatsNZ
 
 Site for Industry Project. Web Development
-=======
->>>>>>> origin/master
+
