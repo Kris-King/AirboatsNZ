@@ -35,7 +35,7 @@
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-floppy-save"></span></button>
-                        <button type="submit" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-default marg15">Cancel</button>
                     </form>
                 </div>
             </div>

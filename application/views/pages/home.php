@@ -2,16 +2,14 @@
     <div class="container element_spacing">
         <div class="row">
             <div class="col-md-12 col-md-offset-3">
-                <img src="http://www.infocadiz.com/TDK/Imagenes/Logo.gif" class="floatL img-responsive" alt="user_gallery"/>
+                <img src="<?php echo base_url(); ?>assets/themes/default/images/Home_Page_logo.png" class="img-responsive" alt="user_gallery"/>
             </div>
             <div class="element_spacing col-md-6">
-                <h2>An experience unrestrained by natural limitations</h2>
+                <h2 class="text-uppercase">An experience unlike any other</h2>
                 <p class="spacing">
-                  We are passionate about airboats and hope you are too. Airboats New Zealand
-                  is dedicated to providing its users with a site where they can learn about airboats.
-                  It is also our mission to provide users the ability to upload their own
-                  images and share their experiences with others. Other than sharing your own 
-                  images you can also catch up on upcoming events that are happening in
+                  We are passionate about airboats and hope you are too.
+                  It is our mission to provide users the ability to share their experiences with others. 
+                  You can also catch up on upcoming events that are happening in
                   your region
                 </p>
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -19,7 +17,7 @@
             </div>
 
             <div class="element_spacing col-md-6">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/C8rnxVvhoF8" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/C8rnxVvhoF8" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -32,15 +30,13 @@
             <div>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/user_gallery.jpg" class="floatL img-responsive" alt="user_gallery"/>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6">
                 <h2>User Gallery</h2>
-                <br>
-                <p>
+                <p class="spacing">
                     View some of the images that have been uploaded by other users. 
                     Only registered users can upload their own images. To become a member 
                     and upload your own images, all you have to do is create an account.
                 </p>
-                <br>
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/gallery'); ?>" role="button">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <a class="btn-lg btn-primary" href="#"  data-toggle="modal" data-target="#imageUploadModal" role="button">
                     Upload 
@@ -54,7 +50,7 @@
 
 <section id="content">
     <div class="container">
-        <div class="row" style="margin-top: 30%;">
+        <div class="row" style="margin-top: 30%; margin-bottom: 20%;">
             <div class="col-md-4">
                 <h2>Airboats</h2>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="user_gallery"/>
@@ -126,7 +122,7 @@
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-send"></span></button>
-                        <button type="submit" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-default marg30">Cancel</button>
                     </form>
                 </div>
             </div>

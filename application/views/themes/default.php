@@ -39,7 +39,7 @@
         <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/general.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/custom.css" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 
         <script src="<?php echo base_url(); ?>assets/themes/default/js/bootstrap.min.js"></script>

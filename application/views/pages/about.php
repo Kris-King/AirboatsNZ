@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="container">
-        <h1 class="">About Us</h1>
+        <h1>About Us</h1>
         <section class="spacing">
             <h3>General</h3>
             <div class="spacing">
