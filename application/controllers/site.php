@@ -47,5 +47,11 @@ class Site extends CI_Controller {
         $this->load->helper('form');
         $this->load->view('pages/sign_up');
     }
+    
+        public function sign_in() {
+        $this->_init();
+        $this->load->helper('form');
+        $this->load->view('pages/sign_in');
+    }
 
 }

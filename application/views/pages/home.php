@@ -31,7 +31,7 @@
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/user_gallery.jpg" class="floatL img-responsive" alt="user_gallery"/>
             </div>
             <div class="col-md-6">
-                <h2>User Gallery</h2>
+                <h2>User Gallery<hr></h2>
                 <p class="spacing">
                     View some of the images that have been uploaded by other users. 
                     Only registered users can upload their own images. To become a member 
@@ -53,6 +53,7 @@
         <div class="row" style="margin-top: 30%; margin-bottom: 20%;">
             <div class="col-md-4">
                 <h2>Airboats</h2>
+                <hr>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="user_gallery"/>
                 <br>
                 <p>
@@ -65,6 +66,7 @@
             </div>
             <div class="col-md-4">
                 <h2>Specifications</h2>
+                <hr>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img1.jpg" class="img-responsive" alt="user_gallery"/>
                 <br>
                 <p>
@@ -77,6 +79,7 @@
             </div>
             <div class="col-md-4">
                 <h2>Upcoming Events</h2>
+                <hr>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="user_gallery"/>
                 <br>
                 <p>
@@ -94,7 +97,7 @@
     <div class="container">
         <div class="row" style="margin-top: 20%;">
             <div class="col-xs-12">
-                <h2>Enquiry</h2>
+                <h2>Enquiry<hr></h2>
                 <p>
                     If you wish to make an enquiry about airboats please fill in the form below.
                 </p>

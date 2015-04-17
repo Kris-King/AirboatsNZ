@@ -1,32 +1,28 @@
 <div class="wrapper">
     <div class="container">
-        <h1>About Us</h1>
-        <section class="spacing">
+        <h1>About Us<hr></h1>
+        <section class=" element_spacing spacing">
             <h3>General</h3>
-            <div class="spacing">
-                <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
-            </div>
             <p>
-                We here at Airboats New Zealand have a passion for airboats and hope to share that with you.
-                . 
+                We here at Airboats New Zealand have a passion for airboats and we hope you can share that with us.
+                You can find upcoming events on our events page and users who create an account with us can
+                upload their own images to share with others. 
             </p>
         </section>
 
         <section class="spacing">
             <h3>Uploading Images</h3>
-            <div class="spacing">
-                <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
-            </div>
             <p>
                 To upload an image and share it with others you must first create an account with us.
-                The process is very simple and will only take a moment to fill in. We take great pride
-                in creating a community which shares its experiences with others and we hope you can be 
-                apart of that. . 
+                The process is very simple and will only take a moment to fill in. Maximum upload sizes and accepted image
+                formats can be found displayed on the dialog box which appears when uploading images. 
+                We take great pride in creating a community which shares its experiences with others and 
+                we hope you can be apart of that. 
             </p>
         </section>
 
-        <section class="spacing">
-            <h1>Airboats</h1>
+        <section class="element_spacing spacing">
+            <h1>Airboats<hr></h1>
             <div>
                 <h3>Specifications</h3>
                 <div class="spacing">

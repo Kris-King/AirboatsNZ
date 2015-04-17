@@ -77,6 +77,7 @@
                         <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+
                         <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
                     </ul>
                 </div>
@@ -86,9 +87,9 @@
         <br>
         <footer class="container-fluid">
             <div class="row">
-                    <p class="col-sm-12">
-                        Designed and Developed by Sabre Interactive Solutions
-                    </p>
+                <p class="col-sm-12">
+                    Designed and Developed by Sabre Interactive Solutions
+                </p>
             </div>
         </footer>
 

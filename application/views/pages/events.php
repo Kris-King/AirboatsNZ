@@ -1,6 +1,6 @@
 <section class="wrapper">
     <section class="container">
-        <h1>Upcoming Events</h1>
+        <h1>Upcoming Events<hr></h1>
     </section>
     <section class="container spacing">
         <div class="row">
