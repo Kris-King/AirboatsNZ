@@ -1,5 +1,6 @@
 <div class="wrapper">
     <div class="container">
+
         <h1>About Us<hr></h1>
         <section class=" element_spacing spacing">
             <h3>General</h3>
@@ -12,6 +13,7 @@
 
         <section class="spacing">
             <h3>Uploading Images</h3>
+
             <p>
                 To upload an image and share it with others you must first create an account with us.
                 The process is very simple and will only take a moment to fill in. Maximum upload sizes and accepted image

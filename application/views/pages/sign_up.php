@@ -7,13 +7,12 @@
                     Just fill in the details below and away you go.
                 </p>
                 <br>
-                <?php echo validation_errors('<div class"alert alert-error">',"</div>"); ?>
+                <?php echo validation_errors('<div class"alert alert-error">', "</div>"); ?>
                 <div>
                     <?php echo form_open('auth/create_user'); ?>
-                        <div class="form-group">
-                            <label for="first_name">First Name</label>
-                            <input type="text" class="form-control" id="first_name" value="<?php echo set_value('first_name'); ?>">
-                        </div>
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" class="form-control" id="first_name" value="<?php echo set_value('first_name'); ?>">
                         <br>
                         <div class="form-group">
                             <label for="last_name">Last Name</label>
@@ -39,12 +38,13 @@
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-floppy-save"></span></button>
-                        <?php echo form_reset('submit', 'Cancel' , 'class="btn btn-default marg15"'); ?>
-                    <?php echo form_close(); ?>
-                </div>
-            </div>
+                            <?php echo form_reset('submit', 'Cancel', 'class="btn btn-default marg15"'); ?>
+                            <?php echo form_close(); ?>
 
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-    <br><br>
-</section>
+        <br><br>
+        </section>

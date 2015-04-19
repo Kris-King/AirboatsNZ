@@ -97,3 +97,24 @@ a.btn-lg{
 .element_spacing {
     margin-top: 12%;
 }
+
+.wrapper{
+    padding: 100px 0 0 0;
+    background-color:#555555;
+    color:#F8F8F8;
+}
+span {
+    margin-right: 5px;
+}
+
+h3,h2,h1, .spacing {
+    margin-bottom: 50px;
+}
+
+a.btn-lg{
+    text-decoration: none;
+}
+
+.element_spacing {
+    margin-top: 10%;
+}

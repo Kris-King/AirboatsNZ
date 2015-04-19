@@ -9,9 +9,9 @@
                 <p class="spacing">
                   We are passionate about airboats and hope you are too.
                   It is our mission to provide users the ability to share their experiences with others. 
-                  You can also catch up on upcoming events that are happening in
-                  your region
+                  You can also catch up on upcoming events that are happening in your region.
                 </p>
+            </div>
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <a class="btn-lg btn-primary" href="#enquiry_form">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
             </div>
@@ -33,10 +33,15 @@
             <div class="col-md-6">
                 <h2>User Gallery<hr></h2>
                 <p class="spacing">
+            <div class="col-lg-6">
+                <h2>User Gallery</h2>
+                <br>
+                <p>
                     View some of the images that have been uploaded by other users. 
                     Only registered users can upload their own images. To become a member 
                     and upload your own images, all you have to do is create an account.
                 </p>
+                <br>
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/gallery'); ?>" role="button">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <a class="btn-lg btn-primary" href="#"  data-toggle="modal" data-target="#imageUploadModal" role="button">
                     Upload 
