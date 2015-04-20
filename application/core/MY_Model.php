@@ -199,6 +199,8 @@ class MY_Model extends CI_Model
         $this->_with = array();
         return $result;
     }
+    
+    
 
     /**
      * Insert a new row into the table. $data should be an associative array

@@ -67,7 +67,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand" href="<?php echo site_url(); ?>"><img src="<?php echo base_url(); ?>assets/themes/default/images/site_logo.png" style="float:left;z-index:5;" alt="logo"/></a>
+                    <a class="navbar-brand" href="<?php echo site_url(); ?>"><img src="<?php echo base_url(); ?>assets/themes/default/images/Airboats_Logo.png" style="float:left;z-index:5;" alt="logo"/></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -116,7 +116,7 @@
                                 <label><input type="checkbox"> Remember Me</label>
                             </div>
 
-                            <?php echo "Don't have an account? " . anchor('site/sign_up', "Create an Account."); ?>
+                            <?php echo "Don't have an account? " . anchor('auth/sign_up', "Create an Account."); ?>
                         </div>
 
                         <div class="modal-footer">

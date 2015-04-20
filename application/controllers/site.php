@@ -42,11 +42,7 @@ class Site extends CI_Controller {
         $this->load->view('pages/events');
     }
 
-    public function sign_up() {
-        $this->_init();
-        $this->load->helper('form');
-        $this->load->view('pages/sign_up');
-    }
+
     
         public function sign_in() {
         $this->_init();

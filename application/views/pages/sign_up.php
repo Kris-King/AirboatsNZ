@@ -1,50 +1,76 @@
-<section class="wrapper">
-    <div class="container">
-        <div class="row">
-            <div>
-                <h3>Create an Account<hr></h3>
-                <p>
-                    Just fill in the details below and away you go.
-                </p>
-                <br>
-                <?php echo validation_errors('<div class"alert alert-error">',"</div>"); ?>
-                <div>
-                    <?php echo form_open('auth/create_user'); ?>
-                        <div class="form-group">
-                            <label for="first_name">First Name</label>
-                            <input type="text" class="form-control" id="first_name" value="<?php echo set_value('first_name'); ?>">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="last_name">Last Name</label>
-                            <input type="text" class="form-control" id="last_name" value="<?php echo set_value('last_name'); ?>">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="email_address">Email Address</label>
-                            <input type="email" class="form-control" id="email_address" value="<?php echo set_value('email_address'); ?>">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" value="<?php echo set_value('password'); ?>">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="confirm_password">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" value="<?php echo set_value('password'); ?>">
-                        </div>
-                        <div class="form-group">
-                            <?php echo form_hidden('status', 'Pending'); ?>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-floppy-save"></span></button>
-                        <?php echo form_reset('submit', 'Cancel' , 'class="btn btn-default marg15"'); ?>
-                    <?php echo form_close(); ?>
-                </div>
-            </div>
 
-        </div>
+<?php echo validation_errors('<div class"alert alert-error">', "</div>"); ?>
+<fieldset>
+    <legend>Personal Information</legend>
+    <?php echo form_open('auth/create_user'); ?>
+    <div class="field">
+        <?php
+        $fn_data = array(
+            'name' => 'first_name',
+            'value' => set_value('first_name'),
+            'placeholder' => 'First Name'
+        );
+        echo form_input($fn_data);
+        ?>
     </div>
-    <br><br>
-</section>
+        <div class="field">
+        <?php
+        $ln_data = array(
+            'name' => 'last_name',
+            'value' => set_value('last_name'),
+            'placeholder' => 'Last Name'
+        );
+        echo form_input($ln_data);
+        ?>
+    </div>
+        <div class="field">
+        <?php
+        $email_data = array(
+            'name' => 'email_address',
+            'value' => set_value('email_address'),
+            'placeholder' => 'Email'
+        );
+        echo form_input($email_data);
+        ?>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Login Info</legend>
+        <div class="field">
+        <?php
+        $pw_data = array(
+            'name' => 'password',
+            'value' => set_value('password'),
+            'placeholder' => 'Password'
+        );
+        echo form_password($pw_data);
+        ?>
+    </div>
+        <div class="field">
+        <?php
+        $pw2_data = array(
+            'name' => 'confirm_password',
+            'value' => set_value('confirm_password'),
+            'placeholder' => 'Confirm Password'
+        );
+        echo form_password($pw2_data);
+        ?>
+    </div>
+            <div class="field">
+        <?php
+        $status_data = array(
+            'name' => 'status',
+            'value' => set_value('status'),
+            'placeholder' => 'Status'
+        );
+        echo form_password($status_data);
+        ?>
+    </div>
+    
+    <div class="wrapper">
+        <?php echo form_submit(array('name' => 'save', 'class' => 'submit', 'value' => 'Create Account')); ?>
+    </div>
+    
+</fieldset>
+<?php echo form_close();

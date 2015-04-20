@@ -12,15 +12,12 @@ class Auth extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-
         $this->load->helper('url');
-
         $this->_init();
     }
 
     private function _init() {
         $this->output->set_template('default');
-
         $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
@@ -38,7 +35,7 @@ class Auth extends CI_Controller {
     /**
      * Display Sign Up Page
      */
-    public function signup() {
+    public function sign_up() {
         $this->_init();
         $this->load->helper('form');
         $this->load->view('pages/sign_up');
@@ -105,7 +102,7 @@ class Auth extends CI_Controller {
                 redirect('/site', 'refresh');
             } else {
                 $this->session->set_flashdata('Error :(', 'Unfortunately an error occurred and we were unable to create your account');
-                redirect('site/signup');
+                redirect('auth/sign_up');
             }
         }
     }
