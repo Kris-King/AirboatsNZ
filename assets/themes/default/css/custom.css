@@ -41,7 +41,6 @@ html,body{
     height:100%;
     font-family: 'Lato', sans-serif;
     word-wrap:normal;
-    font-size: 18px;
 }
 
 
@@ -82,15 +81,17 @@ span {
 
 h3,h2{
     margin-bottom: 6%;
-    font-family: 'Lato', sans-serif;
     font-weight: bold;
 }
 
 h1{
     margin-bottom: 6%;
-    font-family: 'Lato', sans-serif;
     font-weight: bold;
     font-size: 28px;
+}
+
+p{
+    font-size: 16px;
 }
 
 .spacing {
@@ -107,6 +108,11 @@ a.btn-lg{
 
 .margin_spacing {
     margin-top:20%;
+}
+
+.element_margins {
+    margin-top:5%;
+    margin-bottom:5%;
 }
 
 #events{

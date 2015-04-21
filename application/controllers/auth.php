@@ -55,6 +55,7 @@ class Auth extends CI_Controller {
         $this->load->model('User');
         if ($this->User->validate()) {
             $this->_do_login();
+            $this->load->view('pages/home');
         } else { // incorrect username or password
             $this->session->set_flashdata('error', 'Incorrect username and/or password. Please try again');
             redirect('/site/sign_in', 'refresh');
@@ -78,11 +79,11 @@ class Auth extends CI_Controller {
     public function create_user() {
         $this->load->library('form_validation');
         //validate
-        $this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
-        $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
+        $this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[2]');
         $this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
-        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]');
+        $this->form_validation->set_rules('user_password', 'Password', 'trim|required|min_length[4]|max_length[32]');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[user_password]');
 
         if (!$this->form_validation->run()) {
             $this->load->view('pages/sign_up');
@@ -93,7 +94,7 @@ class Auth extends CI_Controller {
             $this->User->last_name = $this->input->post('last_name');
             $this->User->email_address = $this->input->post('email_addresss');
             $this->User->status = $this->input->post('status');
-            $this->User->password = md5($this->input->post('password'));
+            $this->User->password = md5($this->input->post('user_password'));
 
             //save new user
             if ($this->User->insert_obj() != NULL) {

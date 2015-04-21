@@ -75,11 +75,22 @@
                         <li><a href="<?php echo site_url('site/about'); ?>"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
                         <li><a href="<?php echo site_url('site/gallery'); ?>"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
                         <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
+                         <?php if ($this->session->userdata('is_logged_in')): ?>
+                            <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
+                        <?php endif; ?>
+                        
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                        <?php if ($this->session->userdata('is_logged_in')): ?>
+                            <li><a href="<?php echo site_url("auth/signout"); ?>"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+                        <?php else: ?>
+                            <!-- Ajax login modal dialog -->
+                            <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+                        <?php endif; ?>
+                        <li><a href="<?php echo site_url('auth/sign_up'); ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     </ul>
+
                 </div>
             </div>
         </nav>          
@@ -101,7 +112,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="myModalLabel">Sign In</h4>
                     </div>
-                    <form id="frm-login" action="<?php echo base_url() ?>auth/validate" method="POST">
+                    <form id="frm-login" action="<?php echo site_url('auth/validate') ?>" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -135,24 +146,33 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
                     </div>
-                    <form id="img-upload" action="<?php echo base_url() ?>image/validate" method="POST">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="uploadImage">Upload Image</label>
-                                <input type="file" id="uploadImage">
-                                <br>
-                                <p class="help-block">Max Size: 1000MB</p>
-                                <p class="help-block">Accepted Files: jpg, png, gif</p>
+                    <?php if ($this->session->userdata('is_logged_in')): ?>
+                        <form id="img-upload" action="<?php echo base_url() ?>image/validate" method="POST">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="uploadImage">Upload Image</label>
+                                    <input type="file" id="uploadImage">
+                                    <br>
+                                    <p class="help-block">Max Size: 1000MB</p>
+                                    <p class="help-block">Accepted Files: jpg, png, gif</p>
+                                </div>
                             </div>
-
-
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Upload <span class="glyphicon glyphicon-upload"></span></button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    <?php else: ?>
+                        <div class="modal-body">
+                            <p class="element_margins">
+                                Uploading Images is a feature reserved for registered users. Don't worry though as becoming a registered user 
+                                is as simple as creating an account.
+                            </p>
+                            <div class="modal-footer">
+                                <?php echo "To create an account visit this page " . anchor('auth/sign_up', "here"); ?>
+                            </div>
                         </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Upload <span class="glyphicon glyphicon-upload"></span></button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </form>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
