@@ -1,5 +1,5 @@
-<div class="wrapper">
-    <div class="container">
+<section class="wrapper">
+    <section class="container">
         <h1>About Us<hr></h1>
         <section class=" element_spacing spacing">
             <h3>General</h3>
@@ -150,5 +150,5 @@
 
             </div>
         </section>
-    </div>
-</div>
+    </section>
+</section>

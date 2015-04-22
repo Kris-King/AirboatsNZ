@@ -6,21 +6,34 @@
                 <p>
                     Just fill in the details below and away you go.
                 </p>
-                <br>
+                <div class="spacing Event_spacing">
+                    
+                    <?php echo validation_errors('<div class"alert alert-error">', "</div>"); ?>
+                </div>
                 <div>
-                    <form>
-                        <div class="form-group">
-                            <label for="email_address">Email Address</label>
-                            <input type="email" class="form-control" id="email_address">
+                    <form id="frm-sign_in" action="<?php echo site_url('auth/validate') ?>" method="POST">
+                        <div>
+                            <div class="form-group">
+                                <label for="email_address">Email Address</label>
+                                <input type="email" class="form-control" name="email_address" value="<?php echo set_value('email_address'); ?>">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="user_password">Password</label>
+                                <input type="password" class="form-control" name="user_password" value="<?php echo set_value('user_password'); ?>">
+                            </div>
+
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember Me</label>
+                            </div>
+
+
                         </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password">
+
+                        <div>
+                            <button type="submit" class="btn btn-primary">Sign In <span class="glyphicon glyphicon-log-in"></span></button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-floppy-save"></span></button>
-                        <button type="submit" class="btn btn-default marg15">Cancel</button>
                     </form>
                 </div>
             </div>

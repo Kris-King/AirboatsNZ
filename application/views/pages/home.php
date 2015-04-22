@@ -13,7 +13,7 @@
                   your region
                 </p>
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                <a class="btn-lg btn-primary" href="#enquiry_form">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
+                <a class="btn-lg btn-primary" href="#Enquiry">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
             </div>
 
             <div class="element_spacing col-md-6">
@@ -99,7 +99,7 @@
     <div class="container">
         <div class="row margin_spacing">
             <div class="col-xs-12">
-                <h2>Enquiry<hr></h2>
+                <h2 id="Enquiry">Enquiry<hr></h2>
                 <p>
                     If you wish to make an enquiry about airboats please fill in the form below.
                 </p>

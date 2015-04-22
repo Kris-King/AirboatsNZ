@@ -26,7 +26,7 @@ class Auth extends CI_Controller {
     /**
      * Display Sign In Page
      */
-    public function signin() {
+    public function sign_in() {
         $this->_init();
         $this->load->helper('form');
         $this->load->view('pages/sign_in');
@@ -56,9 +56,6 @@ class Auth extends CI_Controller {
         if ($this->User->validate()) {
             $this->_do_login();
             $this->load->view('pages/home');
-        } else { // incorrect username or password
-            $this->session->set_flashdata('error', 'Incorrect username and/or password. Please try again');
-            redirect('/site/sign_in', 'refresh');
         }
     }
 
@@ -92,7 +89,7 @@ class Auth extends CI_Controller {
             $this->load->model('User');
             $this->User->first_name = $this->input->post('first_name');
             $this->User->last_name = $this->input->post('last_name');
-            $this->User->email_address = $this->input->post('email_addresss');
+            $this->User->email_address = $this->input->post('email_address');
             $this->User->status = $this->input->post('status');
             $this->User->password = md5($this->input->post('user_password'));
 

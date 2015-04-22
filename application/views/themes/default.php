@@ -75,14 +75,15 @@
                         <li><a href="<?php echo site_url('site/about'); ?>"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
                         <li><a href="<?php echo site_url('site/gallery'); ?>"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
                         <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
-                         <?php if ($this->session->userdata('is_logged_in')): ?>
+                        <?php if ($this->session->userdata('is_logged_in')): ?>
                             <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
                         <?php endif; ?>
-                        
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
                         <?php if ($this->session->userdata('is_logged_in')): ?>
+                            <li><a>Welcome: <?php echo $this->session->userdata('email_address'); ?></a></li>
                             <li><a href="<?php echo site_url("auth/signout"); ?>"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
                         <?php else: ?>
                             <!-- Ajax login modal dialog -->
@@ -112,22 +113,25 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="myModalLabel">Sign In</h4>
                     </div>
-                    <form id="frm-login" action="<?php echo site_url('auth/validate') ?>" method="POST">
+                    <form id="frm-sign_in" action="<?php echo site_url('auth/validate') ?>" method="POST">
                         <div class="modal-body">
+                            <div class="alert alert-danger hidden" id="login-error" role="alert">Email Address or/Password is not correct</div>
+                            <div class="alert alert-danger hidden" id="login-email-required-error" role="alert">Email Address is required</div>
+                            <div class="alert alert-danger hidden" id="login-password-required-error" role="alert">Password is required</div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input id="email" class="form-control" name="email" type="text"/>
+                                <label for="email_address">Email</label>
+                                <input id="email" class="form-control" name="email_address" type="text" required/>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input id="password" class="form-control" name="password" type="password"/>
+                                <label for="user_password">Password</label>
+                                <input id="password" class="form-control" name="user_password" type="password" required/>
                             </div>
 
                             <div class="checkbox">
                                 <label><input type="checkbox"> Remember Me</label>
                             </div>
 
-                            <?php echo "Don't have an account? " . anchor('auth/sign_up', "Create an Account."); ?>
+                            <?php echo "Don't have an account? " . anchor('site/sign_up', "Create an Account."); ?>
                         </div>
 
                         <div class="modal-footer">
@@ -181,6 +185,9 @@
             //ajax login functionality
             $(document).ready(function() {
                 $("#frm_login").submit(function(e) {
+                    $('login-error').hide();
+                    $('login-email-required-error').hide();
+                    $('login-password-required-error').hide();
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
@@ -189,8 +196,17 @@
                         url: url,
                         type: method,
                         data: data
-                    }).done(function() {
-                        window.location.href = 'site';
+                    }).done(function(data) {
+                        if(data =='Success'){
+                            window.location.href = 'site';
+                        }else if(data=='true'){
+                            $('login-error').show();
+                        }else if(){
+                            $('login-email-required-error').show();
+                        }else if(){
+                            $('login-password-required-error').show();
+                        }
+                        
                     });
                 });
             });

@@ -7,7 +7,7 @@
                     Just fill in the details below and away you go.
                 </h4>
                 <div class="spacing Event_spacing">
-                    <?php echo validation_errors('<div class"alert alert-error">', "</div>"); ?>
+                    <?php echo validation_errors('<div class"alert alert-danger" role="alert">', "</div>"); ?>
                 </div>
                 <div>
                     <?php echo form_open('auth/create_user'); ?>
