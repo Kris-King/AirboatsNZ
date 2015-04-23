@@ -12,24 +12,14 @@ class Auth extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->helper('url');
-        $this->_init();
     }
 
     private function _init() {
+        $this->load->helper('url');
         $this->output->set_template('default');
         $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
-    }
-
-    /**
-     * Display Sign In Page
-     */
-    public function sign_in() {
-        $this->_init();
-        $this->load->helper('form');
-        $this->load->view('pages/sign_in');
     }
 
     /**
@@ -44,7 +34,7 @@ class Auth extends CI_Controller {
     public function signout() {
         $this->_init();
         $this->session->sess_destroy();
-        $this->load->view('pages/home');
+        redirect('/', 'refresh');
     }
 
     /**
@@ -53,9 +43,25 @@ class Auth extends CI_Controller {
      */
     public function validate() {
         $this->load->model('User');
+        if (!$this->input->post('user_password') && !$this->input->post('email_address')) {
+            echo 'empty-fields';
+            return;
+        }
+        if (!$this->input->post('email_address')) {
+            echo 'no-email';
+            return;
+        }if (!$this->input->post('user_password')) {
+            echo 'no-password';
+            return;
+        }
+
         if ($this->User->validate()) {
+            $this->_init();
             $this->_do_login();
-            $this->load->view('pages/home');
+            redirect('/', 'refresh');
+        } else {
+            echo 'fail';
+            return;
         }
     }
 
@@ -74,6 +80,7 @@ class Auth extends CI_Controller {
      * Create a new user and store in db. Used as part of Signup functionality
      */
     public function create_user() {
+        $this->_init();
         $this->load->library('form_validation');
         //validate
         $this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[2]');
@@ -97,7 +104,7 @@ class Auth extends CI_Controller {
             if ($this->User->insert_obj() != NULL) {
                 $this->_do_login();
                 $this->session->set_flashdata('Success :)', 'Account successfully created');
-                redirect('/site', 'refresh');
+                redirect('/', 'refresh');
             } else {
                 $this->session->set_flashdata('Error :(', 'Unfortunately an error occurred and we were unable to create your account');
                 redirect('auth/sign_up');

@@ -115,16 +115,16 @@
                     </div>
                     <form id="frm-sign_in" action="<?php echo site_url('auth/validate') ?>" method="POST">
                         <div class="modal-body">
-                            <div class="alert alert-danger hidden" id="login-error" role="alert">Email Address or/Password is not correct</div>
-                            <div class="alert alert-danger hidden" id="login-email-required-error" role="alert">Email Address is required</div>
-                            <div class="alert alert-danger hidden" id="login-password-required-error" role="alert">Password is required</div>
+                            <div class="alert alert-danger hidden" id="login-error" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Email Address and/or Password incorrect</div>
+                            <div class="alert alert-danger hidden" id="login-email-required-error" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Email Address is required</div>
+                            <div class="alert alert-danger hidden" id="login-password-required-error" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Password is required</div>
                             <div class="form-group">
                                 <label for="email_address">Email</label>
-                                <input id="email" class="form-control" name="email_address" type="text" required/>
+                                <input id="email" class="form-control" name="email_address" type="text"/>
                             </div>
                             <div class="form-group">
                                 <label for="user_password">Password</label>
-                                <input id="password" class="form-control" name="user_password" type="password" required/>
+                                <input id="password" class="form-control" name="user_password" type="password"/>
                             </div>
 
                             <div class="checkbox">
@@ -184,30 +184,39 @@
 
             //ajax login functionality
             $(document).ready(function() {
-                $("#frm_login").submit(function(e) {
-                    $('login-error').hide();
-                    $('login-email-required-error').hide();
-                    $('login-password-required-error').hide();
+                $("#frm-sign_in").submit(function(e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
-                    $.ajax({
-                        url: url,
-                        type: method,
-                        data: data
-                    }).done(function(data) {
-                        if(data =='Success'){
-                            window.location.href = 'site';
-                        }else if(data=='true'){
-                            $('login-error').show();
-                        }else if(){
-                            $('login-email-required-error').show();
-                        }else if(){
-                            $('login-password-required-error').show();
-                        }
-                        
-                    });
+//                    $.ajax({
+//                        url: url,
+//                        type: method,
+//                        data: data
+//                    }).done(function(data) {
+
+//                        
+//                    });
+                    $.post(url, data)
+                            .done(function(data) {
+                                if (data === 'fail') {
+                                    $("#login-error").removeClass("hidden");
+                                    $("#login-password-required-error").addClass("hidden");
+                                    $("#login-email-required-error").addClass("hidden");
+                                } else if (data === "no-email") {
+                                    $("#login-email-required-error").removeClass("hidden");
+                                    $("#login-error").addClass("hidden");
+                                    $("#login-password-required-error").addClass("hidden");
+                                } else if (data === "no-password") {
+                                    $("#login-password-required-error").removeClass("hidden");
+                                    $("#login-error").addClass("hidden");
+                                    $("#login-email-required-error").addClass("hidden");
+                                } else if (data === "empty-fields") {
+                                    $("#login-email-required-error").removeClass("hidden");
+                                    $("#login-error").addClass("hidden");
+                                    $("#login-password-required-error").removeClass("hidden");
+                                }
+                            });
                 });
             });
 
