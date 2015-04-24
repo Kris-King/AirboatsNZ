@@ -24,6 +24,7 @@ class Site extends CI_Controller {
     public function index() {
         $this->_init();
         $this->load->helper('form');
+        $this->load->library('upload');
         $this->load->view('pages/home');
     }
 
