@@ -34,7 +34,7 @@ class Auth extends CI_Controller {
     public function signout() {
         $this->_init();
         $this->session->sess_destroy();
-        redirect('/', 'refresh');
+        redirect('', 'refresh');
     }
 
     /**
@@ -58,7 +58,7 @@ class Auth extends CI_Controller {
         if ($this->User->validate()) {
             $this->_init();
             $this->_do_login();
-            redirect('/', 'refresh');
+            redirect('', 'refresh');
         } else {
             echo 'fail';
             return;
@@ -104,7 +104,7 @@ class Auth extends CI_Controller {
             if ($this->User->insert_obj() != NULL) {
                 $this->_do_login();
                 $this->session->set_flashdata('Success :)', 'Account successfully created');
-                redirect('/', 'refresh');
+                redirect('', 'refresh');
             } else {
                 $this->session->set_flashdata('Error :(', 'Unfortunately an error occurred and we were unable to create your account');
                 redirect('auth/sign_up');
