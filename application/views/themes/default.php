@@ -83,13 +83,13 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <?php if ($this->session->userdata('is_logged_in')): ?>
-                            <li><a>Welcome: <?php echo $this->session->userdata('email_address'); ?></a></li>
+                            <li><a><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('email_address'); ?></a></li>
                             <li><a href="<?php echo site_url("auth/signout"); ?>"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
                         <?php else: ?>
                             <!-- Ajax login modal dialog -->
                             <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
                         <?php endif; ?>
-                        <li><a href="<?php echo site_url('auth/sign_up'); ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="<?php echo site_url('auth/sign_up'); ?>"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li>
                     </ul>
 
                 </div>
@@ -115,9 +115,9 @@
                     </div>
                     <form id="frm-sign_in" action="<?php echo site_url('auth/validate') ?>" method="POST">
                         <div class="modal-body">
-                            <div class="alert alert-danger hidden" id="login-error" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Email Address and/or Password incorrect</div>
-                            <div class="alert alert-danger hidden" id="login-email-required-error" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Email Address is required</div>
-                            <div class="alert alert-danger hidden" id="login-password-required-error" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Password is required</div>
+                            <div class="alert alert-danger hidden" id="login-error" role="alert"><span class="glyphicon glyphicon-alert"></span> Email Address and/or Password incorrect</div>
+                            <div class="alert alert-danger hidden" id="login-email-required-error" role="alert"><span class="glyphicon glyphicon-alert"></span> Email Address is required</div>
+                            <div class="alert alert-danger hidden" id="login-password-required-error" role="alert"><span class="glyphicon glyphicon-alert"></span> Password is required</div>
                             <div class="form-group">
                                 <label for="email_address">Email</label>
                                 <input id="email" class="form-control" name="email_address" type="text"/>
