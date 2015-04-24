@@ -1,4 +1,4 @@
-<div class="wrapper">
+<section class="wrapper">
     <section class="container">
         <h1 style="margin-bottom: 10%;">User Gallery<hr></h1>
         <div class="row" style="margin-bottom: 20%;">
@@ -31,4 +31,4 @@
             </div>
         </div>
     </section>
-</div>
+</section>

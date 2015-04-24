@@ -41,7 +41,6 @@ html,body{
     height:100%;
     font-family: 'Lato', sans-serif;
     word-wrap:normal;
-    font-size: 18px;
 }
 
 
@@ -80,12 +79,21 @@ span {
     margin-right: 5px;
 }
 
-h3,h2,h1{
+h3,h2{
     margin-bottom: 6%;
-    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+h1{
+    margin-bottom: 6%;
     font-weight: bold;
     font-size: 28px;
 }
+
+p{
+    font-size: 16px;
+}
+
 .spacing {
     margin-bottom: 6%;
 }
@@ -96,4 +104,19 @@ a.btn-lg{
 
 .element_spacing {
     margin-top: 12%;
+}
+
+.margin_spacing {
+    margin-top:20%;
+}
+
+.element_margins {
+    margin-top:5%;
+    margin-bottom:5%;
+}
+
+#events{
+    min-height:100%;
+    padding:10px;
+    background-image: url('http://localhost/AirboatsNZ/assets/themes/default/images/events_background_img.jpg');
 }

@@ -1,10 +1,10 @@
-<div class="wrapper">
-    <div class="container">
+<section class="wrapper">
+    <section class="container">
         <h1>About Us<hr></h1>
         <section class=" element_spacing spacing">
             <h3>General</h3>
             <p>
-                We here at Airboats New Zealand have a passion for airboats and we hope you can share that with us.
+                We here at Airboats New Zealand have a passion for airboats and we hope you can share that with us too.
                 You can find upcoming events on our events page and users who create an account with us can
                 upload their own images to share with others. 
             </p>
@@ -98,7 +98,7 @@
                     <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
                 </div>
                 <p>
-                    In South Pacific countries, Suzuki, Subaru and Toyota automobile engines power the series of River-Crossover Airboats. 
+                    In South Pacific countries: Suzuki, Subaru and Toyota automobile engines power the series of River-Crossover Airboats. 
                     The engines range from 1.2-litre to 4.2-litre and are fitted with an aviation reduction gearbox coupled to a wide blade 
                     low noise composite aero propeller.   
                 </p>
@@ -150,5 +150,5 @@
 
             </div>
         </section>
-    </div>
-</div>
+    </section>
+</section>

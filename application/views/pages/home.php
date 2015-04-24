@@ -13,11 +13,11 @@
                   your region
                 </p>
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                <a class="btn-lg btn-primary" href="#enquiry_form">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
+                <a class="btn-lg btn-primary" href="#Enquiry">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
             </div>
 
             <div class="element_spacing col-md-6">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/C8rnxVvhoF8" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/xfjsBn3rIsw" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
 
 
 <section id="user_gallery">
-    <div class="container" style="margin-top: 20%;">
+    <div class="container margin_spacing">
         <div class="row">
             <div>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/user_gallery.jpg" class="floatL img-responsive" alt="user_gallery"/>
@@ -50,9 +50,11 @@
 
 <section id="content">
     <div class="container">
+        <h1 class="element_spacing">About Airboats<hr></h1>
         <div class="row" style="margin-top: 30%; margin-bottom: 20%;">
+            
             <div class="col-md-4">
-                <h2>Airboats</h2>
+                <h3>Airboats</h3>
                 <hr>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="user_gallery"/>
                 <br>
@@ -65,7 +67,7 @@
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
             <div class="col-md-4">
-                <h2>Specifications</h2>
+                <h3>Specifications</h3>
                 <hr>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img1.jpg" class="img-responsive" alt="user_gallery"/>
                 <br>
@@ -78,7 +80,7 @@
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
             <div class="col-md-4">
-                <h2>Upcoming Events</h2>
+                <h3>Upcoming Events</h3>
                 <hr>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="user_gallery"/>
                 <br>
@@ -95,9 +97,9 @@
 
 <section id="enquiry_form">
     <div class="container">
-        <div class="row" style="margin-top: 20%;">
+        <div class="row margin_spacing">
             <div class="col-xs-12">
-                <h2>Enquiry<hr></h2>
+                <h2 id="Enquiry">Enquiry<hr></h2>
                 <p>
                     If you wish to make an enquiry about airboats please fill in the form below.
                 </p>

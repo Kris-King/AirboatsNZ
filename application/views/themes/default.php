@@ -67,7 +67,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand" href="<?php echo site_url(); ?>"><img src="<?php echo base_url(); ?>assets/themes/default/images/site_logo.png" style="float:left;z-index:5;" alt="logo"/></a>
+                    <a class="navbar-brand" href="<?php echo site_url(); ?>"><img src="<?php echo base_url(); ?>assets/themes/default/images/Airboats_Logo.png" style="float:left;z-index:5;" alt="logo"/></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -75,11 +75,23 @@
                         <li><a href="<?php echo site_url('site/about'); ?>"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
                         <li><a href="<?php echo site_url('site/gallery'); ?>"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
                         <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
+                        <?php if ($this->session->userdata('is_logged_in')): ?>
+                            <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
+                        <?php endif; ?>
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                        <?php if ($this->session->userdata('is_logged_in')): ?>
+                            <li><a>Welcome: <?php echo $this->session->userdata('email_address'); ?></a></li>
+                            <li><a href="<?php echo site_url("auth/signout"); ?>"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+                        <?php else: ?>
+                            <!-- Ajax login modal dialog -->
+                            <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+                        <?php endif; ?>
+                        <li><a href="<?php echo site_url('auth/sign_up'); ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     </ul>
+
                 </div>
             </div>
         </nav>          
@@ -101,15 +113,18 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="myModalLabel">Sign In</h4>
                     </div>
-                    <form id="frm-login" action="<?php echo base_url() ?>auth/validate" method="POST">
+                    <form id="frm-sign_in" action="<?php echo site_url('auth/validate') ?>" method="POST">
                         <div class="modal-body">
+                            <div class="alert alert-danger hidden" id="login-error" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Email Address and/or Password incorrect</div>
+                            <div class="alert alert-danger hidden" id="login-email-required-error" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Email Address is required</div>
+                            <div class="alert alert-danger hidden" id="login-password-required-error" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Password is required</div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input id="email" class="form-control" name="email" type="text"/>
+                                <label for="email_address">Email</label>
+                                <input id="email" class="form-control" name="email_address" type="text"/>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input id="password" class="form-control" name="password" type="password"/>
+                                <label for="user_password">Password</label>
+                                <input id="password" class="form-control" name="user_password" type="password"/>
                             </div>
 
                             <div class="checkbox">
@@ -135,24 +150,33 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
                     </div>
-                    <form id="img-upload" action="<?php echo base_url() ?>image/validate" method="POST">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="uploadImage">Upload Image</label>
-                                <input type="file" id="uploadImage">
-                                <br>
-                                <p class="help-block">Max Size: 1000MB</p>
-                                <p class="help-block">Accepted Files: jpg, png, gif</p>
+                    <?php if ($this->session->userdata('is_logged_in')): ?>
+                        <form id="img-upload" action="<?php echo base_url() ?>image/validate" method="POST">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="uploadImage">Upload Image</label>
+                                    <input type="file" id="uploadImage">
+                                    <br>
+                                    <p class="help-block">Max Size: 1000MB</p>
+                                    <p class="help-block">Accepted Files: jpg, png, gif</p>
+                                </div>
                             </div>
-
-
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Upload <span class="glyphicon glyphicon-upload"></span></button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    <?php else: ?>
+                        <div class="modal-body">
+                            <p class="element_margins">
+                                Uploading Images is a feature reserved for registered users. Don't worry though as becoming a registered user 
+                                is as simple as creating an account.
+                            </p>
+                            <div class="modal-footer">
+                                <?php echo "To create an account visit this page " . anchor('auth/sign_up', "here"); ?>
+                            </div>
                         </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Upload <span class="glyphicon glyphicon-upload"></span></button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </form>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -160,18 +184,39 @@
 
             //ajax login functionality
             $(document).ready(function() {
-                $("#frm_login").submit(function(e) {
+                $("#frm-sign_in").submit(function(e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
-                    $.ajax({
-                        url: url,
-                        type: method,
-                        data: data
-                    }).done(function() {
-                        window.location.href = 'site';
-                    });
+//                    $.ajax({
+//                        url: url,
+//                        type: method,
+//                        data: data
+//                    }).done(function(data) {
+
+//                        
+//                    });
+                    $.post(url, data)
+                            .done(function(data) {
+                                if (data === 'fail') {
+                                    $("#login-error").removeClass("hidden");
+                                    $("#login-password-required-error").addClass("hidden");
+                                    $("#login-email-required-error").addClass("hidden");
+                                } else if (data === "no-email") {
+                                    $("#login-email-required-error").removeClass("hidden");
+                                    $("#login-error").addClass("hidden");
+                                    $("#login-password-required-error").addClass("hidden");
+                                } else if (data === "no-password") {
+                                    $("#login-password-required-error").removeClass("hidden");
+                                    $("#login-error").addClass("hidden");
+                                    $("#login-email-required-error").addClass("hidden");
+                                } else if (data === "empty-fields") {
+                                    $("#login-email-required-error").removeClass("hidden");
+                                    $("#login-error").addClass("hidden");
+                                    $("#login-password-required-error").removeClass("hidden");
+                                }
+                            });
                 });
             });
 
