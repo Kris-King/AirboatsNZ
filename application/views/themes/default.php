@@ -131,7 +131,7 @@
                                 <label><input type="checkbox"> Remember Me</label>
                             </div>
 
-                            <?php echo "Don't have an account? " . anchor('site/sign_up', "Create an Account."); ?>
+                            <?php echo "Don't have an account? " . anchor('auth/sign_up', "Create an Account."); ?>
                         </div>
 
                         <div class="modal-footer">
@@ -151,8 +151,9 @@
                         <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
                     </div>
                     <?php if ($this->session->userdata('is_logged_in')): ?>
-                        <form id="img-upload" action="<?php echo base_url() ?>image/validate" method="POST">
+                        <form id="img-upload" action="<?php echo site_url('images/do_upload') ?>" method="POST">
                             <div class="modal-body">
+                                <div class="alert alert-danger hidden" id="upload-error" role="alert"><span class="glyphicon glyphicon-alert"></span><?php echo $error; ?></div>
                                 <div class="form-group">
                                     <label for="uploadImage">Upload Image</label>
                                     <input type="file" id="uploadImage">
@@ -189,14 +190,6 @@
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
-//                    $.ajax({
-//                        url: url,
-//                        type: method,
-//                        data: data
-//                    }).done(function(data) {
-
-//                        
-//                    });
                     $.post(url, data)
                             .done(function(data) {
                                 if (data === 'fail') {
@@ -215,8 +208,13 @@
                                     $("#login-email-required-error").removeClass("hidden");
                                     $("#login-error").addClass("hidden");
                                     $("#login-password-required-error").removeClass("hidden");
+                                }else{
+                                    window.location.href = '';
                                 }
+                                
                             });
+                            
+                            
                 });
             });
 
@@ -227,13 +225,15 @@
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
-                    $.ajax({
-                        url: url,
-                        type: method,
-                        data: data
-                    }).done(function() {
-                        window.location.href = 'site';
-                    });
+                    $.post(url, data)
+                            .done(function(data) {
+                                if (data === "Upload-errors") {
+                                    $("#upload-error").removeClass("hidden");
+                                }else{
+                                    window.location.href = '';
+                                }
+                                
+                            });
                 });
             });
         </script>
