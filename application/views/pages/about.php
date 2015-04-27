@@ -21,7 +21,7 @@
                 with others and we hope you can be apart of that. 
             </p>
         </section>
-        
+
         <section class="spacing">
             <h3>Creating an Account</h3>
             <p>
@@ -29,10 +29,11 @@
                 The process is very simple and will only take a moment to fill in. All fields are required
                 and must be filled in to complete the sign up process. All information provided by you is kept strictly 
                 confidential and will not be passed onto third parties. Required user information is kept to a minimum to
-                ensure that sign up is a smooth and simple process. We understand that your time is precious and.
+                ensure that sign up is a smooth and simple process. We understand that your time is precious and want to ensure
+                that you have an enjoyable experience on this site.
             </p>
         </section>
-        
+
         <section class="spacing">
             <h3>Code of Conduct</h3>
             <p>
@@ -45,6 +46,16 @@
                 uploaded by registered users. If any user believes that an image is offensive and we have missed it can
                 lodge an enquiry detailing the offending image along with a link to the image for our review. We hope users can 
                 create an inviting atmosphere which gives other users an experience of the world of airboats. 
+            </p>
+        </section>
+
+        <section class="spacing">
+            <h3>Making an Enquiry</h3>
+            <p>
+                If you are interested in purchasing your own airboat then you can make an enquiry with the site owner who can then 
+                direct you a company which is handling the distribution of Airboats in the South Pacific region. If you don't want 
+                to make an enquiry about the purchase of an airboat but want to report an image you can also make an enquiry. You can 
+                also make an enquiry if you require further information about airboats. 
             </p>
         </section>
 

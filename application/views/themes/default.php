@@ -75,6 +75,11 @@
                         <li><a href="<?php echo site_url('site/about'); ?>"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
                         <li><a href="<?php echo site_url('site/gallery'); ?>"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
                         <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
+                         <?php if ($this->session->userdata('is_logged_in')): ?>
+                        <li><a href="<?php echo site_url('images/upload'); ?>"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
+                        <?php else: ?>
+                        <li><a href="#" data-toggle="modal" data-target="#imageUploadModal"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
+                        <?php endif; ?>
                         <?php if ($this->session->userdata('is_logged_in')): ?>
                             <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
                         <?php endif; ?>
@@ -150,24 +155,6 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
                     </div>
-                    <?php if ($this->session->userdata('is_logged_in')): ?>
-                        <form id="img-upload" action="<?php echo site_url('images/do_upload') ?>" method="POST">
-                            <div class="modal-body">
-                                <div class="alert alert-danger hidden" id="upload-error" role="alert"><span class="glyphicon glyphicon-alert"></span><?php echo $error; ?></div>
-                                <div class="form-group">
-                                    <label for="uploadImage">Upload Image</label>
-                                    <input type="file" id="uploadImage">
-                                    <br>
-                                    <p class="help-block">Max Size: 1000MB</p>
-                                    <p class="help-block">Accepted Files: jpg, png, gif</p>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Upload <span class="glyphicon glyphicon-upload"></span></button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </form>
-                    <?php else: ?>
                         <div class="modal-body">
                             <p class="element_margins">
                                 Uploading Images is a feature reserved for registered users. Don't worry though as becoming a registered user 
@@ -177,7 +164,6 @@
                                 <?php echo "To create an account visit this page " . anchor('auth/sign_up', "here"); ?>
                             </div>
                         </div>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
