@@ -13,11 +13,11 @@
         <section class="spacing">
             <h3>Uploading Images</h3>
             <p>
-                As a registered user you can use the upload page to upload your own images to the user gallery. 
+                As a registered user you can use the upload page to upload your own airboat images to the user gallery. 
                 Maximum upload sizes and accepted image formats can be found displayed on the upload image page. 
                 On this page you can also view a list of instructions to walk you through the uploading process. 
-                One of our number priorities here at Airboats New Zealand is to make the uploading process a 
-                quick and simple one. We take great pride in creating a community which shares its experiences 
+                One of our priorities here at Airboats New Zealand is to make the uploading process a 
+                quick and simple one. We take great pride in creating an airboat community which shares its experiences 
                 with others and we hope you can be apart of that. 
             </p>
         </section>
@@ -37,7 +37,7 @@
         <section class="spacing">
             <h3>Code of Conduct</h3>
             <p>
-                One of the main features of this site is sharing and inspiring other users with images uploaded by our
+                One of the main features of this site is sharing and inspiring other airboat users with images uploaded by our
                 registered users. While we encourage this we however do not condone the sharing of offensive imagery. 
                 Any image/s deemed overtly offensive to other users will be removed from this site immediately. 
                 Any images which contain nudity or content of a highly sexual nature will be removed. Any image which
@@ -53,7 +53,7 @@
             <h3>Making an Enquiry</h3>
             <p>
                 If you are interested in purchasing your own airboat then you can make an enquiry with the site owner who can then 
-                direct you a company which is handling the distribution of Airboats in the South Pacific region. If you don't want 
+                direct you to a company which is handling the distribution of Airboats in the South Pacific region. If you don't want 
                 to make an enquiry about the purchase of an airboat but want to report an image you can also make an enquiry. You can 
                 also make an enquiry if you require further information about airboats. 
             </p>
