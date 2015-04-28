@@ -1,16 +1,8 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
-/**
- * Description of images
- *
- * @author kristopher.king
- */
 class Images extends CI_Controller {
 
     function __construct() {
@@ -18,7 +10,6 @@ class Images extends CI_Controller {
 
         $this->load->helper('url');
         $this->load->helper('form');
-
         $this->_init();
     }
 
@@ -31,7 +22,7 @@ class Images extends CI_Controller {
     }
 
     function index() {
-        $this->load->view('upload_form', array('error' => ' '));
+        $this->load->view('upload_form');
     }
 
     public function user_gallery() {
@@ -59,10 +50,10 @@ class Images extends CI_Controller {
             'max_width' => 1920,
             'max_heigh' => 1080,
         );
+        
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload()) {
             $error = array('error' => $this->upload->display_errors());
-
             $this->load->view('pages/upload_form', $error);
         } else {
             $this->load->model('Image');
