@@ -38,10 +38,11 @@
                     and upload your own images, all you have to do is create an account.
                 </p>
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/gallery'); ?>" role="button">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                <a class="btn-lg btn-primary" href="#"  data-toggle="modal" data-target="#imageUploadModal" role="button">
-                    Upload 
-                    <span class="glyphicon glyphicon-upload"></span>
-                </a>
+                <?php if ($this->session->userdata('is_logged_in')): ?>
+                <a class="btn-lg btn-primary" href="<?php echo site_url('images/upload'); ?>"  role="button"> Upload <span class="glyphicon glyphicon-upload"></span></a>
+                <?php else: ?>
+                <a class="btn-lg btn-primary" href="#" data-toggle="modal" data-target="#imageUploadModal" role="button"> Upload <span class="glyphicon glyphicon-upload"></span></a>
+                <?php endif; ?>
             </div>
 
         </div>
@@ -101,7 +102,8 @@
             <div class="col-xs-12">
                 <h2 id="Enquiry">Enquiry<hr></h2>
                 <p>
-                    If you wish to make an enquiry about airboats please fill in the form below.
+                    If you require more information about airboats or are keen in purchasing one, please fill in the form below
+                    and we will be in touch as soon as possible.
                 </p>
                 <br>
                 <div>
