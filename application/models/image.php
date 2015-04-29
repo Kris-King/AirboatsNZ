@@ -1,16 +1,7 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-/**
- * Description of image
- *
- * @author kristopher.king
- */
 class Image extends MY_Model {
 
     /**
@@ -25,6 +16,12 @@ class Image extends MY_Model {
      */
     public $url;
 
+  function get_images() {
+        $this->db->select('url');
+        $this->db->from('images');
+        $query = $this->db->get();
+        return $result = $query->result();
+    }
 
 
 }
