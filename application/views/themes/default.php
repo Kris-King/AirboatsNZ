@@ -158,7 +158,8 @@
                         <div class="modal-body">
                             <p class="element_margins">
                                 Uploading Images is a feature reserved for registered users. Don't worry though as becoming a registered user 
-                                is as simple as creating an account.
+                                is as simple as creating an account. If you already have an account then all you need to do is sign in with your 
+                                email address and password.
                             </p>
                             <div class="modal-footer">
                                 <?php echo "To create an account visit this page " . anchor('auth/sign_up', "here"); ?>
