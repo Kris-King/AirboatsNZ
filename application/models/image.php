@@ -12,7 +12,7 @@
  * @author kristopher.king
  */
 class Image extends MY_Model {
-    
+
     /**
      * Unique Identifier
      * @var type int
@@ -20,8 +20,11 @@ class Image extends MY_Model {
     public $id;
 
     /**
-     * url of the image
+     * url of the image (location of the image that was uploaded by the user)
      * @var type string
      */
     public $url;
+
+
+
 }
