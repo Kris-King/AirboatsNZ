@@ -54,10 +54,10 @@ class Auth extends CI_Controller {
             echo 'no-password';
             return;
         }
-
-        if ($this->User->validate()) {
+        $existing_user = $this->process_validate();
+        if ($existing_user) {
             $this->_init();
-            $this->_do_login();
+            $this->_do_login($existing_user->id);
             redirect('', 'refresh');
         } else {
             echo 'fail';
@@ -65,13 +65,24 @@ class Auth extends CI_Controller {
         }
     }
 
+    private function process_validate() {
+        $user = new User();
+        $password = md5($this->input->post('user_password'));
+        $existing_user = $user->get_by(array('email_address' => $this->input->post('email_address'), 'password' => $password));
+
+        if ($existing_user) {
+            return $existing_user;
+        }
+    }
+
     /**
      * Sign the user in and redirect to home page
      */
-    private function _do_login() {
+    private function _do_login($user_id) {
         $data = array(
             'email_address' => $this->input->post('email_address'),
-            'is_logged_in' => true
+            'is_logged_in' => true,
+            'user_id' => $user_id
         );
         $this->session->set_userdata($data);
     }
@@ -94,15 +105,17 @@ class Auth extends CI_Controller {
         } else {
             //Create new user
             $this->load->model('User');
-            $this->User->first_name = $this->input->post('first_name');
-            $this->User->last_name = $this->input->post('last_name');
-            $this->User->email_address = $this->input->post('email_address');
-            $this->User->status = $this->input->post('status');
-            $this->User->password = md5($this->input->post('user_password'));
-
+            $user = new User();
+            $user_data = array();
+            $user_data['first_name'] = $this->input->post('first_name');
+            $user_data['last_name'] = $this->input->post('last_name');
+            $user_data['email_address'] = $this->input->post('email_address');
+            $user_data['status'] = $this->input->post('status');
+            $user_data['password'] = md5($this->input->post('user_password'));
+            $user_id = $user->insert($user_data); 
             //save new user
-            if ($this->User->insert_obj() != NULL) {
-                $this->_do_login();
+            if ($user_id != NULL) {
+                $this->_do_login($user_id);
                 $this->session->set_flashdata('Success :)', 'Account successfully created');
                 redirect('', 'refresh');
             } else {

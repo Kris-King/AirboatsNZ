@@ -49,13 +49,6 @@ class User extends MY_Model {
      */
     public $status;
 
-    function validate() {
-        $password = md5($this->input->post('user_password'));
-        $user = $this->get_by(array('email_address' => $this->input->post('email_address'), 'password' => $password));
-
-        if ($user) {
-            return true;
-        }
-    }
+   
 
 }

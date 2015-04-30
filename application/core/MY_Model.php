@@ -219,10 +219,10 @@ class MY_Model extends CI_Model {
     /**
      * Create Todo.
      */
-    public function insert($data, $skip_validation = FALSE) {
-        if ($skip_validation === FALSE) {
-            $data = $this->validate($data);
-        }
+    public function insert($data) {
+//        if ($skip_validation === FALSE) {
+//            $data = $this->validate($data);
+//        }
         if ($data !== FALSE) {
             $data = $this->trigger('before_create', $data);
             $this->_database->insert($this->_table, $data);

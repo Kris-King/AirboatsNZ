@@ -5,13 +5,15 @@
         </section>
 
         <section class="element_margins">
-                <p>
-                    Here you can upload images to the User Gallery. If you need assistance uploading an image please follow the instructions below.
-                </p>
-            <div class="element_margins">
-                <p>Allowed file types: .gif,  .jpg, .png, .JPG, .jpeg</p>
+            <p>
+                Here you can upload images to the User Gallery. If you need assistance uploading an image please follow the instructions below.
+            </p>
+            <br>
+            <div>
+                <p>Allowed file types: gif, jpg, png, JPG, jpeg</p>
                 <p>Max image width: 1920px</p>
                 <p>Max image height: 1080px</p>
+                <p>Max image size: 2 MB (2,000 KB)</p>
                 <br>
                 <p>1. Click on the browse or Choose file button</p>
                 <p>2. Select the image that you want to upload</p>
@@ -19,15 +21,12 @@
                 <p>4. Errors with your image will be displayed below</p>
                 <p>5. Upon the successful upload of your image you will be redirected to the User Gallery page</p>
             </div>
+            <br>
             <div class="alert alert-danger" role="alert"><?php echo $error; ?></div>
             <?php echo form_open_multipart('images/do_upload'); ?>
-
             <input type="file" class="btn-lg btn-primary" id="userfile" name="userfile" size="20" />
-
-            <br /><br />
-
+            <br>
             <button type="submit" class="btn btn-primary" value="upload"><span class="glyphicon glyphicon-upload"></span> Upload</button>
-
             <?php echo form_close(); ?>
         </section>
     </section>
