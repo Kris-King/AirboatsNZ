@@ -15,6 +15,12 @@ class Image extends MY_Model {
      * @var type string
      */
     public $url;
+    
+    /**
+     * Foreign Key - id of the user who submitted an image
+     * @var type int
+     */
+    public $user_id;
 
   function get_images() {
         $this->db->select('url');

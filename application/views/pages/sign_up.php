@@ -6,8 +6,8 @@
                 <h4>
                     Just fill in the details below and away you go.
                 </h4>
-                <div class="spacing Event_spacing">
-                    <?php echo validation_errors('<div class"alert alert-danger" role="alert">', "</div>"); ?>
+                <div class="spacing element_margins">
+                    <?php echo validation_errors('<div class"alert alert-danger">', "</div>"); ?>
                 </div>
                 <div>
                     <?php echo form_open('auth/create_user'); ?>
@@ -39,13 +39,12 @@
                         <?php echo form_hidden('status', 'Pending'); ?>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary">Create Account</button>
-                        <?php echo form_reset('submit', 'Cancel', 'class="btn btn-default marg15"'); ?>
+                    <button type="submit" class="btn btn-primary  btn-lg">Create Account</button>
+                        <?php echo form_reset('submit', 'Cancel', 'class="btn btn-default marg15 btn-lg"'); ?>
                         <?php echo form_close(); ?>
                 </div>
             </div>
 
         </div>
     </div>
-    <br><br>
 </section>

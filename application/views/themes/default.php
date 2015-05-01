@@ -81,7 +81,7 @@
                         <li><a href="#" data-toggle="modal" data-target="#imageUploadModal"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
                         <?php endif; ?>
                         <?php if ($this->session->userdata('is_logged_in')): ?>
-                            <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
+                            <li><a href="<?php echo site_url('events/admin_dashboard'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
                         <?php endif; ?>
 
                     </ul>
@@ -140,8 +140,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Sign In <span class="glyphicon glyphicon-log-in"></span></button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary  btn-lg btn-block">Sign In <span class="glyphicon glyphicon-log-in"></span></button>
+                            <button type="button" class="btn btn-default  btn-lg btn-block" data-dismiss="modal">Close</button>
                         </div>
                     </form>
                 </div>
