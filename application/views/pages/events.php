@@ -1,7 +1,7 @@
 <section class="wrapper">
     <section class="container">
         <section  id="events" class="container">
-            <h1 class="margin_spacing">Upcoming Events</h1>
+            <h1 class="margin_spacing"><span class="glyphicon glyphicon-globe"></span> Upcoming Events</h1>
         </section>
 
         <section class="container element_margins">

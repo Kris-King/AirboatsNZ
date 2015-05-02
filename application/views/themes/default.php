@@ -88,7 +88,6 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <?php if ($this->session->userdata('is_logged_in')): ?>
-                            <li><a><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('email_address'); ?></a></li>
                             <li><a href="<?php echo site_url("auth/signout"); ?>"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
                         <?php else: ?>
                             <!-- Ajax login modal dialog -->

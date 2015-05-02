@@ -1,7 +1,7 @@
 <section class="wrapper">
     <section class="container">
         <section  id="events" class="container">
-            <h1 class="margin_spacing">Upload Images</h1>
+            <h1 class="margin_spacing"><span class="glyphicon glyphicon-upload"></span> Upload Images</h1>
         </section>
 
         <section class="element_margins">
@@ -24,9 +24,9 @@
             <br>
             <div class="alert alert-danger" role="alert"><?php echo $error; ?></div>
             <?php echo form_open_multipart('images/do_upload'); ?>
-            <input type="file" class="btn btn-primary btn-lg" id="userfile" name="userfile" size="20" />
+            <input type="file" class="btn btn-primary btn-lg btn-block" id="userfile" name="userfile" />
             <br>
-            <button type="submit" class="btn btn-primary  btn-lg" value="upload"><span class="glyphicon glyphicon-upload"></span> Upload</button>
+            <button type="submit" class="btn btn-primary  btn-lg btn-block" value="upload"><span class="glyphicon glyphicon-upload"></span> Upload</button>
             <?php echo form_close(); ?>
         </section>
     </section>

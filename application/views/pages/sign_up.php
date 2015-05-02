@@ -1,6 +1,6 @@
 <section class="wrapper">
     <div class="container">
-        <div class="row">
+        <div>
             <div class="spacing">
                 <h1>Create an Account<hr></h1>
                 <h4>
@@ -39,7 +39,7 @@
                         <?php echo form_hidden('status', 'Pending'); ?>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary  btn-lg">Create Account</button>
+                    <button type="submit" class="btn btn-primary  btn-lg"><span class="glyphicon glyphicon-plus-sign"></span> Create Account</button>
                         <?php echo form_reset('submit', 'Cancel', 'class="btn btn-default marg15 btn-lg"'); ?>
                         <?php echo form_close(); ?>
                 </div>

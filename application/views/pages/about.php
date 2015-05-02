@@ -1,6 +1,6 @@
 <section class="wrapper">
     <section class="container">
-        <h1>About Us<hr></h1>
+        <h1><span class="glyphicon glyphicon-info-sign"></span> About Us<hr></h1>
         <section class=" element_spacing spacing">
             <h3>General</h3>
             <p>

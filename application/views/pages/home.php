@@ -12,8 +12,8 @@
                   You can also catch up on upcoming events that are happening in
                   your region
                 </p>
-                <a class="btn-lg btn-primary" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                <a class="btn-lg btn-primary" href="#Enquiry">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
+                <a class="btn-primary btn-lg" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn-primary btn-lg" href="#Enquiry">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
             </div>
 
             <div class="element_spacing col-md-6">
@@ -37,11 +37,11 @@
                     Only registered users can upload their own images. To become a member 
                     and upload your own images, all you have to do is create an account.
                 </p>
-                <a class="btn-lg btn-primary" href="<?php echo site_url('site/gallery'); ?>" role="button">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn-primary btn-lg" href="<?php echo site_url('site/gallery'); ?>" role="button">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <?php if ($this->session->userdata('is_logged_in')): ?>
-                <a class="btn-lg btn-primary" href="<?php echo site_url('images/upload'); ?>"  role="button"> Upload <span class="glyphicon glyphicon-upload"></span></a>
+                <a class="btn-primary btn-lg" href="<?php echo site_url('images/upload'); ?>"  role="button"> Upload <span class="glyphicon glyphicon-upload"></span></a>
                 <?php else: ?>
-                <a class="btn-lg btn-primary" href="#" data-toggle="modal" data-target="#imageUploadModal" role="button"> Upload <span class="glyphicon glyphicon-upload"></span></a>
+                <a class="tn-primary btn-lg" href="#" data-toggle="modal" data-target="#imageUploadModal" role="button"> Upload <span class="glyphicon glyphicon-upload"></span></a>
                 <?php endif; ?>
             </div>
 
@@ -98,7 +98,7 @@
 
 <section id="enquiry_form">
     <div class="container">
-        <div class="row margin_spacing">
+        <div class="margin_spacing">
             <div class="col-xs-12">
                 <h2 id="Enquiry">Enquiry<hr></h2>
                 <p>
@@ -128,8 +128,8 @@
                             <textarea class="form-control" id="comment" rows="8"></textarea>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-send"></span></button>
-                        <button type="submit" class="btn btn-default marg30">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Submit <span class="glyphicon glyphicon-send"></span></button>
+                        <button type="submit" class="btn btn-default btn-lg marg30">Cancel</button>
                     </form>
                 </div>
             </div>

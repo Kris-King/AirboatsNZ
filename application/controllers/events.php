@@ -30,11 +30,17 @@ class Events extends CI_Controller {
         $this->load->helper('form');
         $this->load->view('pages/admin');
     }
+    
+    public function add_event() {
+        $this->_init();
+        $this->load->helper('form');
+        $this->load->view('pages/add-edit');
+    }
 
     public function add_edit($id = NULL) {
         $this->_init();
         $this->load->helper('form');
-        $this->load->model('Todo');
+        $this->load->model('Event');
         $todo = new Todo();
 
         //is add/edit
@@ -50,7 +56,7 @@ class Events extends CI_Controller {
                 $todo->comment = '';
             } else { //if is edit
                 //get Todo from db by id
-                $this->load->model('Todo');
+                $this->load->model('Event');
                 $todo = $this->Todo->get($id);
             }
             $this->load->view('pages/add-edit', array(
