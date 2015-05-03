@@ -74,7 +74,7 @@
                         <li><a href="<?php echo site_url(); ?>"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                         <li><a href="<?php echo site_url('site/about'); ?>"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
                         <li><a href="<?php echo site_url('images/user_gallery'); ?>"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
-                        <li><a href="<?php echo site_url('site/events'); ?>"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
+                        <li><a href="<?php echo site_url('events/upcoming_events'); ?>"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
                          <?php if ($this->session->userdata('is_logged_in')): ?>
                         <li><a href="<?php echo site_url('images/upload'); ?>"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
                         <?php else: ?>

@@ -9,7 +9,6 @@ class Images extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->helper('form');
-        $this->load->library('session');
         $this->load->model('Image');
         $this->_init();
     }
@@ -27,8 +26,15 @@ class Images extends CI_Controller {
     }
 
     public function user_gallery() {
-        $data['result'] = $this->Image->get_images();
+        $data['result'] = $this->get_images();
         $this->load->view('pages/gallery', $data);
+    }
+    
+    private function get_images() {
+        $this->db->select('url');
+        $this->db->from('images');
+        $query = $this->db->get();
+        return $result = $query->result();
     }
 
     public function upload() {

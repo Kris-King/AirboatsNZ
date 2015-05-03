@@ -22,12 +22,5 @@ class Image extends MY_Model {
      */
     public $user_id;
 
-  function get_images() {
-        $this->db->select('url');
-        $this->db->from('images');
-        $query = $this->db->get();
-        return $result = $query->result();
-    }
-
 
 }
