@@ -22,7 +22,7 @@
                 <p>5. Upon the successful upload of your image you will be redirected to the User Gallery page</p>
             </div>
             <br>
-            <?php if ($error): ?>
+            <?php if (isset($error)): ?>
                 <div class="alert alert-danger"><?php echo $error; ?></div> 
             <?php endif; ?>
             <?php echo form_open_multipart('images/do_upload'); ?>

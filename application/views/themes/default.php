@@ -81,7 +81,7 @@
                         <li><a href="#" data-toggle="modal" data-target="#imageUploadModal"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
                         <?php endif; ?>
                         <?php if ($this->session->userdata('is_logged_in')): ?>
-                            <li><a href="<?php echo site_url('events/admin_dashboard'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
+                            <li><a href="<?php echo site_url('events'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
                         <?php endif; ?>
 
                     </ul>

@@ -11,35 +11,45 @@ if (!defined('BASEPATH'))
 class Events extends CI_Controller {
 
     function __construct() {
-        parent::__construct();
 
+        parent::__construct();
         $this->load->helper('url');
         $this->_init();
     }
 
+
     private function _init() {
         $this->output->set_template('default');
-
         $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
     }
 
-    public function admin_dashboard() {
+    public function index() {
         $this->_init();
-        $this->load->helper('form');
-        $this->load->view('pages/admin');
+        $this->load->helper('url');
+        $this->load->library('table');
+        $events = array();
+        $this->load->model('Event');
+        $rows = $this->Event->get_all('events');
+        foreach ($rows as $row) {
+            $events[] = array(
+                $row->title,
+                $row->description,
+                anchor('events/add_edit/' . $row->id, 'Edit','class="btn btn-primary"').' ' 
+                . anchor('events/index'. $row->id, 'Delete','class="btn btn-primary"'),
+            );
+        }
+
+        $this->load->view('pages/admin', array(
+            'events' => $events,
+        ));
     }
-    
+
+
     public function upcoming_events() {
         $data['result'] = $this->get_events();
         $this->load->view('pages/events', $data);
-    }
-
-    public function add_event() {
-        $this->_init();
-        $this->load->helper('form');
-        $this->load->view('pages/add-edit');
     }
 
     public function upcoming_event() {
@@ -88,7 +98,7 @@ class Events extends CI_Controller {
         }
     }
 
-    public function _insert_update($event, $id) {
+    private function _insert_update($event, $id) {
         //populate from the post
         $event->title = $this->input->post('title');
         $event->start_date = $this->input->post('start_date');
@@ -153,26 +163,24 @@ class Events extends CI_Controller {
             }
 
             $this->session->set_flashdata('Success :)', 'Event Successfully ' . $action);
-            redirect('/events/admin_dashboard/', 'refresh');
+            redirect('/events/', 'refresh');
         }
     }
 
     /**
      * Delete  a Todo.
      */
-//    public function delete_event($status, $id) {
-//
-//
-//        $this->load->model('Todo');
-//        if ($this->Todo->delete($id)) {
-//            $this->session->set_flashdata('Success :)', 'Todo was successfully deleted');
-//        } else {
-//            $this->session->set_flashdata('Error :(', 'We were not able to delete your Todo, could you please try again.');
-//        }
-//
-//        //Return the user back to the List page
-//        redirect('/todos/status/' . $status, 'refresh');
-//    }
+    public function delete_event($event, $id) {
+        $this->load->model('Event');
+        if ($this->Event->delete($id)) {
+            $this->session->set_flashdata('Success :)', 'Event was successfully deleted');
+        } else {
+            $this->session->set_flashdata('Error :(', 'We were not able to delete your Event, could you please try again.');
+        }
+
+        //Return the user back to the Admin page
+        redirect('/events/', 'refresh');
+    }
 
     /**
      * Date validation callback.
@@ -180,7 +188,7 @@ class Events extends CI_Controller {
      * @return boolean
      */
     public function date_validation($input) {
-        $test_date = explode('/', $input);
+        $test_date = explode('-', $input);
         if (!@checkdate($test_date[1], $test_date[2], $test_date[0])) {
             $this->form_validation->set_message('date_validation', 'The %s field must be in DD/MM/YYYY format.');
             return FALSE;
