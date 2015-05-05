@@ -75,10 +75,10 @@
                         <li><a href="<?php echo site_url('site/about'); ?>"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
                         <li><a href="<?php echo site_url('images/user_gallery'); ?>"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
                         <li><a href="<?php echo site_url('events/upcoming_events'); ?>"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
-                         <?php if ($this->session->userdata('is_logged_in')): ?>
-                        <li><a href="<?php echo site_url('images/upload'); ?>"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
+                        <?php if ($this->session->userdata('is_logged_in')): ?>
+                            <li><a href="<?php echo site_url('images/upload'); ?>"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
                         <?php else: ?>
-                        <li><a href="#" data-toggle="modal" data-target="#imageUploadModal"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#imageUploadModal"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
                         <?php endif; ?>
                         <?php if ($this->session->userdata('is_logged_in')): ?>
                             <li><a href="<?php echo site_url('events'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
@@ -154,16 +154,16 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
                     </div>
-                        <div class="modal-body">
-                            <p class="element_margins">
-                                Uploading Images is a feature reserved for registered users. Don't worry though as becoming a registered user 
-                                is as simple as creating an account. If you already have an account then all you need to do is sign in with your 
-                                email address and password.
-                            </p>
-                            <div class="modal-footer">
-                                <?php echo "To create an account visit this page " . anchor('auth/sign_up', "here"); ?>
-                            </div>
+                    <div class="modal-body">
+                        <p class="element_margins">
+                            Uploading Images is a feature reserved for registered users. Don't worry though as becoming a registered user 
+                            is as simple as creating an account. If you already have an account then all you need to do is sign in with your 
+                            email address and password.
+                        </p>
+                        <div class="modal-footer">
+                            <?php echo "To create an account visit this page " . anchor('auth/sign_up', "here"); ?>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,33 +194,42 @@
                                     $("#login-email-required-error").removeClass("hidden");
                                     $("#login-error").addClass("hidden");
                                     $("#login-password-required-error").removeClass("hidden");
-                                }else{
+                                } else {
                                     window.location.href = '';
                                 }
-                                
+
                             });
-                            
-                            
+
+
                 });
             });
 
-            //ajax image upload functionality
+            //Dialog box which is displayed when a user is trying to access the Upload page but is not logged in
             $(document).ready(function() {
                 $("#img_upload").submit(function(e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
-                    $.post(url, data)
-                            .done(function(data) {
-                                if (data === "Upload-errors") {
-                                    $("#upload-error").removeClass("hidden");
-                                }else{
-                                    window.location.href = '';
-                                }
-                                
-                            });
+                    $.ajax({
+                        url: url,
+                        type: method,
+                        data: data
+                    }).done(function() {
+                        window.location.href = '';
+                    });
                 });
             });
+            
+            function myFunction() {
+                var x;
+                if (confirm("PConfirm Deletion!") === true) {
+                    x = "You pressed OK!";
+                } else {
+                    x = "You pressed Cancel!";
+                }
+                document.getElementById("demo").innerHTML = x;
+            }
+
         </script>
     </body></html>

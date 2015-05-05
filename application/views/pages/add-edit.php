@@ -12,7 +12,7 @@
                 </h4>
                 <div class="spacing element_margins">
                     <div>
-                        <?php echo form_open('events/add_edit'); ?>
+                        <?php echo form_open(); ?>
                         <div class="form-group">
                             <label for="title">Title:</label>
                             <?php if (form_error('title')): ?>
@@ -58,7 +58,7 @@
                             <?php if (form_error('description')): ?>
                                 <div class="alert alert-danger"> <?php echo form_error('description', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                             <?php endif; ?>
-                            <textarea class="form-control" name="description" rows="7" value="<?php echo $event->description; ?>"></textarea>
+                                <textarea class="form-control" name="description" rows="7" ><?php echo $event->description; ?></textarea>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary  btn-lg">Submit</button>

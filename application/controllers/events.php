@@ -17,7 +17,6 @@ class Events extends CI_Controller {
         $this->_init();
     }
 
-
     private function _init() {
         $this->output->set_template('default');
         $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
@@ -25,6 +24,9 @@ class Events extends CI_Controller {
         $this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
     }
 
+    /**
+     * Displays the Admin Dashboard and lists all of the events created by the Admin.
+     */
     public function index() {
         $this->_init();
         $this->load->helper('url');
@@ -36,8 +38,8 @@ class Events extends CI_Controller {
             $events[] = array(
                 $row->title,
                 $row->description,
-                anchor('events/add_edit/' . $row->id, 'Edit','class="btn btn-primary"').' ' 
-                . anchor('events/index'. $row->id, 'Delete','class="btn btn-primary"'),
+                anchor('events/add_edit/' . $row->id, '<span class="glyphicon glyphicon-wrench"></span> Edit', 'class="btn btn-success btn-block"') . ' ',
+                '<a href="events/delete_event/" onclick="myFunction()">Delete</a>',
             );
         }
 
@@ -46,17 +48,32 @@ class Events extends CI_Controller {
         ));
     }
 
+    /**
+     * Delete functionality for deleting an event.
+     */
+    public function delete_event($id) {
+        $this->load->model('Event');
+        if ($this->Event->delete($id)) {
+            $this->session->set_flashdata('Success :)', 'Event was successfully deleted');
+        } else {
+            $this->session->set_flashdata('Error :(', 'We were not able to delete your Event, could you please try again.');
+        }
 
+        //Return the user back to the Admin page
+        redirect('events', 'refresh');
+    }
+
+    /**
+     * Display the Events page.
+     */
     public function upcoming_events() {
         $data['result'] = $this->get_events();
         $this->load->view('pages/events', $data);
     }
 
-    public function upcoming_event() {
-        $this->_init();
-        $this->load->view('pages/event');
-    }
-
+    /**
+     * Get all events from the database. This will be called on the Events page which will then display the events.
+     */
     private function get_events() {
         $this->db->select('title');
         $this->db->select('start_date');
@@ -67,6 +84,9 @@ class Events extends CI_Controller {
         return $result = $query->result();
     }
 
+    /**
+     * Add/Edit functionality for creating and updating events.
+     */
     public function add_edit($id = NULL) {
         $this->_init();
         $this->load->helper('form');
@@ -98,6 +118,9 @@ class Events extends CI_Controller {
         }
     }
 
+    /**
+     * Inserting Events in the database and updating events in the databse which have bee edited.
+     */
     private function _insert_update($event, $id) {
         //populate from the post
         $event->title = $this->input->post('title');
@@ -162,24 +185,9 @@ class Events extends CI_Controller {
                 $action = "Updated";
             }
 
-            $this->session->set_flashdata('Success :)', 'Event Successfully ' . $action);
-            redirect('/events/', 'refresh');
+            $this->session->set_flashdata('Success :)', 'Event was Successfully ' . $action);
+            redirect('events', 'refresh');
         }
-    }
-
-    /**
-     * Delete  a Todo.
-     */
-    public function delete_event($event, $id) {
-        $this->load->model('Event');
-        if ($this->Event->delete($id)) {
-            $this->session->set_flashdata('Success :)', 'Event was successfully deleted');
-        } else {
-            $this->session->set_flashdata('Error :(', 'We were not able to delete your Event, could you please try again.');
-        }
-
-        //Return the user back to the Admin page
-        redirect('/events/', 'refresh');
     }
 
     /**
