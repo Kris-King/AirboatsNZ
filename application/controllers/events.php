@@ -36,10 +36,10 @@ class Events extends CI_Controller {
         $rows = $this->Event->get_all('events');
         foreach ($rows as $row) {
             $events[] = array(
+                $row->id,
                 $row->title,
-                $row->description,
-                anchor('events/add_edit/' . $row->id, '<span class="glyphicon glyphicon-wrench"></span> Edit', 'class="btn btn-success btn-block"') . ' ',
-                '<a href="events/delete_event/" onclick="myFunction()">Delete</a>',
+                '<a href="'.base_url().'events/add_edit/'. $row->id.'"class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Edit</a>',
+                '<a href="'.base_url().'events/delete_event/'. $row->id.'" class="btn btn-danger" onclick="return confirm_delete()"><span class="glyphicon glyphicon-trash"></span> Delete</a>',
             );
         }
 

@@ -2,16 +2,21 @@
     <section class="container">
         <div class="element_margins">
             <h1><span class="glyphicon glyphicon-cog"></span> Admin Dashboard<hr></h1>
+            <p class="alert alert-success hidden" id="demo"></p>
             <div>
                 <a href="<?php echo site_url('events/add_edit'); ?>" class="btn btn-primary btn-lg btn-block" role="button"><span class="glyphicon glyphicon-plus"></span> Add an Event</a>
             </div>
             <p id="demo"></p>
-            <?php //Success Message
-            if ($this->session->flashdata('success')):?>
+            <?php
+            //Success Message
+            if ($this->session->flashdata('success')):
+                ?>
                 <div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success'); ?></div>
             <?php endif; ?>
-            <?php //Error Message 
-            if ($this->session->flashdata('error')):?>
+            <?php
+            //Error Message 
+            if ($this->session->flashdata('error')):
+                ?>
                 <div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error'); ?></div>
             <?php endif; ?>  
             <div class="element_spacing">
@@ -79,9 +84,10 @@
                                     'table_open' => '<table class="table">',
                                 );
                                 $table_heading = array(
-                                    '0' => array('data' => 'Title'),
-                                    '1' => array('data' => 'Description'),
-                                    '2' => array('data' => 'Action'));
+                                    '0' => array('data' => 'Id'),
+                                    '1' => array('data' => 'Title'),
+                                    '2' => array('data' => 'Edit Event'),
+                                    '3' => array('data' => 'Delete Event'));
                                 $this->table->set_template($table_template);
                                 $this->table->set_heading($table_heading);
                                 echo $this->table->generate($events);
@@ -94,3 +100,24 @@
         </div>
     </section>
 </section>
+
+<div class="modal fade" id="confirmDeletion" tabindex="-1" role="dialog" aria-labelledby="confirmDeletion" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Confirm Deletion</h4>
+            </div>
+            <div class="modal-body">
+                <p>Warning: You are about to delete this event!</p>
+                <p class="element_margins">
+                    Deleting this event will remove it from the site permanently, are sure you want to delete it?
+                </p>
+                <div class="modal-footer">
+                    <?php echo anchor('events/delete_event/' . $row->id, 'Yes, delete the event', 'class="btn btn-danger btn-lg"'); ?>
+                    <button type="button" class="btn btn-default  btn-lg" data-dismiss="modal">No, keep it</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

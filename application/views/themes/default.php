@@ -51,9 +51,6 @@
 
         <!-- Le fav and touch icons -->
         <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/themes/default/images/fav.png" type="image/x-icon"/>
-        <meta property="og:image" content="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png"/>
-        <link rel="image_src" href="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png" />
-
 
     </head>
 
@@ -67,33 +64,33 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand" href="<?php echo site_url(); ?>"><img src="<?php echo base_url(); ?>assets/themes/default/images/Airboats_Logo.png" style="float:left;z-index:5;" alt="logo"/></a>
+                    <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/themes/default/images/Airboats_Logo.png" style="float:left;z-index:5;" alt="logo"/></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="<?php echo site_url(); ?>"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                        <li><a href="<?php echo site_url('site/about'); ?>"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
-                        <li><a href="<?php echo site_url('images/user_gallery'); ?>"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
-                        <li><a href="<?php echo site_url('events/upcoming_events'); ?>"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
+                        <li><a href="<?php echo base_url(); ?>"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li><a href="<?php echo base_url(); ?>site/about"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+                        <li><a href="<?php echo base_url(); ?>images/user_gallery"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
+                        <li><a href="<?php echo base_url(); ?>events/upcoming_events"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
                         <?php if ($this->session->userdata('is_logged_in')): ?>
-                            <li><a href="<?php echo site_url('images/upload'); ?>"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
+                            <li><a href="<?php echo base_url(); ?>images/upload"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
                         <?php else: ?>
                             <li><a href="#" data-toggle="modal" data-target="#imageUploadModal"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
                         <?php endif; ?>
                         <?php if ($this->session->userdata('is_logged_in')): ?>
-                            <li><a href="<?php echo site_url('events'); ?>"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
+                            <li><a href="<?php echo base_url(); ?>events"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
                         <?php endif; ?>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
                         <?php if ($this->session->userdata('is_logged_in')): ?>
-                            <li><a href="<?php echo site_url("auth/signout"); ?>"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+                            <li><a href="<?php echo base_url(); ?>auth/sign_out"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
                         <?php else: ?>
                             <!-- Ajax login modal dialog -->
                             <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
                         <?php endif; ?>
-                        <li><a href="<?php echo site_url('auth/sign_up'); ?>"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li>
+                        <li><a href="<?php echo base_url(); ?>auth/sign_up"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li>
                     </ul>
 
                 </div>
@@ -220,16 +217,12 @@
                     });
                 });
             });
-            
-            function myFunction() {
-                var x;
-                if (confirm("PConfirm Deletion!") === true) {
-                    x = "You pressed OK!";
-                } else {
-                    x = "You pressed Cancel!";
-                }
-                document.getElementById("demo").innerHTML = x;
+
+
+            function confirm_delete() {
+                return confirm('Are you sure you want to delete this event?');
             }
+
 
         </script>
     </body></html>
