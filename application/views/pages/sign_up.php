@@ -6,11 +6,11 @@
                 <h4>
                     Just fill in the details below and away you go.
                 </h4>
-                <div class="spacing element_margins">
+<!--                <div class="spacing element_margins">
                     <?php if (validation_errors()): ?>
                         <div class="alert alert-danger"> <?php echo validation_errors('<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                     <?php endif; ?>
-                </div>
+                </div>-->
                 <div>
                     <?php echo form_open('auth/create_user'); ?>
                     <div class="form-group">

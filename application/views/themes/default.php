@@ -167,14 +167,14 @@
         <script type="text/javascript">
 
             //ajax login functionality
-            $(document).ready(function() {
-                $("#frm-sign_in").submit(function(e) {
+            $(document).ready(function () {
+                $("#frm-sign_in").submit(function (e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
                     $.post(url, data)
-                            .done(function(data) {
+                            .done(function (data) {
                                 if (data === 'fail') {
                                     $("#login-error").removeClass("hidden");
                                     $("#login-password-required-error").addClass("hidden");
@@ -202,8 +202,8 @@
             });
 
             //Dialog box which is displayed when a user is trying to access the Upload page but is not logged in
-            $(document).ready(function() {
-                $("#img_upload").submit(function(e) {
+            $(document).ready(function () {
+                $("#img_upload").submit(function (e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
@@ -212,17 +212,40 @@
                         url: url,
                         type: method,
                         data: data
-                    }).done(function() {
+                    }).done(function () {
                         window.location.href = '';
                     });
                 });
             });
 
-
-            function confirm_delete() {
-                return confirm('Are you sure you want to delete this event?');
-            }
-
+            //Dialog box which is displayed when the site administrator wants to delete an event (to confirm if they want to delete the event)
+            $(document).ready(function () {
+                $('a[data-confirm]').click(function (ev) {
+                    var href = $(this).attr('href');
+                    if (!$('#confirmDeletion').length) {
+                        $('body').append('\
+                        <div id="confirmDeletion" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dataConfirmLabel" aria-hidden="true">\n\
+                        <div class="modal-dialog">\n\
+                        <div class="modal-content">\n\
+                        <div class="modal-header">\n\
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\n\
+                        <h4 class="modal-title" id="dataConfirmLabel">Confirm Deletion</h4>\n\
+                        </div>\n\
+                        <div class="modal-body"><p>Warning: You are about to delete this event!</p><p class="element_margins">Deleting this event will remove it from the site permanently, are sure you want to delete it?</p>\n\
+                        </div>\n\
+                        <div class="modal-footer">\n\
+                        <a class="btn btn-danger" id="dataConfirmOK">Yes, delete it</a>\n\
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">No, keep it</button>\n\
+                        </div>\n\
+                        </div>\n\
+                        </div>\n\
+                        </div>');
+                    }
+                    $('#dataConfirmOK').attr('href', href);
+                    $('#confirmDeletion').modal({show: true});
+                    return false;
+                });
+            });
 
         </script>
     </body></html>

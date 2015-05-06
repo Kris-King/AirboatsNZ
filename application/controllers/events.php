@@ -38,8 +38,8 @@ class Events extends CI_Controller {
             $events[] = array(
                 $row->id,
                 $row->title,
-                '<a href="'.base_url().'events/add_edit/'. $row->id.'"class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Edit</a>',
-                '<a href="'.base_url().'events/delete_event/'. $row->id.'" class="btn btn-danger" onclick="return confirm_delete()"><span class="glyphicon glyphicon-trash"></span> Delete</a>',
+                '<a href="'.base_url().'events/add_edit/'. $row->id.'"class="btn btn-primary btn-block"><span class="glyphicon glyphicon-wrench"></span> Edit</a>',
+                '<a href="'.base_url().'events/delete_event/'. $row->id.'" class="btn btn-danger btn-block" data-confirm><span class="glyphicon glyphicon-trash"></span> Delete</a>',
             );
         }
 

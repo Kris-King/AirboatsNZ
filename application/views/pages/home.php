@@ -12,8 +12,8 @@
                   You can also catch up on upcoming events that are happening in
                   your region
                 </p>
-                <a class="btn-primary btn-lg" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                <a class="btn-primary btn-lg" href="#Enquiry">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
+                <a class="btn btn-primary btn-lg" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary btn-lg" href="#Enquiry">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
             </div>
 
             <div class="element_spacing col-md-6">
@@ -41,7 +41,7 @@
                 <?php if ($this->session->userdata('is_logged_in')): ?>
                 <a class="btn-primary btn-lg" href="<?php echo site_url('images/upload'); ?>"  role="button"> Upload <span class="glyphicon glyphicon-upload"></span></a>
                 <?php else: ?>
-                <a class="tn-primary btn-lg" href="#" data-toggle="modal" data-target="#imageUploadModal" role="button"> Upload <span class="glyphicon glyphicon-upload"></span></a>
+                <a class="btn-primary btn-lg" href="#" data-toggle="modal" data-target="#imageUploadModal" role="button"> Upload <span class="glyphicon glyphicon-upload"></span></a>
                 <?php endif; ?>
             </div>
 

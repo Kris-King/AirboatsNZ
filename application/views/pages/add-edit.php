@@ -61,7 +61,7 @@
                                 <textarea class="form-control" name="description" rows="7" ><?php echo $event->description; ?></textarea>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+                        <button type="submit" class="btn btn-success  btn-lg"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
                         <?php echo form_reset('submit', 'Cancel', 'class="btn btn-default marg15 btn-lg"'); ?>
                         <?php echo form_close(); ?>
                     </div>
