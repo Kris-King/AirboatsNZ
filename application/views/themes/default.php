@@ -234,8 +234,8 @@
                         <div class="modal-body"><p>Warning: You are about to delete this event!</p><p class="element_margins">Deleting this event will remove it from the site permanently, are sure you want to delete it?</p>\n\
                         </div>\n\
                         <div class="modal-footer">\n\
-                        <a class="btn btn-danger" id="dataConfirmOK">Yes, delete it</a>\n\
                         <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">No, keep it</button>\n\
+                        <a class="btn btn-danger" id="dataConfirmOK">Yes, delete it</a>\n\
                         </div>\n\
                         </div>\n\
                         </div>\n\
