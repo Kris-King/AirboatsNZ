@@ -14,6 +14,8 @@ class Events extends CI_Controller {
 
         parent::__construct();
         $this->load->helper('url');
+        $this->load->model('Event');
+        $this->load->library('pagination');
         $this->_init();
     }
 
@@ -67,19 +69,53 @@ class Events extends CI_Controller {
      * Display the Events page.
      */
     public function upcoming_events() {
-        $data['result'] = $this->get_events();
+        //Pagination functionality.
+        $per_page = 5;
+        $uri_segment = 3;
+        $config['base_url'] = base_url() . "events/upcoming_events";
+        $config['per_page'] = $per_page;
+        $config['total_rows'] = $this->Event->count_all();
+        $config['uri_segment'] = $uri_segment;
+        $config['full_tag_open'] = "<ul class='pagination pagination-lg'>";
+        $config['full_tag_close'] = "</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='active'><a href='#'>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li></a>";
+        $config['next_link'] = 'Next';
+        $config['next_tag_open'] = "<li class='next'>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_link'] = 'Previous';
+        $config['prev_tag_open'] = "<li class='previous'>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+
+        $config['num_links'] = round($config["total_rows"] / $config["per_page"]);
+
+        $this->pagination->initialize($config);
+        $data['result'] = $this->get_events($config);
         $this->load->view('pages/events', $data);
     }
 
     /**
-     * Get all events from the database. This will be called on the Events page which will then display the events.
+     * Get all events from the database. This will be called on the Events page which then displays the events.
      */
-    private function get_events() {
+    private function get_events($config) {
+        //Gather all events from the database
+        $config['total_rows'] = $this->Event->count_all();
+        $offset = $this->uri->segment($config['uri_segment']);
+        //Restrict the amount of events that are displayed on the 'Events' page
+        $this->Event->limit($config['per_page'], $offset);
+        //Select the following values from the database (Values which will be then viewed on the 'Events' page)
         $this->db->select('title');
         $this->db->select('start_date');
         $this->db->select('end_date');
         $this->db->select('description');
         $this->db->from('events');
+        //Sets up a for each loop which will then display the events
         $query = $this->db->get();
         return $result = $query->result();
     }

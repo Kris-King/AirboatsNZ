@@ -85,7 +85,7 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <?php if ($this->session->userdata('is_logged_in')): ?>
-                            <li><a href="<?php echo base_url(); ?>auth/sign_out"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+                            <li><a href="<?php echo base_url(); ?>auth/signout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
                         <?php else: ?>
                             <!-- Ajax login modal dialog -->
                             <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
@@ -220,7 +220,7 @@
 
             //Dialog box which is displayed when the site administrator wants to delete an event (to confirm if they want to delete the event)
             $(document).ready(function () {
-                $('a[data-confirm]').click(function (ev) {
+                $('a[data-confirm]').click(function () {
                     var href = $(this).attr('href');
                     if (!$('#confirmDeletion').length) {
                         $('body').append('\
@@ -228,7 +228,7 @@
                         <div class="modal-dialog">\n\
                         <div class="modal-content">\n\
                         <div class="modal-header">\n\
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\n\
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n\
                         <h4 class="modal-title" id="dataConfirmLabel">Confirm Deletion</h4>\n\
                         </div>\n\
                         <div class="modal-body"><p>Warning: You are about to delete this event!</p><p class="element_margins">Deleting this event will remove it from the site permanently, are sure you want to delete it?</p>\n\
