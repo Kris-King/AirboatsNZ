@@ -14,8 +14,6 @@ class Events extends CI_Controller {
 
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('Event');
-        $this->load->library('pagination');
         $this->_init();
     }
 
@@ -32,22 +30,26 @@ class Events extends CI_Controller {
     public function index() {
         $this->_init();
         $this->load->helper('url');
-        $this->load->library('table');
-        $events = array();
-        $this->load->model('Event');
-        $rows = $this->Event->get_all('events');
-        foreach ($rows as $row) {
-            $events[] = array(
-                $row->id,
-                $row->title,
-                '<a href="'.base_url().'events/add_edit/'. $row->id.'"class="btn btn-primary btn-block"><span class="glyphicon glyphicon-wrench"></span> Edit</a>',
-                '<a href="'.base_url().'events/delete_event/'. $row->id.'" class="btn btn-danger btn-block" data-confirm><span class="glyphicon glyphicon-trash"></span> Delete</a>',
-            );
+        //Display Admin page if the Site Administrator is logged in
+        if ($this->session->userdata('is_logged_in')) {
+            $this->load->library('table');
+            $events = array();
+            $this->load->model('Event');
+            $rows = $this->Event->get_all('events');
+            foreach ($rows as $row) {
+                $events[] = array(
+                    $row->id,
+                    $row->title,
+                    '<a href="' . base_url() . 'events/add_edit/' . $row->id . '"class="btn btn-primary btn-block"><span class="glyphicon glyphicon-wrench"></span> Edit</a>',
+                    '<a href="' . base_url() . 'events/delete_event/' . $row->id . '" class="btn btn-danger btn-block" data-confirm><span class="glyphicon glyphicon-trash"></span> Delete</a>',
+                );
+            }
+            $this->load->view('pages/admin', array(
+                'events' => $events,
+            ));
+        } else {//If any user other than the site adminstrator trys to access the admin dashbaord then display the 403 page
+            $this->load->view('pages/403');
         }
-
-        $this->load->view('pages/admin', array(
-            'events' => $events,
-        ));
     }
 
     /**
@@ -55,9 +57,10 @@ class Events extends CI_Controller {
      */
     public function delete_event($id) {
         $this->load->model('Event');
+        //if the Event was deleted successfully display this success message
         if ($this->Event->delete($id)) {
             $this->session->set_flashdata('Success :)', 'Event was successfully deleted');
-        } else {
+        } else {//if the Event was not deleted successfully display this error message
             $this->session->set_flashdata('Error :(', 'We were not able to delete your Event, could you please try again.');
         }
 
@@ -69,6 +72,9 @@ class Events extends CI_Controller {
      * Display the Events page.
      */
     public function upcoming_events() {
+        $this->load->helper('url');
+        $this->load->model('Event');
+        $this->load->library('pagination');
         //Pagination functionality.
         $per_page = 5;
         $uri_segment = 3;
@@ -96,6 +102,7 @@ class Events extends CI_Controller {
         $config['num_links'] = round($config["total_rows"] / $config["per_page"]);
 
         $this->pagination->initialize($config);
+        //Displays the Events from the db onto the Upcoming Events page
         $data['result'] = $this->get_events($config);
         $this->load->view('pages/events', $data);
     }
@@ -110,6 +117,7 @@ class Events extends CI_Controller {
         //Restrict the amount of events that are displayed on the 'Events' page
         $this->Event->limit($config['per_page'], $offset);
         //Select the following values from the database (Values which will be then viewed on the 'Events' page)
+        $this->db->select('id');
         $this->db->select('title');
         $this->db->select('start_date');
         $this->db->select('end_date');
@@ -118,6 +126,23 @@ class Events extends CI_Controller {
         //Sets up a for each loop which will then display the events
         $query = $this->db->get();
         return $result = $query->result();
+    }
+
+    /**
+     * Display information for the Event that the user wants to learn more about.
+     */
+    public function display_event($id) {
+        $this->_init();
+        $this->load->helper('url');
+        $this->load->model('Event');
+        
+        $event_data = $this->Event->get_by(array('id' => $id));
+        
+        
+        
+        $this->load->view('pages/event', array(
+            'event_data' => $event_data,
+        ));
     }
 
     /**
@@ -158,7 +183,7 @@ class Events extends CI_Controller {
      * Inserting Events in the database and updating events in the databse which have bee edited.
      */
     private function _insert_update($event, $id) {
-        //populate from the post
+        //Populate form fields with data from the post
         $event->title = $this->input->post('title');
         $event->start_date = $this->input->post('start_date');
         $event->end_date = $this->input->post('end_date');
@@ -167,7 +192,7 @@ class Events extends CI_Controller {
         $event->description = $this->input->post('description');
         $event->user_id = $this->session->userdata('user_id');
 
-        // Todo Validation
+        //Event Validation
         $this->load->library('form_validation');
         $this->form_validation->set_rules(array(
             array(
@@ -204,7 +229,7 @@ class Events extends CI_Controller {
 
         $this->form_validation->set_error_delimiters('<div>', '</div>');
 
-        //if User submitted Todo does not pass validation
+        //if Admin submitted Event does not pass validation
         if (!$this->form_validation->run()) {
             $this->load->view('pages/add-edit', array(
                 'edit' => $id != NULL,

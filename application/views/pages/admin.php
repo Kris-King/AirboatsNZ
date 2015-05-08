@@ -49,10 +49,10 @@
                                     'table_open' => '<table class="table">',
                                 );
                                 $table_heading = array(
-                                    '0' => array('data' => 'Id'),
-                                    '1' => array('data' => 'Title'),
-                                    '2' => array('data' => 'Edit Event'),
-                                    '3' => array('data' => 'Delete Event'));
+                                    '0' => array('data' => 'Id', 'class' => 'col-sm-2'),
+                                    '1' => array('data' => 'Title', 'class' => 'col-sm-4'),
+                                    '2' => array('data' => 'Edit Event', 'class' => 'col-sm-3'),
+                                    '3' => array('data' => 'Delete Event', 'class' => 'col-sm-3'));
                                 $this->table->set_template($table_template);
                                 $this->table->set_heading($table_heading);
                                 echo $this->table->generate($events);

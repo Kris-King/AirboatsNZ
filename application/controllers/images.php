@@ -31,7 +31,7 @@ class Images extends CI_Controller {
         $uri_segment = 3;
         $config['base_url'] = base_url() . "images/user_gallery";
         $config['per_page'] = $per_page;
-        $config['total_rows'] = $this->Event->count_all();
+        $config['total_rows'] = $this->Image->count_all();
         $config['uri_segment'] = $uri_segment;
         $config['full_tag_open'] = "<ul class='pagination pagination-lg'>";
         $config['full_tag_close'] = "</ul>";
@@ -69,8 +69,12 @@ class Images extends CI_Controller {
 
     public function upload() {
         $this->_init();
-        $this->load->helper('form');
-        $this->load->view('pages/upload_form');
+        if ($this->session->userdata('is_logged_in')) {
+            $this->load->helper('form');
+            $this->load->view('pages/upload_form');
+        } else {
+            $this->load->view('pages/403');
+        }
     }
 
     private function upload_image() {
