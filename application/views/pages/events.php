@@ -16,7 +16,7 @@
                     <p class="Event_spacing spacing">
                         <?php echo $r->description; ?>
                     </p>
-                    <a class="btn-lg btn-primary" href="<?php echo site_url('events/display_event/'.$r->id); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn-lg btn-primary" href="<?php echo base_url('events/display_event/'.$r->id); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 </div>
             <?php endforeach; ?>
