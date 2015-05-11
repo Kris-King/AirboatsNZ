@@ -23,6 +23,7 @@
                     <ul class="nav nav-pills nav-justified">
                         <li class="active"><a data-toggle="pill" href="#Welcome" class="btn-default marg3" role="button"><span class="glyphicon glyphicon-user"></span> Welcome</a></li>
                         <li><a data-toggle="pill" href="#Events" class="btn-default marg3" role="button"><span class="glyphicon glyphicon-edit"></span> Events</a></li>
+                        <li><a data-toggle="pill" href="#User_Images" class="btn-default marg3" role="button"><span class="glyphicon glyphicon-user"></span> User Images</a></li>
                         <li><a data-toggle="pill" href="#Help" class="btn-default marg3" role="button"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
                     </ul>
 
@@ -56,6 +57,25 @@
                                 $this->table->set_template($table_template);
                                 $this->table->set_heading($table_heading);
                                 echo $this->table->generate($events);
+                                ?>
+                            <?php endif; ?>
+                        </div>
+                        </div>
+                        <div id="User_Images" class="tab-pane fade element_spacing">
+                             <h3><span class="glyphicon glyphicon-user"></span> User Images<hr></h3>
+                        <div class="element_margins">
+                            <?php
+                            if (isset($images)):
+                                $table_template = array(
+                                    'table_open' => '<table class="table">',
+                                );
+                                $table_heading = array(
+                                    '0' => array('data' => 'User Id', 'class' => 'col-sm-2'),
+                                    '1' => array('data' => 'Image Name', 'class' => 'col-sm-4'),
+                                    '2' => array('data' => 'Delete Image', 'class' => 'col-sm-3'));
+                                $this->table->set_template($table_template);
+                                $this->table->set_heading($table_heading);
+                                echo $this->table->generate($images);
                                 ?>
                             <?php endif; ?>
                         </div>

@@ -34,8 +34,11 @@ class Events extends CI_Controller {
         if ($this->session->userdata('is_logged_in')) {
             $this->load->library('table');
             $events = array();
+            $images = array();
             $this->load->model('Event');
+            $this->load->model('Image');
             $rows = $this->Event->get_all('events');
+            $user_images = $this->Image->get_all('images');
             foreach ($rows as $row) {
                 $events[] = array(
                     $row->id,
@@ -44,8 +47,16 @@ class Events extends CI_Controller {
                     '<a href="' . base_url() . 'events/delete_event/' . $row->id . '" class="btn btn-danger btn-block" data-confirm><span class="glyphicon glyphicon-trash"></span> Delete</a>',
                 );
             }
+            foreach ($user_images as $row) {
+                $images[] = array(
+                    $row->user_id,
+                    $row->url,
+                    '<a href="' . base_url() . 'events/delete_image/' . $row->id . '" class="btn btn-danger btn-block" data-confirm="Are you sure you want to delete?"><span class="glyphicon glyphicon-trash"></span> Delete</a>',
+                );
+            }
             $this->load->view('pages/admin', array(
                 'events' => $events,
+                'images' => $images,
             ));
         } else {//If any user other than the site adminstrator trys to access the admin dashbaord then display the 403 page
             $this->load->view('pages/403');
@@ -62,6 +73,22 @@ class Events extends CI_Controller {
             $this->session->set_flashdata('Success :)', 'Event was successfully deleted');
         } else {//if the Event was not deleted successfully display this error message
             $this->session->set_flashdata('Error :(', 'We were not able to delete your Event, could you please try again.');
+        }
+
+        //Return the user back to the Admin page
+        redirect('events', 'refresh');
+    }
+
+    /**
+     * Delete functionality for deleting an event.
+     */
+    public function delete_image($id) {
+        $this->load->model('Image');
+        //if the Event was deleted successfully display this success message
+        if ($this->Event->delete($id)) {
+            $this->session->set_flashdata('Success :)', 'User image was successfully deleted');
+        } else {//if the Event was not deleted successfully display this error message
+            $this->session->set_flashdata('Error :(', 'We were not able to delete the Image, could you please try again.');
         }
 
         //Return the user back to the Admin page
@@ -135,11 +162,11 @@ class Events extends CI_Controller {
         $this->_init();
         $this->load->helper('url');
         $this->load->model('Event');
-        
+
         $event_data = $this->Event->get_by(array('id' => $id));
-        
-        
-        
+
+
+
         $this->load->view('pages/event', array(
             'event_data' => $event_data,
         ));

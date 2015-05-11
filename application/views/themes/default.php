@@ -247,5 +247,36 @@
                 });
             });
 
+
+            //Dialog box which is displayed when the site administrator wants to delete an event (to confirm if they want to delete the event)
+            $(document).ready(function () {
+                $('a[data-confirm]').click(function () {
+                    var href = $(this).attr('href');
+                    if ($('#confirmImageDeletion').length) {
+                        $('body').append('\
+                        <div id="confirmImageDeletion" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dataConfirmLabel" aria-hidden="true">\n\
+                        <div class="modal-dialog">\n\
+                        <div class="modal-content">\n\
+                        <div class="modal-header">\n\
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n\
+                        <h4 class="modal-title" id="dataConfirmLabel">Confirm Deletion</h4>\n\
+                        </div>\n\
+                        <div class="modal-body">\n\
+                        </div>\n\
+                        <div class="modal-footer">\n\
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">No, keep it</button>\n\
+                        <a class="btn btn-danger" id="dataConfirmOK">Yes, delete it</a>\n\
+                        </div>\n\
+                        </div>\n\
+                        </div>\n\
+                        </div>');
+                    }
+                    $('#confirmImageDeletion').find('.modal-body').text($(this).attr('data-confirm'));
+                    $('#dataConfirmOK').attr('href', href);
+                    $('#confirmImageDeletion').modal({show: true});
+                    return false;
+                });
+            });
+
         </script>
     </body></html>
