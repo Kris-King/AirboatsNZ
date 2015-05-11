@@ -1,121 +1,6 @@
 <section class="wrapper">
     <section class="container">
         <h1><span class="glyphicon glyphicon-info-sign"></span> About Us<hr></h1>
-        
-        <section class="element_spacing margin_spacing">
-            <h1>Airboats<hr></h1>
-        </section>
-
-        <section class="spacing">
-            <div>
-                <h3>Flexible Hull</h3>
-                <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
-                </div>
-                <p>
-                    The River-Crossover Airboat is a low-weight high-speed all-weather inflatable boat that uses aerodynamic propulsion. 
-                    The hull comprises of several inflated low pressure pontoons (PVC fabric tubes) that are protected on the underside 
-                    by reinforced abrasion resistant sections that resemble fish scales. The main advantage of this flexible hull design 
-                    is the ability to cross over many surfaces like low-water stony rivers and creeks, rapids, river shingle, sand, mud, 
-                    swamps, snow, ice and land with relative ease and with no discomfort to passengers.
-                </p>
-
-            </div>
-        </section>
-
-        <section class="spacing">
-            <div>
-                <h3>Transporting</h3>
-                <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
-                </div>
-                <p>
-                    Taking you to places where other water craft have difficulty, the River-Crossover Airboats have far more maneuverability and 
-                    carry twice the load of a hovercraft of a similar size. Also, River-Crossover Airboats will run extreme shallows 
-                    without being grounded as compared to a jet boat.  
-                </p>
-
-            </div>
-        </section>
-
-        <section class="spacing">
-            <div>
-                <h3>Applications</h3>
-                <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
-                </div>
-                <p>
-                    Safe and easily operated, the all-weather River-Crossover Airboat can be used for fishing and hunting, 
-                    sightseeing and adventure tourism, search and rescue in tidal and frequently flooded areas, geological 
-                    exploration purposes, military applications, or just having a boatload of fun with family and friends.
-                </p>
-
-            </div>
-        </section>
-
-        <section class="spacing">
-            <div>
-                <h3>Propulsion</h3>
-                <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
-                </div>
-                <p>
-                    In South Pacific countries: Suzuki, Subaru and Toyota automobile engines power the series of River-Crossover Airboats. 
-                    The engines range from 1.2-litre to 4.2-litre and are fitted with an aviation reduction gearbox coupled to a wide blade 
-                    low noise composite aero propeller.   
-                </p>
-
-            </div>
-        </section>
-
-        <section class="spacing">
-            <div>
-                <h3>Control</h3>
-                <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
-                </div>
-                <p>
-                    There are two Aerodynamic rudders for the small to medium craft and four on the larger craft. Positioned in the propeller slipstream, 
-                    the rudders are angled inward toward the top pivot point like an inverted V .This style of rudder setting has a desirable 
-                    tendency to lean the craft into the turn and assist maneuvering in narrow winding rivers or confined areas.    
-                </p>
-
-            </div>
-        </section>
-
-        <section class="spacing">
-            <div>
-                <h3>Load Capacity and Speed</h3>
-                <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
-                </div>
-                <p>
-                    Currently there are six River-Crossover Airboats to choose  from, ranging from a 4-seat 500kg loading capacity, to a 10-seat 1200kg 
-                    loading capacity, or a combination of seating and cargo.  Also, variants of seating placement and style are available within the range. 
-                    Speeds attainable on water will depend on the loading of the Airboat, although in general, 70km/h for the smaller Airboats and up to 
-                    110km/h for the larger more powerful Airboats.
-                </p>
-
-            </div>
-        </section>
-
-        <section class="spacing">
-            <div>
-                <h3>You drive...</h3>
-                <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
-                </div>
-                <p>
-                    Easy to drive, our River-Crossover Airboats will take you to places that were previously unreachable with other craft. 
-                    We are sure, that once you try our Airboats, you'll have a smile on your face as wide as the Pacific Ocean....
-                </p>
-
-            </div>
-        </section>
-        
-        <section class="element_spacing margin_spacing">
-            <h1>General<hr></h1>
-        </section>
 
         <section class="spacing">
             <p>
@@ -126,8 +11,147 @@
         </section>
 
         <section class="spacing">
-            <h3>Uploading Images</h3>
-            <p>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    
+                        <ul class="nav navbar-nav">
+                            <h4 class="pad15">Airboats<hr></h4>
+                            <li><a href="#Flexible_Hull">Flexible Hull</a></li>
+                            <li><a href="#Transporting">Transporting</a></li>
+                            <li><a href="#Applications">Applications</a></li>
+                            <li><a href="#Propulsion">Propulsion</a></li>
+                            <li><a href="#Control">Control</a></li>
+                            <li><a href="#Load_Capacity">Load Capacity and Speed</a></li>
+                            <li class="spacing"><a href="#You_Drive">You drive...</a></li>
+                            <h4 class="pad15">General<hr></h4>
+                            <li><a href="#Uploading_Images">Uploading Images</a></li>
+                            <li><a href="#Creating_Account">Creating an Account</a></li>
+                            <li><a href="#Code_of_Conduct">Code of Conduct</a></li>
+                            <li><a href="#Making_Enquiry">Making an Enquiry</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+        <section class="element_spacing" id="Flexible_Hull">
+            <h2>Airboats</h2>
+        </section>
+
+        <section class="spacing margin_spacing">
+            <div>
+                <h3>Flexible Hull<hr></h3>
+                <div class="spacing">
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                </div>
+                <p id="Transporting">
+                    The River-Crossover Airboat is a low-weight high-speed all-weather inflatable boat that uses aerodynamic propulsion. 
+                    The hull comprises of several inflated low pressure pontoons (PVC fabric tubes) that are protected on the underside 
+                    by reinforced abrasion resistant sections that resemble fish scales. The main advantage of this flexible hull design 
+                    is the ability to cross over many surfaces like low-water stony rivers and creeks, rapids, river shingle, sand, mud, 
+                    swamps, snow, ice and land with relative ease and with no discomfort to passengers.
+                </p>
+
+            </div>
+        </section>
+
+        <section class="spacing element_spacing">
+            <div>
+                <h3 id="Transporting">Transporting<hr></h3>
+                <div class="spacing">
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                </div>
+                <p id="Applications">
+                    Taking you to places where other water craft have difficulty, the River-Crossover Airboats have far more maneuverability and 
+                    carry twice the load of a hovercraft of a similar size. Also, River-Crossover Airboats will run extreme shallows 
+                    without being grounded as compared to a jet boat.  
+                </p>
+
+            </div>
+        </section>
+
+        <section class="spacing element_spacing">
+            <div>
+                <h3>Applications<hr></h3>
+                <div class="spacing">
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                </div>
+                <p id="Propulsion">
+                    Safe and easily operated, the all-weather River-Crossover Airboat can be used for fishing and hunting, 
+                    sightseeing and adventure tourism, search and rescue in tidal and frequently flooded areas, geological 
+                    exploration purposes, military applications, or just having a boatload of fun with family and friends.
+                </p>
+
+            </div>
+        </section>
+
+        <section class="spacing element_spacing">
+            <div>
+                <h3>Propulsion<hr></h3>
+                <div class="spacing">
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                </div>
+                <p id="Control">
+                    In South Pacific countries: Suzuki, Subaru and Toyota automobile engines power the series of River-Crossover Airboats. 
+                    The engines range from 1.2-litre to 4.2-litre and are fitted with an aviation reduction gearbox coupled to a wide blade 
+                    low noise composite aero propeller.   
+                </p>
+
+            </div>
+        </section>
+
+        <section class="spacing element_spacing">
+            <div>
+                <h3>Control<hr></h3>
+                <div class="spacing">
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                </div>
+                <p id="Load_Capacity">
+                    There are two Aerodynamic rudders for the small to medium craft and four on the larger craft. Positioned in the propeller slipstream, 
+                    the rudders are angled inward toward the top pivot point like an inverted V .This style of rudder setting has a desirable 
+                    tendency to lean the craft into the turn and assist maneuvering in narrow winding rivers or confined areas.    
+                </p>
+
+            </div>
+        </section>
+
+        <section class="spacing element_spacing">
+            <div>
+                <h3>Load Capacity and Speed<hr></h3>
+                <div class="spacing">
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                </div>
+                <p id="You_Drive">
+                    Currently there are six River-Crossover Airboats to choose  from, ranging from a 4-seat 500kg loading capacity, to a 10-seat 1200kg 
+                    loading capacity, or a combination of seating and cargo.  Also, variants of seating placement and style are available within the range. 
+                    Speeds attainable on water will depend on the loading of the Airboat, although in general, 70km/h for the smaller Airboats and up to 
+                    110km/h for the larger more powerful Airboats.
+                </p>
+
+            </div>
+        </section>
+
+        <section class="spacing element_spacing">
+            <div>
+                <h3>You drive...<hr></h3>
+                <div class="spacing">
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                </div>
+                <p>
+                    Easy to drive, our River-Crossover Airboats will take you to places that were previously unreachable with other craft. 
+                    We are sure, that once you try our Airboats, you'll have a smile on your face as wide as the Pacific Ocean....
+                </p>
+
+            </div>
+        </section>
+
+        <section class="element_spacing margin_spacing" id="Uploading_Images">
+            <h2>General</h2>
+        </section>
+
+        <section class="spacing margin_spacing">
+            <h3>Uploading Images<hr></h3>
+            <p id="Creating_Account">
                 As a registered user you can use the upload page to upload your own airboat images to the user gallery. 
                 Maximum upload sizes and accepted image formats can be found displayed on the upload image page. 
                 On this page you can also view a list of instructions to walk you through the uploading process. 
@@ -137,9 +161,9 @@
             </p>
         </section>
 
-        <section class="spacing">
-            <h3>Creating an Account</h3>
-            <p>
+        <section class="spacing element_spacing">
+            <h3>Creating an Account<hr></h3>
+            <p id="Code_of_Conduct">
                 To access certain features on this site one must first create an account with us.
                 The process is very simple and will only take a moment to fill in. All fields are required
                 and must be filled in to complete the sign up process. All information provided by you is kept strictly 
@@ -149,9 +173,9 @@
             </p>
         </section>
 
-        <section class="spacing">
-            <h3>Code of Conduct</h3>
-            <p>
+        <section class="spacing element_spacing">
+            <h3>Code of Conduct<hr></h3>
+            <p id="Making_Enquiry">
                 One of the main features of this site is sharing and inspiring other airboat users with images uploaded by our
                 registered users. While we encourage this we however do not condone the sharing of offensive imagery. 
                 Any image/s deemed overtly offensive to other users will be removed from this site immediately. 
@@ -162,8 +186,8 @@
             </p>
         </section>
 
-        <section class="spacing">
-            <h3>Making an Enquiry</h3>
+        <section class="spacing element_spacing">
+            <h3>Making an Enquiry<hr></h3>
             <p>
                 If you are interested in purchasing your own airboat then you can make an enquiry with the site owner who can then 
                 direct you to a company which is handling the distribution of Airboats in the South Pacific region. If you don't want 

@@ -8,7 +8,7 @@
                 </h4>
                 <!--                <div class="spacing element_margins">
                 <?php if (validation_errors()): ?>
-                                            <div class="alert alert-danger"> <?php echo validation_errors('<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
+                                                    <div class="alert alert-danger"> <?php echo validation_errors('<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                 <?php endif; ?>
                                 </div>-->
                 <div class="element_margins">
@@ -52,10 +52,18 @@
                         <?php endif; ?>
                         <input type="password" class="form-control" name="confirm_password" value="<?php echo set_value('confirm_password'); ?>">
                     </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="recaptcha" class="hidden">Captcha</label>
+                    <?php if (form_error('recaptcha')): ?>
+                        <div class="alert alert-danger"> <?php echo form_error('recaptcha', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
+                    <?php endif; ?>
+                    <div class="g-recaptcha" name="recaptcha" data-sitekey="6Lc3qQYTAAAAABGbOz--xQZmg3_oZ45hBiHN2s2g"></div>
+                    </div>
+                    <br>
                     <div class="form-group">
                         <?php echo form_hidden('status', 'Pending'); ?>
                     </div>
-                    <br>
                     <button type="submit" class="btn btn-primary  btn-lg"><span class="glyphicon glyphicon-plus-sign"></span> Create Account</button>
                     <?php echo form_reset('submit', 'Cancel', 'class="btn btn-default marg15 btn-lg"'); ?>
                     <?php echo form_close(); ?>

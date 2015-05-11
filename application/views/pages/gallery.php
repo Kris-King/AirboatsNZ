@@ -6,7 +6,9 @@
                 <?php foreach ($result as $r): ?>
                     <div class="col-md-4 spacing">
 
-                        <img src="<?php echo base_url() ?>uploads/<?php echo $r->url; ?>" class="img-responsive" alt="User submitted image"/>
+                        <a href="<?php echo base_url() ?>uploads/<?php echo $r->url; ?>" target="_self" class="litebox">
+                            <img src="<?php echo base_url() ?>uploads/<?php echo $r->url; ?>" class="img-responsive" alt="User submitted image"/>
+                        </a>
 
                     </div>
                 <?php endforeach; ?>

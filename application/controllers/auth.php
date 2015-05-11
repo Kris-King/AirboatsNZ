@@ -99,6 +99,7 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email');
         $this->form_validation->set_rules('user_password', 'Password', 'trim|required|min_length[4]|max_length[32]');
         $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[user_password]');
+        $this->form_validation->set_rules('recaptcha','Captcha', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('pages/sign_up');

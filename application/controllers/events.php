@@ -44,14 +44,15 @@ class Events extends CI_Controller {
                     $row->id,
                     $row->title,
                     '<a href="' . base_url() . 'events/add_edit/' . $row->id . '"class="btn btn-primary btn-block"><span class="glyphicon glyphicon-wrench"></span> Edit</a>',
-                    '<a href="' . base_url() . 'events/delete_event/' . $row->id . '" class="btn btn-danger btn-block" data-confirm><span class="glyphicon glyphicon-trash"></span> Delete</a>',
+                    '<a href="' . base_url() . 'events/delete_event/' . $row->id . '" class="btn btn-danger btn-block" confirm-event-deletion><span class="glyphicon glyphicon-trash"></span> Delete</a>',
                 );
             }
-            foreach ($user_images as $row) {
+            foreach ($user_images as $r) {
                 $images[] = array(
-                    $row->user_id,
-                    $row->url,
-                    '<a href="' . base_url() . 'events/delete_image/' . $row->id . '" class="btn btn-danger btn-block" data-confirm="Are you sure you want to delete?"><span class="glyphicon glyphicon-trash"></span> Delete</a>',
+                    $r->id,
+                    $r->user_id,
+                    $r->url,
+                    '<a href="' . base_url() . 'events/delete_image/' . $r->id . '" class="btn btn-danger btn-block" confirm-image-deletion><span class="glyphicon glyphicon-trash"></span> Delete</a>',
                 );
             }
             $this->load->view('pages/admin', array(
@@ -85,7 +86,7 @@ class Events extends CI_Controller {
     public function delete_image($id) {
         $this->load->model('Image');
         //if the Event was deleted successfully display this success message
-        if ($this->Event->delete($id)) {
+        if ($this->Image->delete($id)) {
             $this->session->set_flashdata('Success :)', 'User image was successfully deleted');
         } else {//if the Event was not deleted successfully display this error message
             $this->session->set_flashdata('Error :(', 'We were not able to delete the Image, could you please try again.');

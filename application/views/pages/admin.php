@@ -2,7 +2,7 @@
     <section class="container">
         <div class="element_margins">
             <h1><span class="glyphicon glyphicon-cog"></span> Admin Dashboard<hr></h1>
-            <p class="alert alert-success hidden" id="demo"></p>
+            <p id="demo"></p>
             <div>
                 <a href="<?php echo site_url('events/add_edit'); ?>" class="btn btn-primary btn-lg btn-block" role="button"><span class="glyphicon glyphicon-plus"></span> Add an Event</a>
             </div>
@@ -70,9 +70,10 @@
                                     'table_open' => '<table class="table">',
                                 );
                                 $table_heading = array(
-                                    '0' => array('data' => 'User Id', 'class' => 'col-sm-2'),
-                                    '1' => array('data' => 'Image Name', 'class' => 'col-sm-4'),
-                                    '2' => array('data' => 'Delete Image', 'class' => 'col-sm-3'));
+                                    '0' => array('data' => 'Id'),
+                                    '1' => array('data' => 'User Id'),
+                                    '2' => array('data' => 'Image Name'),
+                                    '3' => array('data' => 'Delete Image'));
                                 $this->table->set_template($table_template);
                                 $this->table->set_heading($table_heading);
                                 echo $this->table->generate($images);

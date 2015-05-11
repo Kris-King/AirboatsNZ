@@ -37,12 +37,16 @@
 
         <!-- Le styles -->
         <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/themes/default/css/litebox.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/general.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/custom.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 
         <script src="<?php echo base_url(); ?>assets/themes/default/js/bootstrap.min.js"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script src="<?php echo base_url(); ?>assets/themes/default/js/images-loaded.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/themes/default/js/litebox.js"></script>
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -167,14 +171,14 @@
         <script type="text/javascript">
 
             //ajax login functionality
-            $(document).ready(function () {
-                $("#frm-sign_in").submit(function (e) {
+            $(document).ready(function() {
+                $("#frm-sign_in").submit(function(e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
                     $.post(url, data)
-                            .done(function (data) {
+                            .done(function(data) {
                                 if (data === 'fail') {
                                     $("#login-error").removeClass("hidden");
                                     $("#login-password-required-error").addClass("hidden");
@@ -202,8 +206,8 @@
             });
 
             //Dialog box which is displayed when a user is trying to access the Upload page but is not logged in
-            $(document).ready(function () {
-                $("#img_upload").submit(function (e) {
+            $(document).ready(function() {
+                $("#img_upload").submit(function(e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
@@ -212,15 +216,15 @@
                         url: url,
                         type: method,
                         data: data
-                    }).done(function () {
+                    }).done(function() {
                         window.location.href = '';
                     });
                 });
             });
 
             //Dialog box which is displayed when the site administrator wants to delete an event (to confirm if they want to delete the event)
-            $(document).ready(function () {
-                $('a[data-confirm]').click(function () {
+            $(document).ready(function() {
+                $('a[confirm-event-deletion]').click(function() {
                     var href = $(this).attr('href');
                     if (!$('#confirmDeletion').length) {
                         $('body').append('\
@@ -231,7 +235,9 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n\
                         <h4 class="modal-title" id="dataConfirmLabel">Confirm Deletion</h4>\n\
                         </div>\n\
-                        <div class="modal-body"><p>Warning: You are about to delete this event!</p><p class="element_margins">Deleting this event will remove it from the site permanently, are sure you want to delete it?</p>\n\
+                        <div class="modal-body"><p>Warning: You are about to delete this event!</p><p class="element_margins">\n\
+                        Deleting this event will remove it from this site permanently, are sure you want to delete it?\n\
+                        </p>\n\
                         </div>\n\
                         <div class="modal-footer">\n\
                         <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">No, keep it</button>\n\
@@ -249,10 +255,10 @@
 
 
             //Dialog box which is displayed when the site administrator wants to delete an event (to confirm if they want to delete the event)
-            $(document).ready(function () {
-                $('a[data-confirm]').click(function () {
+            $(document).ready(function() {
+                $('a[confirm-image-deletion]').click(function() {
                     var href = $(this).attr('href');
-                    if ($('#confirmImageDeletion').length) {
+                    if (!$('#confirmImageDeletion').length) {
                         $('body').append('\
                         <div id="confirmImageDeletion" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dataConfirmLabel" aria-hidden="true">\n\
                         <div class="modal-dialog">\n\
@@ -261,22 +267,31 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n\
                         <h4 class="modal-title" id="dataConfirmLabel">Confirm Deletion</h4>\n\
                         </div>\n\
-                        <div class="modal-body">\n\
+                        <div class="modal-body"><p>Warning: You are about to remove an image uploaded by this user!</p><p class="element_margins">\n\
+                        You should only remove an image which breaches the Code of Conduct mentioned on this site. Are you sure this image needs to be removed?</p>\n\
                         </div>\n\
                         <div class="modal-footer">\n\
-                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">No, keep it</button>\n\
-                        <a class="btn btn-danger" id="dataConfirmOK">Yes, delete it</a>\n\
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">No, leave it be</button>\n\
+                        <a class="btn btn-danger" id="dataConfirmOK">Yes, remove it</a>\n\
                         </div>\n\
                         </div>\n\
                         </div>\n\
                         </div>');
                     }
-                    $('#confirmImageDeletion').find('.modal-body').text($(this).attr('data-confirm'));
                     $('#dataConfirmOK').attr('href', href);
                     $('#confirmImageDeletion').modal({show: true});
                     return false;
                 });
             });
 
+
+            $('.litebox').liteBox({
+                revealSpeed: 400,
+                background: 'rgba(0,0,0,.8)',
+                overlayClose: true,
+                escKey: true,
+                navKey: true,
+                errorMessage: 'Error loading content.'
+            });
         </script>
     </body></html>
