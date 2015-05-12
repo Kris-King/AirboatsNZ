@@ -1,12 +1,13 @@
 <section class="wrapper">
     <section class="container">
+        <!--   Image Attribution: http://commons.wikimedia.org/wiki/File:BoogalooAudienceNOLA2009.JPG   -->
         <section  id="events" class="container">
             <h1 class="margin_spacing"><span class="glyphicon glyphicon-globe"></span> Upcoming Events</h1>
         </section>
         <section class="element_margins">
-        <div>
-            <?php echo $this->pagination->create_links(); ?>
-        </div>
+            <div>
+                <?php echo $this->pagination->create_links(); ?>
+            </div>
             <?php foreach ($result as $r): ?>
                 <div class="spacing">
                     <hr>
@@ -16,7 +17,7 @@
                     <p class="Event_spacing spacing">
                         <?php echo $r->description; ?>
                     </p>
-                    <a class="btn-lg btn-primary" href="<?php echo base_url('events/display_event/'.$r->id); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn-lg btn-primary" href="<?php echo base_url('events/display_event/' . $r->id); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 </div>
             <?php endforeach; ?>

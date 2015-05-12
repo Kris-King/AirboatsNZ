@@ -1,6 +1,6 @@
 <section id="about">
     <div class="container element_spacing">
-        <div class="row">
+        <div>
             <div class="col-md-12 col-md-offset-3">
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/Home_Page_logo.png" class="img-responsive" alt="user_gallery"/>
             </div>

@@ -118,5 +118,6 @@ a.btn-lg{
 #events{
     min-height:100%;
     padding:10px;
-    background-image: url('http://localhost/AirboatsNZ/assets/themes/default/images/events_background_img.jpg');
+    /*        Attribution: http://commons.wikimedia.org/wiki/File:BoogalooAudienceNOLA2009.JPG     */
+    background-image: url('http://localhost/AirboatsNZ/assets/themes/default/images/events_img.JPG');
 }

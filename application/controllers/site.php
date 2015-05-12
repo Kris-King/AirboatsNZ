@@ -32,6 +32,11 @@ class Site extends CI_Controller {
         $this->_init();
         $this->load->view('pages/about');
     }
+    
+    public function error_404() {
+        $this->_init();
+        $this->load->view('pages/404');
+    }
 
     public function events() {
         $this->_init();

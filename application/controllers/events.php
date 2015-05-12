@@ -60,7 +60,7 @@ class Events extends CI_Controller {
                 'images' => $images,
             ));
         } else {//If any user other than the site adminstrator trys to access the admin dashbaord then display the 403 page
-            $this->load->view('pages/403');
+            $this->load->view('pages/401');
         }
     }
 

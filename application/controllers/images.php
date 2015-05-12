@@ -73,7 +73,7 @@ class Images extends CI_Controller {
             $this->load->helper('form');
             $this->load->view('pages/upload_form');
         } else {
-            $this->load->view('pages/403');
+            $this->load->view('pages/401');
         }
     }
 
