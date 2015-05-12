@@ -1,7 +1,7 @@
 <section class="wrapper">
     <section class="container">
-        <section  id="events" class="container">
-            <h1 class="margin_spacing"><span class="glyphicon glyphicon-upload"></span> Upload Images</h1>
+        <section  id="upload" class="container">
+            <h1 class="margin_spacing floatR"><span class="glyphicon glyphicon-upload"></span> Upload Images</h1>
         </section>
 
         <section class="element_margins">
@@ -19,9 +19,22 @@
                 <p>2. Select the image that you want to upload</p>
                 <p>3. Click the upload button</p>
                 <p>4. Errors with your image will be displayed below</p>
-                <p>5. Upon the successful upload of your image you will be redirected to the User Gallery page</p>
             </div>
             <br>
+            <div class="spacing">
+                <?php
+                //success message
+                if ($this->session->flashdata('success')):
+                    ?>
+                    <div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-floppy-open"></span> <?php echo $this->session->flashdata('success'); ?></div>
+                <?php endif; ?>
+                <?php
+                //error message
+                if ($this->session->flashdata('error')):
+                    ?>
+                    <div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-floppy-open"></span> <?php echo $this->session->flashdata('error'); ?></div>
+                <?php endif; ?>
+            </div>
             <?php if (isset($error)): ?>
                 <div class="alert alert-danger"><?php echo $error; ?></div> 
             <?php endif; ?>

@@ -2,22 +2,23 @@
     <section class="container">
         <div class="element_margins">
             <h1><span class="glyphicon glyphicon-cog"></span> Admin Dashboard<hr></h1>
-            <p id="demo"></p>
             <div>
                 <a href="<?php echo site_url('events/add_edit'); ?>" class="btn btn-primary btn-lg btn-block" role="button"><span class="glyphicon glyphicon-plus"></span> Add an Event</a>
             </div>
-            <?php
-            //Success Message
-            if ($this->session->flashdata('success')):
-                ?>
-                <div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success'); ?></div>
-            <?php endif; ?>
-            <?php
-            //Error Message 
-            if ($this->session->flashdata('error')):
-                ?>
-                <div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error'); ?></div>
-            <?php endif; ?>  
+            <div class="element_margins">
+                <?php
+                //success message
+                if ($this->session->flashdata('success')):
+                    ?>
+                <div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok"></span> <?php echo $this->session->flashdata('success'); ?></div>
+                <?php endif; ?>
+                <?php
+                //error message
+                if ($this->session->flashdata('error')):
+                    ?>
+                    <div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-remove"></span> <?php echo $this->session->flashdata('error'); ?></div>
+                <?php endif; ?>
+            </div>
             <div class="element_spacing">
                 <div class="element_margins">
                     <ul class="nav nav-pills nav-justified">
@@ -42,44 +43,44 @@
                             </p>
                         </div>
                         <div id="Events" class="tab-pane fade element_spacing">
-                             <h3><span class="glyphicon glyphicon-calendar"></span> Events<hr></h3>
-                        <div class="element_margins">
-                            <?php
-                            if (isset($events)):
-                                $table_template = array(
-                                    'table_open' => '<table class="table">',
-                                );
-                                $table_heading = array(
-                                    '0' => array('data' => 'Id', 'class' => 'col-sm-2'),
-                                    '1' => array('data' => 'Title', 'class' => 'col-sm-4'),
-                                    '2' => array('data' => 'Edit Event', 'class' => 'col-sm-3'),
-                                    '3' => array('data' => 'Delete Event', 'class' => 'col-sm-3'));
-                                $this->table->set_template($table_template);
-                                $this->table->set_heading($table_heading);
-                                echo $this->table->generate($events);
-                                ?>
-                            <?php endif; ?>
-                        </div>
+                            <h3><span class="glyphicon glyphicon-calendar"></span> Events<hr></h3>
+                            <div class="element_margins">
+                                <?php
+                                if (isset($events)):
+                                    $table_template = array(
+                                        'table_open' => '<table class="table">',
+                                    );
+                                    $table_heading = array(
+                                        '0' => array('data' => 'Id', 'class' => 'col-sm-2'),
+                                        '1' => array('data' => 'Title', 'class' => 'col-sm-4'),
+                                        '2' => array('data' => 'Edit Event', 'class' => 'col-sm-3'),
+                                        '3' => array('data' => 'Delete Event', 'class' => 'col-sm-3'));
+                                    $this->table->set_template($table_template);
+                                    $this->table->set_heading($table_heading);
+                                    echo $this->table->generate($events);
+                                    ?>
+                                <?php endif; ?>
+                            </div>
                         </div>
                         <div id="User_Images" class="tab-pane fade element_spacing">
-                             <h3><span class="glyphicon glyphicon-user"></span> User Images<hr></h3>
-                        <div class="element_margins">
-                            <?php
-                            if (isset($images)):
-                                $table_template = array(
-                                    'table_open' => '<table class="table">',
-                                );
-                                $table_heading = array(
-                                    '0' => array('data' => 'Id'),
-                                    '1' => array('data' => 'User Id'),
-                                    '2' => array('data' => 'Image Name'),
-                                    '3' => array('data' => 'Delete Image'));
-                                $this->table->set_template($table_template);
-                                $this->table->set_heading($table_heading);
-                                echo $this->table->generate($images);
-                                ?>
-                            <?php endif; ?>
-                        </div>
+                            <h3><span class="glyphicon glyphicon-user"></span> User Images<hr></h3>
+                            <div class="element_margins">
+                                <?php
+                                if (isset($images)):
+                                    $table_template = array(
+                                        'table_open' => '<table class="table">',
+                                    );
+                                    $table_heading = array(
+                                        '0' => array('data' => 'Id'),
+                                        '1' => array('data' => 'User Id'),
+                                        '2' => array('data' => 'Image Name'),
+                                        '3' => array('data' => 'Delete Image'));
+                                    $this->table->set_template($table_template);
+                                    $this->table->set_heading($table_heading);
+                                    echo $this->table->generate($images);
+                                    ?>
+                                <?php endif; ?>
+                            </div>
                         </div>
                         <div id="Help" class="tab-pane fade element_spacing">
                             <h3><span class="glyphicon glyphicon-question-sign"></span> Help<hr></h3>
@@ -102,8 +103,8 @@
                             </p>
                         </div>
                     </div>
-<!--                    <div class="element_spacing">
-                    </div>-->
+                    <!--                    <div class="element_spacing">
+                                        </div>-->
                 </div>
             </div>
         </div>

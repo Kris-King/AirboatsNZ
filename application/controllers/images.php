@@ -109,9 +109,13 @@ class Images extends CI_Controller {
 
             if ($this->Image->insert_obj() != NULL) {
                 $this->upload_image();
+                //if the Image was uploaded successfully display this success message
+                $this->session->set_flashdata('success', 'Your image was successfully uploaded');
                 //If the image upload was successful display success message
-                $this->load->view('pages/upload_form');
-                //Display success message along with a link to the gallery page so the user can view their uploaded image
+                redirect('images/upload', 'refresh');
+            } else {
+                $this->session->set_flashdata('success', 'There was a problem and we could not upload your image, could you please try again');
+                redirect('images/upload', 'refresh');
             }
         }
     }

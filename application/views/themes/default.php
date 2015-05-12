@@ -81,7 +81,7 @@
                         <?php else: ?>
                             <li><a href="#" data-toggle="modal" data-target="#imageUploadModal"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
                         <?php endif; ?>
-                        <?php if ($this->session->userdata('is_logged_in')): ?>
+                        <?php if ($this->session->userdata('is_logged_in')&&$this->session->userdata('user_id')== 1): ?>
                             <li><a href="<?php echo base_url(); ?>events"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
                         <?php endif; ?>
 

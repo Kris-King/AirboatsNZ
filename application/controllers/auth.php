@@ -99,7 +99,6 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email');
         $this->form_validation->set_rules('user_password', 'Password', 'trim|required|min_length[4]|max_length[32]');
         $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[user_password]');
-        $this->form_validation->set_rules('recaptcha','Captcha', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('pages/sign_up');
@@ -117,11 +116,11 @@ class Auth extends CI_Controller {
             //save new user
             if ($user_id != NULL) {
                 $this->_do_login($user_id);
-                $this->session->set_flashdata('Success :)', 'Account successfully created');
+                $this->session->set_flashdata('success', 'Your account has been created successfully');
                 redirect('', 'refresh');
             } else {
-                $this->session->set_flashdata('Error :(', 'Unfortunately an error occurred and we were unable to create your account');
-                redirect('auth/sign_up');
+                $this->session->set_flashdata('error', 'Unfortunately an error occurred and we were unable to create your account, could you please try again');
+                redirect(base_url.'auth/sign_up');
             }
         }
     }

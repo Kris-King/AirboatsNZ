@@ -16,6 +16,7 @@
                     
                         <ul class="nav navbar-nav">
                             <h4 class="pad15">Airboats<hr></h4>
+                            <li><a href="#Specifications">Specifications</a></li>
                             <li><a href="#Flexible_Hull">Flexible Hull</a></li>
                             <li><a href="#Transporting">Transporting</a></li>
                             <li><a href="#Applications">Applications</a></li>
@@ -34,15 +35,39 @@
             </nav>
         </section>
 
-        <section class="element_spacing" id="Flexible_Hull">
+        <section class="element_spacing" id="Specifications">
             <h2>Airboats</h2>
+        </section>
+        
+        <section class="spacing margin_spacing">
+            <div>
+                <h3>Specifications<hr></h3>
+                <div class="spacing">
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                </div>
+                <p class="spacing">
+                    Airboat "Piranha-1" is the smallest model of airboat supplied by SPAirboats, which has the length of 3.5 m, the width of 1.45 m and the weight of 200 kg. 
+                    It can take 2 people of medium weight and be loaded with fuel and equipment with a total weight which should not exceed 300 kg. 
+                </p>
+                <p class="spacing">
+                    Airboat "Piranha-2" is one of the most popular types of airboats. It can transport 3-4 people and up to 200 kg of cargo.
+                </p>
+                <p class="spacing">
+                    Airboat "Piranha-3" is longer and wider, and also has an additional base in the craft. Now, instead of 3 longitudinal tubes it has 4. 
+                    They are based symmetrically to each other and provide a steady platform. Now, it is spacious enough and quite comfortable for 4 people, 
+                    and moves at the speed up to 70 km/h, having on board some equipment, food and fuel.
+                </p>
+                <p class="spacing" id="Flexible_Hull">
+                    Airboat "Piranha-6" provides customers who want additional seats and cargo area - ideal for a tourism operation.
+                </p>
+            </div>
         </section>
 
         <section class="spacing margin_spacing">
             <div>
                 <h3>Flexible Hull<hr></h3>
                 <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img4.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
                 </div>
                 <p id="Transporting">
                     The River-Crossover Airboat is a low-weight high-speed all-weather inflatable boat that uses aerodynamic propulsion. 
@@ -59,7 +84,7 @@
             <div>
                 <h3 id="Transporting">Transporting<hr></h3>
                 <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img8.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
                 </div>
                 <p id="Applications">
                     Taking you to places where other water craft have difficulty, the River-Crossover Airboats have far more maneuverability and 
@@ -74,7 +99,7 @@
             <div>
                 <h3>Applications<hr></h3>
                 <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img6.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
                 </div>
                 <p id="Propulsion">
                     Safe and easily operated, the all-weather River-Crossover Airboat can be used for fishing and hunting, 
@@ -89,7 +114,7 @@
             <div>
                 <h3>Propulsion<hr></h3>
                 <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img5.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
                 </div>
                 <p id="Control">
                     In South Pacific countries: Suzuki, Subaru and Toyota automobile engines power the series of River-Crossover Airboats. 
@@ -104,7 +129,7 @@
             <div>
                 <h3>Control<hr></h3>
                 <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img3.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
                 </div>
                 <p id="Load_Capacity">
                     There are two Aerodynamic rudders for the small to medium craft and four on the larger craft. Positioned in the propeller slipstream, 
@@ -119,7 +144,7 @@
             <div>
                 <h3>Load Capacity and Speed<hr></h3>
                 <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img8.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
                 </div>
                 <p id="You_Drive">
                     Currently there are six River-Crossover Airboats to choose  from, ranging from a 4-seat 500kg loading capacity, to a 10-seat 1200kg 
@@ -135,7 +160,7 @@
             <div>
                 <h3>You drive...<hr></h3>
                 <div class="spacing">
-                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
+                    <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img7.jpg" class="img-responsive" alt="About Us - Airboat image 1"/>
                 </div>
                 <p>
                     Easy to drive, our River-Crossover Airboats will take you to places that were previously unreachable with other craft. 

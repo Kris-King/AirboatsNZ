@@ -31,7 +31,7 @@ class Events extends CI_Controller {
         $this->_init();
         $this->load->helper('url');
         //Display Admin page if the Site Administrator is logged in
-        if ($this->session->userdata('is_logged_in')) {
+        if ($this->session->userdata('is_logged_in')&&$this->session->userdata('user_id')== 1) {
             $this->load->library('table');
             $events = array();
             $images = array();
@@ -71,9 +71,9 @@ class Events extends CI_Controller {
         $this->load->model('Event');
         //if the Event was deleted successfully display this success message
         if ($this->Event->delete($id)) {
-            $this->session->set_flashdata('Success :)', 'Event was successfully deleted');
+            $this->session->set_flashdata('success', 'Event was successfully deleted');
         } else {//if the Event was not deleted successfully display this error message
-            $this->session->set_flashdata('Error :(', 'We were not able to delete your Event, could you please try again.');
+            $this->session->set_flashdata('error', 'We were not able to delete your Event, could you please try again.');
         }
 
         //Return the user back to the Admin page
@@ -87,9 +87,9 @@ class Events extends CI_Controller {
         $this->load->model('Image');
         //if the Event was deleted successfully display this success message
         if ($this->Image->delete($id)) {
-            $this->session->set_flashdata('Success :)', 'User image was successfully deleted');
+            $this->session->set_flashdata('success', 'User image was successfully deleted');
         } else {//if the Event was not deleted successfully display this error message
-            $this->session->set_flashdata('Error :(', 'We were not able to delete the Image, could you please try again.');
+            $this->session->set_flashdata('error ', 'We were not able to delete this Image, could you please try again.');
         }
 
         //Return the user back to the Admin page
@@ -274,7 +274,7 @@ class Events extends CI_Controller {
                 $action = "Updated";
             }
 
-            $this->session->set_flashdata('Success :)', 'Event was Successfully ' . $action);
+            $this->session->set_flashdata('success', 'Event was Successfully ' . $action);
             redirect('events', 'refresh');
         }
     }
