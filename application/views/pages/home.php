@@ -9,19 +9,19 @@
                     <div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok"></span> <?php echo $this->session->flashdata('success'); ?></div>
                 <?php endif; ?>
             </div>
-            <div class="col-md-12 col-md-offset-3">
+            <div class="col-md-12 col-md-offset-3  element_spacing">
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/Site_Logo.png" class="img-responsive" alt="Site Logo"/>
             </div>
             <div class="element_spacing col-md-6">
                 <h2 class="text-uppercase">An experience unlike any other</h2>
-                <p class="spacing">
+                <p class="element_spacing">
                     We are passionate about airboats and hope you are too.
                     It is our mission to provide users the ability to share their experiences with others. 
                     You can also catch up on upcoming events that are happening in
                     your region
                 </p>
-                <a class="btn btn-primary btn-lg" href="<?php echo base_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                <a class="btn btn-primary btn-lg" href="#Enquiry">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
+                <a class="btn btn-primary btn-lg element_spacing" href="<?php echo base_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary btn-lg element_spacing" href="#Enquiry">Make an Enquiry <span class="glyphicon glyphicon-send"></span></a>
             </div>
 
             <div class="element_spacing col-md-6">
@@ -60,9 +60,9 @@
 <section id="content">
     <div class="container">
         <h1 class="element_spacing">About Airboats<hr></h1>
-        <div class="row" style="margin-top: 30%; margin-bottom: 20%;">
+        <div class="row" style="margin-bottom: 20%;">
 
-            <div class="col-md-4">
+            <div class="col-md-4 element_spacing">
                 <h3>Airboats</h3>
                 <hr>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img2.jpg" class="img-responsive" alt="user_gallery"/>
@@ -75,7 +75,7 @@
                 <br>
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 element_spacing">
                 <h3>Specifications</h3>
                 <hr>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img1.jpg" class="img-responsive" alt="user_gallery"/>
@@ -88,7 +88,7 @@
                 <br>
                 <a class="btn-lg btn-primary" href="<?php echo site_url('site/about'); ?>" role="button">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 element_spacing">
                 <h3>Upcoming Events</h3>
                 <hr>
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/airboat_img7.jpg" class="img-responsive" alt="user_gallery"/>
@@ -155,7 +155,7 @@
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary btn-lg">Submit <span class="glyphicon glyphicon-send"></span></button>
-                        <?php echo form_reset('submit', 'Cancel', 'class="btn btn-default marg30 btn-lg"'); ?>
+                        <?php echo form_reset('submit', 'Cancel', 'class="btn btn-default marg15 btn-lg"'); ?>
                         <?php echo form_close(); ?>
                 </div>
             </div>
