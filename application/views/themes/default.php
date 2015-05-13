@@ -81,7 +81,7 @@
                         <?php else: ?>
                             <li><a href="#" data-toggle="modal" data-target="#imageUploadModal"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
                         <?php endif; ?>
-                        <?php if ($this->session->userdata('is_logged_in')&&$this->session->userdata('user_id')== 1): ?>
+                        <?php if ($this->session->userdata('is_logged_in') && $this->session->userdata('user_id') == 1): ?>
                             <li><a href="<?php echo base_url(); ?>events"><span class="glyphicon glyphicon-cog"></span> Admin</a></li>
                         <?php endif; ?>
 
@@ -110,7 +110,7 @@
             </div>
         </footer>
 
-        <!-- /container -->
+        <!-- User Sign In Modal-->
         <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -148,6 +148,7 @@
             </div>
         </div>
 
+        <!--        Modal for Standard users if they try to access the Upload page without Signing In or Creating an Account         -->
         <div class="modal fade" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="imageUploadModal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -170,15 +171,15 @@
         </div>
         <script type="text/javascript">
 
-            //ajax login functionality
-            $(document).ready(function() {
-                $("#frm-sign_in").submit(function(e) {
+            //ajax Sign In functionality
+            $(document).ready(function () {
+                $("#frm-sign_in").submit(function (e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
                     $.post(url, data)
-                            .done(function(data) {
+                            .done(function (data) {
                                 if (data === 'fail') {
                                     $("#login-error").removeClass("hidden");
                                     $("#login-password-required-error").addClass("hidden");
@@ -206,8 +207,8 @@
             });
 
             //Dialog box which is displayed when a user is trying to access the Upload page but is not logged in
-            $(document).ready(function() {
-                $("#img_upload").submit(function(e) {
+            $(document).ready(function () {
+                $("#img_upload").submit(function (e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
@@ -216,15 +217,15 @@
                         url: url,
                         type: method,
                         data: data
-                    }).done(function() {
+                    }).done(function () {
                         window.location.href = '';
                     });
                 });
             });
 
             //Dialog box which is displayed when the site administrator wants to delete an event (to confirm if they want to delete the event)
-            $(document).ready(function() {
-                $('a[confirm-event-deletion]').click(function() {
+            $(document).ready(function () {
+                $('a[confirm-event-deletion]').click(function () {
                     var href = $(this).attr('href');
                     if (!$('#confirmDeletion').length) {
                         $('body').append('\
@@ -254,9 +255,9 @@
             });
 
 
-            //Dialog box which is displayed when the site administrator wants to delete an event (to confirm if they want to delete the event)
-            $(document).ready(function() {
-                $('a[confirm-image-deletion]').click(function() {
+            //Dialog box which is displayed when the site administrator wants to delete an image submitted by a site user (to confirm if they want to delete the image)
+            $(document).ready(function () {
+                $('a[confirm-image-deletion]').click(function () {
                     var href = $(this).attr('href');
                     if (!$('#confirmImageDeletion').length) {
                         $('body').append('\
@@ -284,7 +285,8 @@
                 });
             });
 
-
+            //Lightbox which displays User Images at Full Screen. Code provided by: Joe Mottershaw, Cloud Eight. http://www.cloud-eight.com/
+            //https://github.com/joemottershaw/litebox
             $('.litebox').liteBox({
                 revealSpeed: 400,
                 background: 'rgba(0,0,0,.8)',

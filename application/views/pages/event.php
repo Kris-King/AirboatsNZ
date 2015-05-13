@@ -1,8 +1,10 @@
 <section class="wrapper">
     <section class="container">
         <div class="element_margins">
+            <!--                       Display Event Title                                               -->
             <h1><span class="glyphicon glyphicon-calendar"></span><?php echo $event_data->title; ?><hr></h1>
             <div>
+                <!--                Display Event information           -->
                 <div class="element_spacing">
                 <h4>Start Date: <?php echo $event_data->start_date; ?></h4>
                 </div>

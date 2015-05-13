@@ -26,6 +26,7 @@ class Events extends CI_Controller {
 
     /**
      * Displays the Admin Dashboard and lists all of the events created by the Admin.
+     * Lists all images submitted by site users
      */
     public function index() {
         $this->_init();
@@ -33,12 +34,15 @@ class Events extends CI_Controller {
         //Display Admin page if the Site Administrator is logged in
         if ($this->session->userdata('is_logged_in')&&$this->session->userdata('user_id')== 1) {
             $this->load->library('table');
+            //Admin created events
             $events = array();
+            //User images 
             $images = array();
             $this->load->model('Event');
             $this->load->model('Image');
             $rows = $this->Event->get_all('events');
             $user_images = $this->Image->get_all('images');
+            //List all events from the db with Edit and Delete Buttons
             foreach ($rows as $row) {
                 $events[] = array(
                     $row->id,
@@ -47,6 +51,7 @@ class Events extends CI_Controller {
                     '<a href="' . base_url() . 'events/delete_event/' . $row->id . '" class="btn btn-danger btn-block" confirm-event-deletion><span class="glyphicon glyphicon-trash"></span> Delete</a>',
                 );
             }
+            //List all user images with Delete Buttons
             foreach ($user_images as $r) {
                 $images[] = array(
                     $r->id,
@@ -59,7 +64,7 @@ class Events extends CI_Controller {
                 'events' => $events,
                 'images' => $images,
             ));
-        } else {//If any user other than the site adminstrator trys to access the admin dashbaord then display the 403 page
+        } else {//If any user other than the site adminstrator trys to access the admin dashbaord then display the 401 page
             $this->load->view('pages/401');
         }
     }
@@ -164,10 +169,10 @@ class Events extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('Event');
 
+        //Get Event information based on the id of the event selcted on the Events page
         $event_data = $this->Event->get_by(array('id' => $id));
 
-
-
+        //Display the Event page which contains all information on an Upcoming Event a user wants to learn more about
         $this->load->view('pages/event', array(
             'event_data' => $event_data,
         ));
@@ -222,7 +227,7 @@ class Events extends CI_Controller {
 
         //Event Validation
         $this->load->library('form_validation');
-        $this->form_validation->set_rules(array(
+        $this->form_validation->set_rules(array(//Validation rules/requirements
             array(
                 'field' => 'title',
                 'label' => 'Title',
@@ -255,6 +260,7 @@ class Events extends CI_Controller {
             ),
         ));
 
+        //Display errors if the Edited/Added Event does not meet Validation requirements
         $this->form_validation->set_error_delimiters('<div>', '</div>');
 
         //if Admin submitted Event does not pass validation

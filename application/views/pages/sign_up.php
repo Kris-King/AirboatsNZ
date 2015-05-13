@@ -10,7 +10,7 @@
                     <?php echo form_open('auth/create_user'); ?>
                     <div class="form-group">
                         <label for="first_name">First Name:</label>
-                        <?php if (form_error('first_name')): ?>
+                        <?php if (form_error('first_name'))://Display error if field does not meet validation requirments ?>
                             <div class="alert alert-danger"> <?php echo form_error('first_name', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                         <?php endif; ?>
                         <input type="text" class="form-control" name="first_name" value="<?php echo set_value('first_name'); ?>">
@@ -18,7 +18,7 @@
                     <br>
                     <div class="form-group">
                         <label for="last_name">Last Name:</label>
-                        <?php if (form_error('last_name')): ?>
+                        <?php if (form_error('last_name'))://Display error if field does not meet validation requirments ?>
                             <div class="alert alert-danger"> <?php echo form_error('last_name', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                         <?php endif; ?>
                         <input type="text" class="form-control" name="last_name" value="<?php echo set_value('last_name'); ?>">
@@ -26,7 +26,7 @@
                     <br>
                     <div class="form-group">
                         <label for="email_address">Email Address:</label>
-                        <?php if (form_error('email_address')): ?>
+                        <?php if (form_error('email_address'))://Display error if field does not meet validation requirments ?>
                             <div class="alert alert-danger"> <?php echo form_error('email_address', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                         <?php endif; ?>
                         <input type="text" class="form-control" name="email_address" value="<?php echo set_value('email_address'); ?>">
@@ -34,7 +34,7 @@
                     <br>
                     <div class="form-group">
                         <label for="user_password">Password:</label>
-                        <?php if (form_error('user_password')): ?>
+                        <?php if (form_error('user_password'))://Display error if field does not meet validation requirments ?>
                             <div class="alert alert-danger"> <?php echo form_error('user_password', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                         <?php endif; ?>
                         <input type="password" class="form-control" name="user_password" value="<?php echo set_value('user_password'); ?>">
@@ -42,13 +42,14 @@
                     <br>
                     <div class="form-group">
                         <label for="confirm_password">Confirm Password:</label>
-                        <?php if (form_error('confirm_password')): ?>
+                        <?php if (form_error('confirm_password'))://Display error if field does not meet validation requirments ?>
                             <div class="alert alert-danger"> <?php echo form_error('confirm_password', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                         <?php endif; ?>
                         <input type="password" class="form-control" name="confirm_password" value="<?php echo set_value('confirm_password'); ?>">
                     </div>
                     <br>
                     <div class="form-group">
+                        <!--                        Google reCAPTHA                                     -->
                     <div class="g-recaptcha" data-sitekey="6Lc3qQYTAAAAABGbOz--xQZmg3_oZ45hBiHN2s2g"></div>
                     </div>
                     <br>

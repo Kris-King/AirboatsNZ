@@ -6,8 +6,10 @@
         </section>
         <section class="element_margins">
             <div>
+                <!--                Links to other pages when the amount of events on the page exceed a certain amount                         -->
                 <?php echo $this->pagination->create_links(); ?>
             </div>
+            <!--            Display Upcoming Events          -->
             <?php foreach ($result as $r): ?>
                 <div class="spacing">
                     <hr>
@@ -22,6 +24,7 @@
                 </div>
             <?php endforeach; ?>
             <div>
+                <!--                Links to other pages when the amount of events on the page exceed a certain amount                         -->
                 <?php echo $this->pagination->create_links(); ?>
             </div>
         </section>

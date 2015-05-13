@@ -10,7 +10,7 @@
                 //success message
                 if ($this->session->flashdata('success')):
                     ?>
-                <div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok"></span> <?php echo $this->session->flashdata('success'); ?></div>
+                    <div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok"></span> <?php echo $this->session->flashdata('success'); ?></div>
                 <?php endif; ?>
                 <?php
                 //error message
@@ -23,18 +23,18 @@
                 <div class="element_margins">
                     <ul class="nav nav-pills nav-justified">
                         <li class="active"><a data-toggle="pill" href="#Welcome" class="btn-default marg3" role="button"><span class="glyphicon glyphicon-user"></span> Welcome</a></li>
-                        <li><a data-toggle="pill" href="#Events" class="btn-default marg3" role="button"><span class="glyphicon glyphicon-edit"></span> Events</a></li>
+                        <li><a data-toggle="pill" href="#Events" class="btn-default marg3" role="button"><span class="glyphicon glyphicon-edit"></span> Edit/Delete Events</a></li>
                         <li><a data-toggle="pill" href="#User_Images" class="btn-default marg3" role="button"><span class="glyphicon glyphicon-user"></span> User Images</a></li>
                         <li><a data-toggle="pill" href="#Help" class="btn-default marg3" role="button"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
                     </ul>
 
                     <div class="tab-content">
                         <div id="Welcome" class="tab-pane fade in active element_spacing">
-                            <h3><span class="glyphicon glyphicon-user"></span> Welcome, Malcolm<hr></h3>
+                            <h3><span class="glyphicon glyphicon-user"></span> Hi, Malcolm<hr></h3>
                             <br>
                             <p>
-                                As an administer of Airboats New Zealand you have special permissions on this site and that includes adding, 
-                                editing and deleting upcoming events. You and only you will have access to this portion of the site; no other 
+                                As an administrator of Airboats New Zealand you have special permissions on this site and that includes adding, 
+                                editing, deleting upcoming events and deleting user images. You and only you will have access to this portion of the site; no other 
                                 users will have access. The dashboard has been structured as a simple and easy to use interface, this is to 
                                 ensure your continued satisfaction. If you however become unsure of how to operate the admin dashboard at any 
                                 point you can visit the 'Help' section. This 'Help' section can walk you through the admin process. 
@@ -43,8 +43,9 @@
                             </p>
                         </div>
                         <div id="Events" class="tab-pane fade element_spacing">
-                            <h3><span class="glyphicon glyphicon-calendar"></span> Events<hr></h3>
+                            <h3><span class="glyphicon glyphicon-calendar"></span> Edit/Delete Events<hr></h3>
                             <div class="element_margins">
+                                <!--           List of Events created by site admin                        -->
                                 <?php
                                 if (isset($events)):
                                     $table_template = array(
@@ -65,6 +66,7 @@
                         <div id="User_Images" class="tab-pane fade element_spacing">
                             <h3><span class="glyphicon glyphicon-user"></span> User Images<hr></h3>
                             <div class="element_margins">
+                                <!--    List of images uploaded by users of this site           -->
                                 <?php
                                 if (isset($images)):
                                     $table_template = array(
@@ -87,15 +89,19 @@
                             <h4>Confused and need assistance?</h4>
                             <br>
                             <p>
-                                - To edit an event, head to the 'Edit Events' section and select 'Edit' next to the event that you wish to edit.
+                                - To edit an event, head to the 'Edit/Delete Events' section and select 'Edit' next to the event that you wish to edit.
                                 <br><br>
                                 - To add an event click the 'Add an Event' button and fill in the information that the form requires.
                                 <br><br>
-                                - To delete an event head to the 'Delete Events' section and select delete next to the event that you wish to delete.
+                                - To delete an event head to the 'Edit/Delete Events' section and select delete next to the event that you wish to delete.
                                 <br><br>
                                 - To confirm an event deletion a confirmation dialog box will be displayed.
                                 <br><br>
                                 - Once an event has been deleted it can not be recovered. A new event will need to be created if you deleted it by mistake.
+                                <br><br>
+                                - To view images submitted by site users head to the 'User Images' section.
+                                <br><br>
+                                - You can delete these user images. When you do so, you will be asked to confirm this deletion.
                                 <br><br>
                                 - If the information you entered is incorrect an error will be displayed to let you know what you missed.
                                 <br><br>
@@ -103,8 +109,6 @@
                             </p>
                         </div>
                     </div>
-                    <!--                    <div class="element_spacing">
-                                        </div>-->
                 </div>
             </div>
         </div>

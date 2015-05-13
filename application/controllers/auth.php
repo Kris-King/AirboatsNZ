@@ -31,6 +31,9 @@ class Auth extends CI_Controller {
         $this->load->view('pages/sign_up');
     }
 
+    /**
+     * Sign Out user when they select Sign Out on the Home page
+     */
     public function signout() {
         $this->_init();
         $this->session->sess_destroy();
@@ -43,28 +46,39 @@ class Auth extends CI_Controller {
      */
     public function validate() {
         $this->load->model('User');
+        //Error Messages
+        
+        //if the password and email address field is not filled in
         if (!$this->input->post('user_password') && !$this->input->post('email_address')) {
             echo 'empty-fields';
             return;
         }
+        //if the email address filed is not filled in
         if (!$this->input->post('email_address')) {
             echo 'no-email';
             return;
-        }if (!$this->input->post('user_password')) {
+        }
+        //if the password filed is not filled in
+        if (!$this->input->post('user_password')) {
             echo 'no-password';
             return;
         }
         $existing_user = $this->process_validate();
+        //if email address and password is correct sign in the user
         if ($existing_user) {
             $this->_init();
             $this->_do_login($existing_user->id);
             redirect('', 'refresh');
-        } else {
+        } else {//if the email address and/or password is inccorect
             echo 'fail';
             return;
         }
     }
 
+    /**
+     * Check to see if the User's Email Address and/or password is in the db
+     * Used as part of AJAX login functionality
+     */
     private function process_validate() {
         $user = new User();
         $password = md5($this->input->post('user_password'));
@@ -93,13 +107,14 @@ class Auth extends CI_Controller {
     public function create_user() {
         $this->_init();
         $this->load->library('form_validation');
-        //validate
+        //validation rules (requirements)
         $this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[2]');
         $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[2]');
         $this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email');
         $this->form_validation->set_rules('user_password', 'Password', 'trim|required|min_length[4]|max_length[32]');
         $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[user_password]');
 
+        //if validation fails stay on Sign up page and display error messages
         if (!$this->form_validation->run()) {
             $this->load->view('pages/sign_up');
         } else {
@@ -112,15 +127,15 @@ class Auth extends CI_Controller {
             $user_data['email_address'] = $this->input->post('email_address');
             $user_data['status'] = $this->input->post('status');
             $user_data['password'] = md5($this->input->post('user_password'));
-            $user_id = $user->insert($user_data); 
-            //save new user
+            $user_id = $user->insert($user_data);
+            //save new user into the db
             if ($user_id != NULL) {
                 $this->_do_login($user_id);
                 $this->session->set_flashdata('success', 'Your account has been created successfully');
                 redirect('', 'refresh');
             } else {
                 $this->session->set_flashdata('error', 'Unfortunately an error occurred and we were unable to create your account, could you please try again');
-                redirect(base_url.'auth/sign_up');
+                redirect(base_url . 'auth/sign_up');
             }
         }
     }

@@ -49,7 +49,7 @@ html,body{
     min-height:100%;
     padding:10px;
     color:#efefef;
-    background-image: url('http://localhost/AirboatsNZ/assets/themes/default/images/background-image.jpg');
+    background-image: url(../images/background-image.jpg);
 }
 #user_gallery{
     min-height:100%;
@@ -119,11 +119,11 @@ a.btn-lg{
     min-height:100%;
     padding:10px;
     /*        Attribution: http://commons.wikimedia.org/wiki/File:BoogalooAudienceNOLA2009.JPG     */
-    background-image: url('http://localhost/AirboatsNZ/assets/themes/default/images/events_img.JPG');
+    background-image: url(../images/events_img.JPG);
 }
 
 #upload{
     min-height:100%;
     padding:10px;
-    background-image: url('http://localhost/AirboatsNZ/assets/themes/default/images/upload_img.jpg');
+    background-image: url(../images/upload_img.jpg);
 }

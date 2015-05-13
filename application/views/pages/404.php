@@ -2,7 +2,7 @@
     <section class="container">
         <div class="element_margins">
             <div class="col-md-12 col-md-offset-3 spacing">
-                <img src="<?php echo base_url(); ?>assets/themes/default/images/Home_Page_logo.png" class="img-responsive" alt="user_gallery"/>
+                <img src="<?php echo base_url(); ?>assets/themes/default/images/Site_Logo.png" class="img-responsive" alt="Site Logo"/>
             </div>
             <div class="element_spacing">
             <h2><span class="glyphicon glyphicon-ban-circle"></span> 404<hr></h2>

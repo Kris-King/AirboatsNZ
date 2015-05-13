@@ -1,9 +1,9 @@
 <section class="wrapper">
     <section class="container">
         <div class="element_margins">
-                <?php if ($edit): ?>
+                <?php if ($edit): //if an event is being edited display the title of the event?>
                     <h1><span class="glyphicon glyphicon-wrench"></span> Edit Event: <?php echo html_escape($event->title); ?><hr></h1>
-                <?php else: ?>
+                <?php else: //display the title: Add an Event?>
                     <h1><span class="glyphicon glyphicon-plus-sign"></span> Add an Event<hr></h1>
                 <?php endif; ?> 
             <div class="element_margins">
@@ -15,50 +15,56 @@
                         <?php echo form_open(); ?>
                         <div class="form-group">
                             <label for="title">Title:</label>
+                            <!--                            Display error message if the user input does not meet validation requirements               -->
                             <?php if (form_error('title')): ?>
                                 <div class="alert alert-danger"> <?php echo form_error('title', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                             <?php endif; ?>
-                            <input type="text" class="form-control" name="title" value="<?php echo $event->title; ?>">
+                            <input type="text" class="form-control" name="title" value="<?php echo $event->title; //display submitted info if being edited?>">
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="start_date">Start Date:</label>
+                            <!--                            Display error message if the user input does not meet validation requirements               -->
                             <?php if (form_error('start_date')): ?>
                                 <div class="alert alert-danger"> <?php echo form_error('start_date', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div>  
                             <?php endif; ?>
-                            <input type="text" class="form-control" name="start_date" value="<?php echo $event->start_date; ?>">
+                            <input type="text" class="form-control" name="start_date" value="<?php echo $event->start_date; //display submitted info if being edited?>">
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="end_date">End Date:</label>
+                            <!--                            Display error message if the user input does not meet validation requirements               -->
                             <?php if (form_error('end_date')): ?>
                                 <div class="alert alert-danger"> <?php echo form_error('end_date', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div>  
                             <?php endif; ?>
-                            <input type="text" class="form-control" name="end_date" value="<?php echo $event->end_date; ?>">
+                            <input type="text" class="form-control" name="end_date" value="<?php echo $event->end_date; //display submitted info if being edited?>">
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="city_town">City/Town:</label>
+                            <!--                            Display error message if the user input does not meet validation requirements               -->
                             <?php if (form_error('city_town')): ?>
                                 <div class="alert alert-danger"> <?php echo form_error('city_town', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                             <?php endif; ?>
-                            <input type="text" class="form-control" name="city_town" value="<?php echo $event->city_town; ?>">
+                            <input type="text" class="form-control" name="city_town" value="<?php echo $event->city_town; //display submitted info if being edited?>">
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="country">Country:</label>
+                            <!--                            Display error message if the user input does not meet validation requirements               -->
                             <?php if (form_error('country')): ?>
                                 <div class="alert alert-danger"> <?php echo form_error('country', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div>  
                             <?php endif; ?>
-                            <input type="text" class="form-control" name="country" value="<?php echo $event->country; ?>">
+                            <input type="text" class="form-control" name="country" value="<?php echo $event->country; //display submitted info if being edited?>">
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="description">Description:</label>
+                            <!--                            Display error message if the user input does not meet validation requirements               -->
                             <?php if (form_error('description')): ?>
                                 <div class="alert alert-danger"> <?php echo form_error('description', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                             <?php endif; ?>
-                                <textarea class="form-control" name="description" rows="7" ><?php echo $event->description; ?></textarea>
+                                <textarea class="form-control" name="description" rows="7" ><?php echo $event->description;//display submitted info if being edited ?></textarea>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-success  btn-lg"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>

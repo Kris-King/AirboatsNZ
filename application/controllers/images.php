@@ -22,11 +22,15 @@ class Images extends CI_Controller {
         $this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
     }
 
+    /**
+     * Display User Gallery 
+     */
     function index() {
         $this->load->view('pages/gallery');
     }
 
     public function user_gallery() {
+        //Pagination functionality and how it is displayed
         $per_page = 9;
         $uri_segment = 3;
         $config['base_url'] = base_url() . "images/user_gallery";
@@ -57,26 +61,38 @@ class Images extends CI_Controller {
         $this->load->view('pages/gallery', $data);
     }
 
+    /**
+     * Get all images submitted by site users and display them on the User Gallery page
+     */
     private function get_images($config) {
         $config['total_rows'] = $this->Image->count_all();
         $offset = $this->uri->segment($config['uri_segment']);
+        //limit the amount of images that are displayed on one page
         $this->Image->limit($config['per_page'], $offset);
+        //Get images based on their location and display them from there
         $this->db->select('url');
         $this->db->from('images');
         $query = $this->db->get();
         return $result = $query->result();
     }
 
+    /**
+     * Display Upload page
+     */
     public function upload() {
         $this->_init();
+        //Display the upload page only if the a user is logged in
         if ($this->session->userdata('is_logged_in')) {
             $this->load->helper('form');
             $this->load->view('pages/upload_form');
-        } else {
+        } else {//Display 401 page if the a user is not logged in
             $this->load->view('pages/401');
         }
     }
 
+    /**
+     * Sets the file name of the image as the value that is inserted into the db
+     */
     private function upload_image() {
         $data = array(
             'url' => $this->input->post('file_name'),
@@ -84,20 +100,24 @@ class Images extends CI_Controller {
         $this->upload->data($data);
     }
 
+    /**
+     * Upload Image functionality
+     */
     public function do_upload() {
         $config = array(
             'upload_path' => './uploads',
-            'allowed_types' => 'gif|jpg|png|JPG|jpeg',
-            'max_size' => 2000,
+            'allowed_types' => 'jpg|png|JPG|jpeg',
+            'max_size' => 1000,
             'max_width' => 1920,
             'max_height' => 1080,
             'remove_spaces' => TRUE,
         );
         $this->load->library('upload', $config);
+        //If uploaded image does not meet upload requirements display error message
         if (!$this->upload->do_upload()) {
             $error = array('error' => $this->upload->display_errors());
             $this->load->view('pages/upload_form', $error);
-        } else {
+        } else {//If uploaded image meets upload requirements
 
             $this->load->model('Image');
             $data = $this->upload->data();
@@ -113,7 +133,7 @@ class Images extends CI_Controller {
                 $this->session->set_flashdata('success', 'Your image was successfully uploaded');
                 //If the image upload was successful display success message
                 redirect('images/upload', 'refresh');
-            } else {
+            } else {//if the image was able to be uploaded, display this error message
                 $this->session->set_flashdata('success', 'There was a problem and we could not upload your image, could you please try again');
                 redirect('images/upload', 'refresh');
             }
