@@ -3,19 +3,18 @@
         <div>
             <div class="spacing">
                 <h1>Create an Account<hr></h1>
-                <h4>
+                <h4 class="spacing">
                     Just fill in the details below and away you go.
                 </h4>
-                <div class="element_margins">
+                <div>
                     <?php echo form_open('auth/create_user'); ?>
-                    <div class="form-group">
+                    <div class="form-group element_margins">
                         <label for="first_name">First Name:</label>
                         <?php if (form_error('first_name'))://Display error if field does not meet validation requirments ?>
                             <div class="alert alert-danger"> <?php echo form_error('first_name', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                         <?php endif; ?>
                         <input type="text" class="form-control" name="first_name" value="<?php echo set_value('first_name'); ?>">
                     </div>
-                    <br>
                     <div class="form-group">
                         <label for="last_name">Last Name:</label>
                         <?php if (form_error('last_name'))://Display error if field does not meet validation requirments ?>
@@ -23,23 +22,20 @@
                         <?php endif; ?>
                         <input type="text" class="form-control" name="last_name" value="<?php echo set_value('last_name'); ?>">
                     </div>
-                    <br>
-                    <div class="form-group">
+                    <div class="form-group element_margins">
                         <label for="email_address">Email Address:</label>
                         <?php if (form_error('email_address'))://Display error if field does not meet validation requirments ?>
                             <div class="alert alert-danger"> <?php echo form_error('email_address', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                         <?php endif; ?>
                         <input type="text" class="form-control" name="email_address" value="<?php echo set_value('email_address'); ?>">
                     </div>
-                    <br>
-                    <div class="form-group">
+                    <div class="form-group element_margins">
                         <label for="user_password">Password:</label>
                         <?php if (form_error('user_password'))://Display error if field does not meet validation requirments ?>
                             <div class="alert alert-danger"> <?php echo form_error('user_password', '<div><span class="glyphicon glyphicon-warning-sign"></span>', '</div>'); ?></div> 
                         <?php endif; ?>
                         <input type="password" class="form-control" name="user_password" value="<?php echo set_value('user_password'); ?>">
                     </div>
-                    <br>
                     <div class="form-group">
                         <label for="confirm_password">Confirm Password:</label>
                         <?php if (form_error('confirm_password'))://Display error if field does not meet validation requirments ?>
@@ -47,12 +43,10 @@
                         <?php endif; ?>
                         <input type="password" class="form-control" name="confirm_password" value="<?php echo set_value('confirm_password'); ?>">
                     </div>
-                    <br>
-                    <div class="form-group">
+                    <div class="form-group element_margins">
                         <!--                        Google reCAPTHA                                     -->
                     <div class="g-recaptcha" data-sitekey="6Lc3qQYTAAAAABGbOz--xQZmg3_oZ45hBiHN2s2g"></div>
                     </div>
-                    <br>
                     <div class="form-group">
                         <?php echo form_hidden('status', 'Pending'); ?>
                     </div>

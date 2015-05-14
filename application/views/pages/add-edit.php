@@ -1,16 +1,16 @@
 <section class="wrapper">
     <section class="container">
-        <div class="element_margins">
+        <div>
                 <?php if ($edit): //if an event is being edited display the title of the event?>
                     <h1><span class="glyphicon glyphicon-wrench"></span> Edit Event: <?php echo html_escape($event->title); ?><hr></h1>
                 <?php else: //display the title: Add an Event?>
                     <h1><span class="glyphicon glyphicon-plus-sign"></span> Add an Event<hr></h1>
                 <?php endif; ?> 
-            <div class="element_margins">
+            <div>
                 <h4>
                     Just fill in the details below and the system will handle the rest.
                 </h4>
-                <div class="spacing element_margins">
+                <div class="element_margins">
                     <div>
                         <?php echo form_open(); ?>
                         <div class="form-group">
@@ -21,8 +21,7 @@
                             <?php endif; ?>
                             <input type="text" class="form-control" name="title" value="<?php echo $event->title; //display submitted info if being edited?>">
                         </div>
-                        <br>
-                        <div class="form-group">
+                        <div class="form-group element_margins">
                             <label for="start_date">Start Date:</label>
                             <!--                            Display error message if the user input does not meet validation requirements               -->
                             <?php if (form_error('start_date')): ?>
@@ -30,8 +29,7 @@
                             <?php endif; ?>
                             <input type="text" class="form-control" name="start_date" value="<?php echo $event->start_date; //display submitted info if being edited?>">
                         </div>
-                        <br>
-                        <div class="form-group">
+                        <div class="form-group element_margins">
                             <label for="end_date">End Date:</label>
                             <!--                            Display error message if the user input does not meet validation requirements               -->
                             <?php if (form_error('end_date')): ?>
@@ -39,7 +37,6 @@
                             <?php endif; ?>
                             <input type="text" class="form-control" name="end_date" value="<?php echo $event->end_date; //display submitted info if being edited?>">
                         </div>
-                        <br>
                         <div class="form-group">
                             <label for="city_town">City/Town:</label>
                             <!--                            Display error message if the user input does not meet validation requirements               -->
@@ -48,8 +45,7 @@
                             <?php endif; ?>
                             <input type="text" class="form-control" name="city_town" value="<?php echo $event->city_town; //display submitted info if being edited?>">
                         </div>
-                        <br>
-                        <div class="form-group">
+                        <div class="form-group element_margins">
                             <label for="country">Country:</label>
                             <!--                            Display error message if the user input does not meet validation requirements               -->
                             <?php if (form_error('country')): ?>
@@ -57,7 +53,6 @@
                             <?php endif; ?>
                             <input type="text" class="form-control" name="country" value="<?php echo $event->country; //display submitted info if being edited?>">
                         </div>
-                        <br>
                         <div class="form-group">
                             <label for="description">Description:</label>
                             <!--                            Display error message if the user input does not meet validation requirements               -->
@@ -66,7 +61,6 @@
                             <?php endif; ?>
                                 <textarea class="form-control" name="description" rows="7" ><?php echo $event->description;//display submitted info if being edited ?></textarea>
                         </div>
-                        <br>
                         <button type="submit" class="btn btn-success  btn-lg"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
                         <?php echo form_reset('submit', 'Cancel', 'class="btn btn-default marg15 btn-lg"'); ?>
                         <?php echo form_close(); ?>

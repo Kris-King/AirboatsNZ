@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Airboats New Zealand | <?php echo $title; ?></title>
+        <!--        Display a title based on the page that the user is on  -->
+        <title><?php echo $title; ?> | Airboats New Zealand</title>
         <meta name="resource-type" content="document" />
         <meta name="robots" content="all, index, follow"/>
         <meta name="googlebot" content="all, index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="We are passionate about Airboats and we hope to share that with you" />
         <?php
         /** -- Copy from here -- */
-        if (!empty($meta))
+        if (!empty($meta)) {
             foreach ($meta as $name => $content) {
                 echo "\n\t\t";
                 ?><meta name="<?php echo $name; ?>" content="<?php echo $content; ?>" /><?php
             }
+        }
         echo "\n";
 
         if (!empty($canonical)) {
@@ -74,7 +77,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo base_url(); ?>"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                         <li><a href="<?php echo base_url(); ?>site/about"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
-                        <li><a href="<?php echo base_url(); ?>images/user_gallery"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
+                        <li><a href="<?php echo base_url(); ?>images"><span class="glyphicon glyphicon-camera"></span> Gallery</a></li>
                         <li><a href="<?php echo base_url(); ?>events/upcoming_events"><span class="glyphicon glyphicon-globe"></span> Events</a></li>
                         <?php if ($this->session->userdata('is_logged_in')): ?>
                             <li><a href="<?php echo base_url(); ?>images/upload"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
@@ -172,14 +175,14 @@
         <script type="text/javascript">
 
             //ajax Sign In functionality
-            $(document).ready(function () {
-                $("#frm-sign_in").submit(function (e) {
+            $(document).ready(function() {
+                $("#frm-sign_in").submit(function(e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
                     $.post(url, data)
-                            .done(function (data) {
+                            .done(function(data) {
                                 if (data === 'fail') {
                                     $("#login-error").removeClass("hidden");
                                     $("#login-password-required-error").addClass("hidden");
@@ -207,8 +210,8 @@
             });
 
             //Dialog box which is displayed when a user is trying to access the Upload page but is not logged in
-            $(document).ready(function () {
-                $("#img_upload").submit(function (e) {
+            $(document).ready(function() {
+                $("#img_upload").submit(function(e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
@@ -217,15 +220,15 @@
                         url: url,
                         type: method,
                         data: data
-                    }).done(function () {
+                    }).done(function() {
                         window.location.href = '';
                     });
                 });
             });
 
             //Dialog box which is displayed when the site administrator wants to delete an event (to confirm if they want to delete the event)
-            $(document).ready(function () {
-                $('a[confirm-event-deletion]').click(function () {
+            $(document).ready(function() {
+                $('a[confirm-event-deletion]').click(function() {
                     var href = $(this).attr('href');
                     if (!$('#confirmDeletion').length) {
                         $('body').append('\
@@ -256,8 +259,8 @@
 
 
             //Dialog box which is displayed when the site administrator wants to delete an image submitted by a site user (to confirm if they want to delete the image)
-            $(document).ready(function () {
-                $('a[confirm-image-deletion]').click(function () {
+            $(document).ready(function() {
+                $('a[confirm-image-deletion]').click(function() {
                     var href = $(this).attr('href');
                     if (!$('#confirmImageDeletion').length) {
                         $('body').append('\

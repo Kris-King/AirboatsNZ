@@ -23,8 +23,8 @@
                             <li><a href="#Propulsion">Propulsion</a></li>
                             <li><a href="#Control">Control</a></li>
                             <li><a href="#Load_Capacity">Load Capacity and Speed</a></li>
-                            <li class="spacing"><a href="#You_Drive">You drive...</a></li>
-                            <h4 class="pad15">General<hr></h4>
+                            <li><a href="#You_Drive">You drive...</a></li>
+                            <h4 class="pad15 margin_spacing">General<hr></h4>
                             <li><a href="#Uploading_Images">Uploading Images</a></li>
                             <li><a href="#Creating_Account">Creating an Account</a></li>
                             <li><a href="#Code_of_Conduct">Code of Conduct</a></li>
@@ -35,11 +35,11 @@
             </nav>
         </section>
 
-        <section class="element_spacing" id="Specifications">
+        <section id="Specifications">
             <h2>Airboats</h2>
         </section>
         
-        <section class="spacing margin_spacing">
+        <section class="spacing element_spacing">
             <div>
                 <h3>Specifications<hr></h3>
                 <div class="spacing">

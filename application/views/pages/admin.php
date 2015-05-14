@@ -29,9 +29,8 @@
                     </ul>
 
                     <div class="tab-content">
-                        <div id="Welcome" class="tab-pane fade in active element_spacing">
+                        <div id="Welcome" class="tab-pane fade in active margin_spacing">
                             <h3><span class="glyphicon glyphicon-user"></span> Hi, Malcolm<hr></h3>
-                            <br>
                             <p>
                                 As an administrator of Airboats New Zealand you have special permissions on this site and that includes adding, 
                                 editing, deleting upcoming events and deleting user images. You and only you will have access to this portion of the site; no other 
@@ -84,27 +83,34 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <div id="Help" class="tab-pane fade element_spacing">
+                        <div id="Help" class="tab-pane fade element_margins">
                             <h3><span class="glyphicon glyphicon-question-sign"></span> Help<hr></h3>
-                            <h4>Confused and need assistance?</h4>
-                            <br>
+                            <h4 class="spacing">Confused and need assistance?</h4>
                             <p>
                                 - To edit an event, head to the 'Edit/Delete Events' section and select 'Edit' next to the event that you wish to edit.
-                                <br><br>
+                            </p>
+                            <p>
                                 - To add an event click the 'Add an Event' button and fill in the information that the form requires.
-                                <br><br>
+                            </p>
+                            <p>
                                 - To delete an event head to the 'Edit/Delete Events' section and select delete next to the event that you wish to delete.
-                                <br><br>
+                            </p>
+                            <p>
                                 - To confirm an event deletion a confirmation dialog box will be displayed.
-                                <br><br>
+                            </p>
+                            <p>
                                 - Once an event has been deleted it can not be recovered. A new event will need to be created if you deleted it by mistake.
-                                <br><br>
+                            </p>
+                            <p>
                                 - To view images submitted by site users head to the 'User Images' section.
-                                <br><br>
+                            </p>
+                            <p>
                                 - You can delete these user images. When you do so, you will be asked to confirm this deletion.
-                                <br><br>
+                            </p>
+                            <p>
                                 - If the information you entered is incorrect an error will be displayed to let you know what you missed.
-                                <br><br>
+                            </p>
+                            <p>
                                 - If you require further assistance please contact the site creator with your concerns and/or problems.
                             </p>
                         </div>

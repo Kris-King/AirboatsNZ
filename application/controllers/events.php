@@ -30,9 +30,10 @@ class Events extends CI_Controller {
      */
     public function index() {
         $this->_init();
+        $this->output->set_title('Admin Dashboard');
         $this->load->helper('url');
         //Display Admin page if the Site Administrator is logged in
-        if ($this->session->userdata('is_logged_in')&&$this->session->userdata('user_id')== 1) {
+        if ($this->session->userdata('is_logged_in') && $this->session->userdata('user_id') == 1) {
             $this->load->library('table');
             //Admin created events
             $events = array();
@@ -65,6 +66,7 @@ class Events extends CI_Controller {
                 'images' => $images,
             ));
         } else {//If any user other than the site adminstrator trys to access the admin dashbaord then display the 401 page
+            $this->output->set_title('401 - Unauthorized Access');
             $this->load->view('pages/401');
         }
     }
@@ -105,6 +107,7 @@ class Events extends CI_Controller {
      * Display the Events page.
      */
     public function upcoming_events() {
+        $this->output->set_title('Upcoming Events');
         $this->load->helper('url');
         $this->load->model('Event');
         $this->load->library('pagination');
@@ -166,6 +169,7 @@ class Events extends CI_Controller {
      */
     public function display_event($id) {
         $this->_init();
+        $this->output->set_title('Event');
         $this->load->helper('url');
         $this->load->model('Event');
 
@@ -191,6 +195,7 @@ class Events extends CI_Controller {
         if (!$this->input->post()) {
             //if is add
             if ($id == NULL) {
+                $this->output->set_title('Add Event');
                 //populate with defaults
                 $event->title = '';
                 $event->start_date = '';
@@ -199,6 +204,7 @@ class Events extends CI_Controller {
                 $event->country = '';
                 $event->description = '';
             } else { //if is edit
+                $this->output->set_title('Edit Event');
                 //get Todo from db by id
                 $this->load->model('Event');
                 $event = $this->Event->get($id);
@@ -265,6 +271,7 @@ class Events extends CI_Controller {
 
         //if Admin submitted Event does not pass validation
         if (!$this->form_validation->run()) {
+            $this->output->set_title('Could not save: fix errors');
             $this->load->view('pages/add-edit', array(
                 'edit' => $id != NULL,
                 'event' => $event,
@@ -291,9 +298,9 @@ class Events extends CI_Controller {
      * @return boolean
      */
     public function date_validation($input) {
-        $test_date = explode('-', $input);
+        $test_date = explode('/', $input);
         if (!@checkdate($test_date[1], $test_date[2], $test_date[0])) {
-            $this->form_validation->set_message('date_validation', 'The %s field must be in DD/MM/YYYY format.');
+            $this->form_validation->set_message('date_validation', 'The %s field must be in YYYY/MM/DD format.');
             return FALSE;
         }
         return TRUE;

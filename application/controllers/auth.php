@@ -27,6 +27,7 @@ class Auth extends CI_Controller {
      */
     public function sign_up() {
         $this->_init();
+        $this->output->set_title('Sign Up');
         $this->load->helper('form');
         $this->load->view('pages/sign_up');
     }

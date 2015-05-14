@@ -1,8 +1,8 @@
 <section class="wrapper">
     <section class="container">
         <div class="element_margins">
-            <div class="col-md-12 col-md-offset-3 spacing">
-                <img src="<?php echo base_url(); ?>assets/themes/default/images/Site_Logo.png" class="img-responsive" alt="Site Logo"/>
+            <div class="spacing">
+                <img src="<?php echo base_url(); ?>assets/themes/default/images/Site_Logo.png" class="img-responsive  col-md-offset-3" alt="Site Logo"/>
             </div>
             <h1><span class="glyphicon glyphicon-exclamation-sign"></span>401 Unauthorized Access<hr></h1>
             <div>

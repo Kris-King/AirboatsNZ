@@ -16,7 +16,6 @@ class Images extends CI_Controller {
 
     private function _init() {
         $this->output->set_template('default');
-
         $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
@@ -26,7 +25,9 @@ class Images extends CI_Controller {
      * Display User Gallery 
      */
     function index() {
-        $this->load->view('pages/gallery');
+        $this->output->set_title('User Gallery');
+        //Go to function user_gallery() -  (Which gets all user uploaded images. Create pagination if amount of images exceed a certain amount)
+        $this->user_gallery();
     }
 
     public function user_gallery() {
@@ -81,11 +82,13 @@ class Images extends CI_Controller {
      */
     public function upload() {
         $this->_init();
+        $this->output->set_title('Upload Images');
         //Display the upload page only if the a user is logged in
         if ($this->session->userdata('is_logged_in')) {
             $this->load->helper('form');
             $this->load->view('pages/upload_form');
         } else {//Display 401 page if the a user is not logged in
+            $this->output->set_title('401 - Unauthorized Access');
             $this->load->view('pages/401');
         }
     }
@@ -118,7 +121,6 @@ class Images extends CI_Controller {
             $error = array('error' => $this->upload->display_errors());
             $this->load->view('pages/upload_form', $error);
         } else {//If uploaded image meets upload requirements
-
             $this->load->model('Image');
             $data = $this->upload->data();
             //Retrieve the file name of the image that has been uploaded by the user
@@ -130,7 +132,7 @@ class Images extends CI_Controller {
             if ($this->Image->insert_obj() != NULL) {
                 $this->upload_image();
                 //if the Image was uploaded successfully display this success message
-                $this->session->set_flashdata('success', 'Your image was successfully uploaded');
+                $this->session->set_flashdata('success', 'Your image was successfully uploaded. You can view your image');
                 //If the image upload was successful display success message
                 redirect('images/upload', 'refresh');
             } else {//if the image was able to be uploaded, display this error message

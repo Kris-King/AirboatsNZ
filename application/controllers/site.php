@@ -15,7 +15,6 @@ class Site extends CI_Controller {
 
     private function _init() {
         $this->output->set_template('default');
-
         $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
         $this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
@@ -26,6 +25,7 @@ class Site extends CI_Controller {
      */
     public function index() {
         $this->_init();
+        $this->output->set_title('Home');
         $this->load->helper('form');
         //Display home page and scroll the user down to Make Enquiry section if they fail form validation
         $this->load->view('pages/home', array('is_contact_validation' => false));
@@ -36,6 +36,7 @@ class Site extends CI_Controller {
      */
     public function about() {
         $this->_init();
+        $this->output->set_title('About');
         $this->load->view('pages/about');
     }
 
@@ -44,6 +45,7 @@ class Site extends CI_Controller {
      */
     public function error_404() {
         $this->_init();
+        $this->output->set_title('404 Page not Found');
         $this->load->view('pages/404');
     }
 
