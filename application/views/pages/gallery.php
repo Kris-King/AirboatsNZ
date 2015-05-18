@@ -14,7 +14,7 @@
                     </div>
                 <?php endforeach; ?>
             </div>
-            <div>
+            <div class="spacing">
                 <!--                Links to other pages when the amount of images on the page exceed a certain amount                         -->
                 <?php echo $this->pagination->create_links(); ?>
             </div>

@@ -32,7 +32,7 @@ class Images extends CI_Controller {
 
     public function user_gallery() {
         //Pagination functionality and how it is displayed
-        $per_page = 9;
+        $per_page = 6;
         $uri_segment = 3;
         $config['base_url'] = base_url() . "images/user_gallery";
         $config['per_page'] = $per_page;

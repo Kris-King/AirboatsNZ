@@ -242,12 +242,12 @@ class Events extends CI_Controller {
             array(
                 'field' => 'start_date',
                 'label' => 'Start Date',
-                'rules' => 'required|callback_date_validation',
+                'rules' => 'required|max_length[10]|callback_date_validation',
             ),
             array(
                 'field' => 'end_date',
                 'label' => 'End Date',
-                'rules' => 'required|callback_date_validation',
+                'rules' => 'required|max_length[10]|callback_date_validation',
             ),
             array(
                 'field' => 'city_town',
