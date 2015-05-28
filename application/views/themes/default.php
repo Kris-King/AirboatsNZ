@@ -40,13 +40,17 @@
 
         <!-- Le styles -->
         <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/themes/default/css/datepicker.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/litebox.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/general.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/custom.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 
         <script src="<?php echo base_url(); ?>assets/themes/default/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/themes/default/js/bootstrap-datepicker.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="<?php echo base_url(); ?>assets/themes/default/js/images-loaded.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/themes/default/js/litebox.js"></script>
@@ -143,7 +147,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary  btn-lg btn-block">Sign In <span class="glyphicon glyphicon-log-in"></span></button>
+                            <button type="submit" class="btn btn-primary  btn-lg btn-block"><span class="glyphicon glyphicon-lock"></span> Sign In</button>
                             <button type="button" class="btn btn-default  btn-lg btn-block" data-dismiss="modal">Close</button>
                         </div>
                     </form>
@@ -175,14 +179,14 @@
         <script type="text/javascript">
 
             //ajax Sign In functionality
-            $(document).ready(function() {
-                $("#frm-sign_in").submit(function(e) {
+            $(document).ready(function () {
+                $("#frm-sign_in").submit(function (e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
                     var data = $(this).serialize();
                     $.post(url, data)
-                            .done(function(data) {
+                            .done(function (data) {
                                 if (data === 'fail') {
                                     $("#login-error").removeClass("hidden");
                                     $("#login-password-required-error").addClass("hidden");
@@ -210,8 +214,8 @@
             });
 
             //Dialog box which is displayed when a user is trying to access the Upload page but is not logged in
-            $(document).ready(function() {
-                $("#img_upload").submit(function(e) {
+            $(document).ready(function () {
+                $("#img_upload").submit(function (e) {
                     e.preventDefault();
                     var url = $(this).attr('action');
                     var method = $(this).attr('method');
@@ -220,15 +224,15 @@
                         url: url,
                         type: method,
                         data: data
-                    }).done(function() {
+                    }).done(function () {
                         window.location.href = '';
                     });
                 });
             });
 
             //Dialog box which is displayed when the site administrator wants to delete an event (to confirm if they want to delete the event)
-            $(document).ready(function() {
-                $('a[confirm-event-deletion]').click(function() {
+            $(document).ready(function () {
+                $('a[confirm-event-deletion]').click(function () {
                     var href = $(this).attr('href');
                     if (!$('#confirmDeletion').length) {
                         $('body').append('\
@@ -259,8 +263,8 @@
 
 
             //Dialog box which is displayed when the site administrator wants to delete an image submitted by a site user (to confirm if they want to delete the image)
-            $(document).ready(function() {
-                $('a[confirm-image-deletion]').click(function() {
+            $(document).ready(function () {
+                $('a[confirm-image-deletion]').click(function () {
                     var href = $(this).attr('href');
                     if (!$('#confirmImageDeletion').length) {
                         $('body').append('\
@@ -298,5 +302,17 @@
                 navKey: true,
                 errorMessage: 'Error loading content.'
             });
+
+
+            //Extra fuctionality for the date picker on add-edit page
+            //Code supplied by eternicode/bootstrap-datepicker (https://github.com/eternicode/bootstrap-datepicker)
+            $('.date-selection .input-group.date').datepicker({
+            format: "yyyy/mm/dd",
+            startDate: "today",
+            clearBtn: true,
+            toggleActive: true
+            });
+
+
         </script>
     </body></html>
