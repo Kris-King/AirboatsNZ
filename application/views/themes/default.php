@@ -40,8 +40,8 @@
 
         <!-- Le styles -->
         <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/themes/default/css/bootstrap-responsive.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/datepicker.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/themes/default/css/image.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/litebox.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/general.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/themes/default/css/custom.css" rel="stylesheet">
@@ -51,6 +51,7 @@
 
         <script src="<?php echo base_url(); ?>assets/themes/default/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/themes/default/js/bootstrap-datepicker.js"></script>
+        <script src="<?php echo base_url(); ?>assets/themes/default/js/jquery.scrollUp.min.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="<?php echo base_url(); ?>assets/themes/default/js/images-loaded.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/themes/default/js/litebox.js"></script>
@@ -307,12 +308,31 @@
             //Extra fuctionality for the date picker on add-edit page
             //Code supplied by eternicode/bootstrap-datepicker (https://github.com/eternicode/bootstrap-datepicker)
             $('.date-selection .input-group.date').datepicker({
-            format: "yyyy/mm/dd",
-            startDate: "today",
-            clearBtn: true,
-            toggleActive: true
+                format: "yyyy/mm/dd",
+                startDate: "today",
+                clearBtn: true,
+                toggleActive: true
             });
 
+
+            $(function () {
+                $.scrollUp({
+                    scrollName: 'scrollUp', // Element ID
+                    scrollDistance: 300, // Distance from top/bottom before showing element (px)
+                    scrollFrom: 'top', // 'top' or 'bottom'
+                    scrollSpeed: 300, // Speed back to top (ms)
+                    easingType: 'linear', // Scroll to top easing (see http://easings.net/)
+                    animation: 'fade', // Fade, slide, none
+                    animationSpeed: 200, // Animation speed (ms)
+                    scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
+                    scrollTarget: false, // Set a custom target element for scrolling to. Can be element or number
+                    scrollText: '', // Text for element, can contain HTML
+                    scrollTitle: false, // Set a custom <a> title if required.
+                    scrollImg: true, // Set true to use image
+                    activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+                    zIndex: 2147483647           // Z-Index for the overlay
+                });
+            });
 
         </script>
     </body></html>
