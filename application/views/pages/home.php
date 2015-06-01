@@ -13,7 +13,7 @@
                 <img src="<?php echo base_url(); ?>assets/themes/default/images/Site_Logo.png" class="img-responsive col-md-offset-3" alt="Site Logo"/>
             </div>
             <div class="element_spacing col-md-6">
-                <h2 class="text-uppercase">An experience unlike any other</h2>
+                <h2 class="text-uppercase tag-line">An experience unlike any other</h2>
                 <p class="element_spacing">
                     We are passionate about airboats and hope you are too.
                     It is our mission to provide users the ability to share their experiences with others. 

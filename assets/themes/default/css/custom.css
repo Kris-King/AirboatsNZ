@@ -44,7 +44,6 @@ html,body{
 }
 
 
-
 #about{
     min-height:100%;
     padding:10px;
@@ -70,37 +69,30 @@ html,body{
     color:#efefef;
 }
 
-.wrapper{
-    padding: 100px 0 0 0;
-    background-color:#555555;
-    color:#F8F8F8;
-}
-span {
-    margin-right: 5px;
+
+#events{
+    min-height:100%;
+    padding:10px;
+    /*        Attribution: http://commons.wikimedia.org/wiki/File:BoogalooAudienceNOLA2009.JPG     */
+    background-image: url(../images/events_img.JPG);
 }
 
-h3,h2{
-    margin-bottom: 6%;
-    font-weight: bold;
-}
-
-h1{
-    margin-bottom: 6%;
-    font-weight: bold;
-    font-size: 28px;
-}
-
-p{
-    font-size: 16px;
+#upload{
+    min-height:100%;
+    padding:10px;
+    background-image: url(../images/upload_img.jpg);
 }
 
 .spacing {
     margin-bottom: 6%;
 }
 
-a.btn-lg{
-    text-decoration: none;
+.wrapper{
+    padding: 100px 0 0 0;
+    background-color:#555555;
+    color:#F8F8F8;
 }
+
 
 .element_spacing {
     margin-top: 12%;
@@ -115,15 +107,38 @@ a.btn-lg{
     margin-bottom:5%;
 }
 
-#events{
-    min-height:100%;
-    padding:10px;
-    /*        Attribution: http://commons.wikimedia.org/wiki/File:BoogalooAudienceNOLA2009.JPG     */
-    background-image: url(../images/events_img.JPG);
+
+.about_page, .events_page, .upload_page {
+    font-family: 'Roboto', sans-serif;
+    word-wrap:normal;
 }
 
-#upload{
-    min-height:100%;
-    padding:10px;
-    background-image: url(../images/upload_img.jpg);
+.tag-line, .img-title{
+    font-weight: bold;
 }
+
+
+span {
+    margin-right: 5px;
+}
+
+h3,h4{
+    margin-bottom: 6%;
+}
+
+
+h1{
+    margin-bottom: 6%;
+    font-size: 28px;
+}
+
+p{
+    font-size: 17px;
+}
+
+
+a.btn-lg{
+    text-decoration: none;
+}
+
+

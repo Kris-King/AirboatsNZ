@@ -31,6 +31,7 @@ class Images extends CI_Controller {
     }
 
     public function user_gallery() {
+        $this->output->set_title('User Gallery');
         //Pagination functionality and how it is displayed
         $per_page = 6;
         $uri_segment = 3;
@@ -119,6 +120,7 @@ class Images extends CI_Controller {
         //If uploaded image does not meet upload requirements display error message
         if (!$this->upload->do_upload()) {
             $error = array('error' => $this->upload->display_errors());
+            $this->output->set_title('Upload Error');
             $this->load->view('pages/upload_form', $error);
         } else {//If uploaded image meets upload requirements
             $this->load->model('Image');
